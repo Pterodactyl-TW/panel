@@ -7,7 +7,7 @@
     "exported_at": "2022-01-18T07:07:27-05:00",
     "name": "Insurgency",
     "author": "support@pterodactyl.io",
-    "description": "Take to the streets for intense close quarters combat, where a team's survival depends upon securing crucial strongholds and destroying enemy supply in this multiplayer and cooperative Source Engine based experience.",
+    "description": "在這款基於 Source 引擎、支援多人與合作模式的遊戲中投入激烈的近距離街頭戰鬥，隊伍的存亡取決於能否守住關鍵據點並摧毀敵軍補給。",
     "features": [
         "steam_disk_space"
     ],
@@ -31,8 +31,8 @@
     },
     "variables": [
         {
-            "name": "Game ID",
-            "description": "The ID corresponding to the game to download and run using SRCDS.",
+            "name": "遊戲 ID",
+            "description": "透過 SRCDS 下載並執行遊戲時所對應的 ID。",
             "env_variable": "SRCDS_APPID",
             "default_value": "237410",
             "user_viewable": true,
@@ -40,8 +40,8 @@
             "rules": "required|regex:\/^(237410)$\/"
         },
         {
-            "name": "Default Map",
-            "description": "The default map to use when starting the server.",
+            "name": "預設地圖",
+            "description": "啟動伺服器時要使用的預設地圖。",
             "env_variable": "SRCDS_MAP",
             "default_value": "sinjar",
             "user_viewable": true,

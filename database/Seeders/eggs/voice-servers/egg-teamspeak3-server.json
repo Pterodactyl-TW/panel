@@ -7,7 +7,7 @@
     "exported_at": "2023-01-28T00:52:56+01:00",
     "name": "Teamspeak3 Server",
     "author": "support@pterodactyl.io",
-    "description": "VoIP software designed with security in mind, featuring crystal clear voice quality, endless customization options, and scalabilty up to thousands of simultaneous users.",
+    "description": "以安全性為設計核心的 VoIP 軟體，提供清晰通透的語音品質、無窮無盡的自訂選項，並可擴充支援多達數千名同時在線使用者。",
     "features": null,
     "docker_images": {
         "ghcr.io\/pterodactyl\/yolks:debian": "ghcr.io\/pterodactyl\/yolks:debian"
@@ -29,8 +29,8 @@
     },
     "variables": [
         {
-            "name": "Server Version",
-            "description": "The version of Teamspeak 3 to use when running the server.",
+            "name": "伺服器版本",
+            "description": "執行伺服器時要使用的 Teamspeak 3 版本。",
             "env_variable": "TS_VERSION",
             "default_value": "latest",
             "user_viewable": true,
@@ -39,8 +39,8 @@
             "field_type": "text"
         },
         {
-            "name": "File Transfer Port",
-            "description": "The Teamspeak file transfer port",
+            "name": "檔案傳輸連接埠",
+            "description": "Teamspeak 的檔案傳輸連接埠",
             "env_variable": "FILE_TRANSFER",
             "default_value": "30033",
             "user_viewable": true,
@@ -49,8 +49,8 @@
             "field_type": "text"
         },
         {
-            "name": "Query Port",
-            "description": "The Teamspeak Query Port",
+            "name": "查詢連接埠",
+            "description": "Teamspeak 的查詢連接埠",
             "env_variable": "QUERY_PORT",
             "default_value": "10011",
             "user_viewable": true,
@@ -59,8 +59,8 @@
             "field_type": "text"
         },
         {
-            "name": "Query Protocols",
-            "description": "Comma separated list of protocols that can be used to connect to the ServerQuery | \r\nPossible values are raw, ssh and http | \r\nE.g.: raw,ssh,http",
+            "name": "查詢通訊協定",
+            "description": "以逗號分隔、可用於連接 ServerQuery 的通訊協定清單 | \r\n可用值為 raw、ssh 與 http | \r\n例如：raw,ssh,http",
             "env_variable": "QUERY_PROTOCOLS_VAR",
             "default_value": "raw,http,ssh",
             "user_viewable": true,
@@ -69,8 +69,8 @@
             "field_type": "text"
         },
         {
-            "name": "Query SSH Port",
-            "description": "TCP Port opened for ServerQuery connections using SSH",
+            "name": "查詢 SSH 連接埠",
+            "description": "為透過 SSH 進行 ServerQuery 連線所開啟的 TCP 連接埠",
             "env_variable": "QUERY_SSH",
             "default_value": "10022",
             "user_viewable": true,
@@ -79,8 +79,8 @@
             "field_type": "text"
         },
         {
-            "name": "Query HTTP Port",
-            "description": "TCP Port opened for ServerQuery connections using http",
+            "name": "查詢 HTTP 連接埠",
+            "description": "為透過 HTTP 進行 ServerQuery 連線所開啟的 TCP 連接埠",
             "env_variable": "QUERY_HTTP",
             "default_value": "10080",
             "user_viewable": true,
@@ -89,8 +89,8 @@
             "field_type": "text"
         },
         {
-            "name": "Server Query Admin Password",
-            "description": "The password for the server query admin user.",
+            "name": "伺服器查詢管理員密碼",
+            "description": "伺服器查詢管理員使用者的密碼。",
             "env_variable": "SERVERADMIN_PASSWORD",
             "default_value": "",
             "user_viewable": true,

@@ -7,7 +7,7 @@
     "exported_at": "2023-03-25T13:37:00+00:00",
     "name": "Rust",
     "author": "support@pterodactyl.io",
-    "description": "The only aim in Rust is to survive. To do this you will need to overcome struggles such as hunger, thirst and cold. Build a fire. Build a shelter. Kill animals for meat. Protect yourself from other players, and kill them for meat. Create alliances with other players and form a town. Do whatever it takes to survive.",
+    "description": "在 Rust 裡，唯一的目標就是生存下去。為此你必須克服飢餓、口渴與寒冷等種種困境：生火、搭建庇護所、獵殺動物取得肉品；提防其他玩家，必要時獵殺他們取得肉品；也可以與其他玩家結盟組成聚落。不擇手段，只求活下去。",
     "features": [
         "steam_disk_space"
     ],
@@ -31,8 +31,8 @@
     },
     "variables": [
         {
-            "name": "Server Name",
-            "description": "The name of your server in the public server list.",
+            "name": "伺服器名稱",
+            "description": "你的伺服器在公開伺服器清單中顯示的名稱。",
             "env_variable": "HOSTNAME",
             "default_value": "A Rust Server",
             "user_viewable": true,
@@ -41,8 +41,8 @@
             "field_type": "text"
         },
         {
-            "name": "Modding Framework",
-            "description": "The modding framework to be used: carbon, oxide, vanilla.\r\nDefaults to \"vanilla\" for a non-modded server installation.",
+            "name": "模組框架",
+            "description": "要使用的模組框架：carbon、oxide、vanilla。\r\n預設為「vanilla」，即不使用任何模組的伺服器安裝方式。",
             "env_variable": "FRAMEWORK",
             "default_value": "vanilla",
             "user_viewable": true,
@@ -51,8 +51,8 @@
             "field_type": "text"
         },
         {
-            "name": "Level",
-            "description": "The world file for Rust to use.",
+            "name": "地圖",
+            "description": "Rust 要使用的世界檔案。",
             "env_variable": "LEVEL",
             "default_value": "Procedural Map",
             "user_viewable": true,
@@ -61,8 +61,8 @@
             "field_type": "text"
         },
         {
-            "name": "Description",
-            "description": "The description under your server title. Commonly used for rules & info. Use \\n for newlines.",
+            "name": "描述",
+            "description": "顯示在伺服器標題下方的描述，通常用來說明規則與資訊。使用 \\n 表示換行。",
             "env_variable": "DESCRIPTION",
             "default_value": "Powered by Pterodactyl",
             "user_viewable": true,
@@ -71,8 +71,8 @@
             "field_type": "text"
         },
         {
-            "name": "URL",
-            "description": "The URL for your server. This is what comes up when clicking the \"Visit Website\" button.",
+            "name": "網址",
+            "description": "你伺服器的網址，點擊「造訪網站」按鈕時會開啟此連結。",
             "env_variable": "SERVER_URL",
             "default_value": "http:\/\/pterodactyl.io",
             "user_viewable": true,
@@ -81,8 +81,8 @@
             "field_type": "text"
         },
         {
-            "name": "World Size",
-            "description": "The world size for a procedural map.",
+            "name": "世界大小",
+            "description": "程序化生成地圖的世界大小。",
             "env_variable": "WORLD_SIZE",
             "default_value": "3000",
             "user_viewable": true,
@@ -91,8 +91,8 @@
             "field_type": "text"
         },
         {
-            "name": "World Seed",
-            "description": "The seed for a procedural map.",
+            "name": "世界種子",
+            "description": "程序化生成地圖的種子碼。",
             "env_variable": "WORLD_SEED",
             "default_value": "",
             "user_viewable": true,
@@ -101,8 +101,8 @@
             "field_type": "text"
         },
         {
-            "name": "Max Players",
-            "description": "The maximum amount of players allowed in the server at once.",
+            "name": "最大玩家數",
+            "description": "伺服器同時允許的最大玩家人數。",
             "env_variable": "MAX_PLAYERS",
             "default_value": "40",
             "user_viewable": true,
@@ -111,8 +111,8 @@
             "field_type": "text"
         },
         {
-            "name": "Server Image",
-            "description": "The header image for the top of your server listing.",
+            "name": "伺服器圖片",
+            "description": "顯示在伺服器列表頂部的橫幅圖片。",
             "env_variable": "SERVER_IMG",
             "default_value": "",
             "user_viewable": true,
@@ -121,8 +121,8 @@
             "field_type": "text"
         },
         {
-            "name": "Query Port",
-            "description": "Server Query Port. Can't be the same as Game's primary port.",
+            "name": "查詢連接埠",
+            "description": "伺服器查詢連接埠，不可與遊戲主連接埠相同。",
             "env_variable": "QUERY_PORT",
             "default_value": "27017",
             "user_viewable": true,
@@ -131,8 +131,8 @@
             "field_type": "text"
         },
         {
-            "name": "RCON Port",
-            "description": "Port for RCON connections.",
+            "name": "RCON 連接埠",
+            "description": "RCON 連線使用的連接埠。",
             "env_variable": "RCON_PORT",
             "default_value": "28016",
             "user_viewable": true,
@@ -141,8 +141,8 @@
             "field_type": "text"
         },
         {
-            "name": "RCON Password",
-            "description": "RCON access password.",
+            "name": "RCON 密碼",
+            "description": "存取 RCON 所需的密碼。",
             "env_variable": "RCON_PASS",
             "default_value": "",
             "user_viewable": true,
@@ -151,8 +151,8 @@
             "field_type": "text"
         },
         {
-            "name": "Save Interval",
-            "description": "Sets the server\u2019s auto-save interval in seconds.",
+            "name": "\u5132\u5b58\u9593\u9694",
+            "description": "\u8a2d\u5b9a\u4f3a\u670d\u5668\u81ea\u52d5\u5132\u5b58\u7684\u9593\u9694\u79d2\u6578\u3002",
             "env_variable": "SAVEINTERVAL",
             "default_value": "60",
             "user_viewable": true,
@@ -161,8 +161,8 @@
             "field_type": "text"
         },
         {
-            "name": "Additional Arguments",
-            "description": "Add additional startup parameters to the server.",
+            "name": "額外參數",
+            "description": "為伺服器加入額外的啟動參數。",
             "env_variable": "ADDITIONAL_ARGS",
             "default_value": "",
             "user_viewable": true,
@@ -171,8 +171,8 @@
             "field_type": "text"
         },
         {
-            "name": "App Port",
-            "description": "Port for the Rust+ App. -1 to disable.",
+            "name": "App 連接埠",
+            "description": "Rust+ App 使用的連接埠，設為 -1 可停用。",
             "env_variable": "APP_PORT",
             "default_value": "28082",
             "user_viewable": true,
@@ -181,8 +181,8 @@
             "field_type": "text"
         },
         {
-            "name": "Server Logo",
-            "description": "The circular server logo for the Rust+ app.",
+            "name": "伺服器標誌",
+            "description": "顯示於 Rust+ App 中的圓形伺服器標誌。",
             "env_variable": "SERVER_LOGO",
             "default_value": "",
             "user_viewable": true,
@@ -191,8 +191,8 @@
             "field_type": "text"
         },
         {
-            "name": "Custom Map URL",
-            "description": "Overwrites the map with the one from the direct download URL. Invalid URLs will cause the server to crash.",
+            "name": "自訂地圖網址",
+            "description": "使用此直接下載網址提供的地圖覆蓋現有地圖。無效的網址將導致伺服器當機。",
             "env_variable": "MAP_URL",
             "default_value": "",
             "user_viewable": true,
