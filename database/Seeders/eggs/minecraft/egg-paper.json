@@ -1,25 +1,26 @@
 {
-    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "_comment": "請勿編輯：此檔案由 PTERODACTYL PANEL 自動產生 - PTERODACTYL.TW",
     "meta": {
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2026-03-26T10:34:12+01:00",
+    "exported_at": "2026-03-27T14:32:59+01:00",
     "name": "Paper",
     "author": "parker@pterodactyl.io",
-    "description": "High performance Spigot fork that aims to fix gameplay and mechanics inconsistencies.",
+    "description": "高效能的 Spigot 分支版本，致力於修正遊戲玩法與運作機制上的不一致問題。",
     "features": [
         "eula",
         "java_version",
         "pid_limit"
     ],
     "docker_images": {
-        "Java 25": "ghcr.io\/pterodactyl\/yolks:java_25",
-        "Java 21": "ghcr.io\/pterodactyl\/yolks:java_21",
-        "Java 17": "ghcr.io\/pterodactyl\/yolks:java_17",
-        "Java 16": "ghcr.io\/pterodactyl\/yolks:java_16",
-        "Java 11": "ghcr.io\/pterodactyl\/yolks:java_11",
-        "Java 8": "ghcr.io\/pterodactyl\/yolks:java_8"
+        "Java 25": "ghcr.io/ptero-eggs/yolks:java_25",
+        "Java 22": "ghcr.io/ptero-eggs/yolks:java_22",
+        "Java 21": "ghcr.io/ptero-eggs/yolks:java_21",
+        "Java 17": "ghcr.io/ptero-eggs/yolks:java_17",
+        "Java 16": "ghcr.io/ptero-eggs/yolks:java_16",
+        "Java 11": "ghcr.io/ptero-eggs/yolks:java_11",
+        "Java 8": "ghcr.io/ptero-eggs/yolks:java_8"
     },
     "file_denylist": [],
     "startup": "java -Xms128M -XX:MaxRAMPercentage=95.0 -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}}",
@@ -31,15 +32,15 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash\r\n# Paper Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\nPROJECT=paper\r\nUSER_AGENT=\"Pterodactyl (https:\/\/Pterodactyl.io)\"\r\n\r\nif [ -n \"${DL_PATH}\" ]; then\r\n\techo -e \"Using supplied download url: ${DL_PATH}\"\r\n\tDOWNLOAD_URL=`eval echo $(echo ${DL_PATH} | sed -e 's\/{{\/${\/g' -e 's\/}}\/}\/g')`\r\nelse\r\n\tVER_EXISTS=`curl --user-agent \"${USER_AGENT}\"  -s https:\/\/fill.papermc.io\/v3\/projects\/${PROJECT} | jq -r --arg VERSION $MINECRAFT_VERSION '.versions | any(.[]; index($VERSION))' | grep -m1 true`\r\n\tLATEST_VERSION=`curl --user-agent \"${USER_AGENT}\"  -s https:\/\/fill.papermc.io\/v3\/projects\/${PROJECT} | jq -r '.versions | to_entries | .[0].value[0]'`\r\n\r\n\tif [ \"${VER_EXISTS}\" == \"true\" ]; then\r\n\t\techo -e \"Version is valid. Using version ${MINECRAFT_VERSION}\"\r\n\telse\r\n\t\techo -e \"Specified version not found. Defaulting to the latest ${PROJECT} version\"\r\n\t\tMINECRAFT_VERSION=${LATEST_VERSION}\r\n\tfi\r\n\r\n\tBUILD_EXISTS=`curl --user-agent \"${USER_AGENT}\"  -s https:\/\/fill.papermc.io\/v3\/projects\/${PROJECT}\/versions\/${MINECRAFT_VERSION} | jq -r --arg BUILD ${BUILD_NUMBER} '.builds[] | tostring | contains($BUILD)' | grep -m1 true`\r\n\tLATEST_BUILD=`curl --user-agent \"${USER_AGENT}\"  -s https:\/\/fill.papermc.io\/v3\/projects\/${PROJECT}\/versions\/${MINECRAFT_VERSION} | jq -r '.builds' | jq -r '.[0]'`\r\n\r\n\tif [ \"${BUILD_EXISTS}\" == \"true\" ]; then\r\n\t\techo -e \"Build is valid for version ${MINECRAFT_VERSION}. Using build ${BUILD_NUMBER}\"\r\n\telse\r\n\t\techo -e \"Using the latest ${PROJECT} build for version ${MINECRAFT_VERSION}\"\r\n\t\tBUILD_NUMBER=${LATEST_BUILD}\r\n\tfi\r\n\r\n\techo \"Version being downloaded\"\r\n\techo -e \"Project: ${PROJECT}\"\r\n\techo -e \"MC Version: ${MINECRAFT_VERSION}\"\r\n\techo -e \"Build: ${BUILD_NUMBER}\"\r\n\tDOWNLOAD_URL=`curl --user-agent \"${USER_AGENT}\"  -s https:\/\/fill.papermc.io\/v3\/projects\/${PROJECT}\/versions\/${MINECRAFT_VERSION}\/builds\/${BUILD_NUMBER} | jq -r '.downloads.\"server:default\".url'`\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\necho -e \"Running curl --user-agent \\\"${USER_AGENT}\\\"  -o ${SERVER_JARFILE} ${DOWNLOAD_URL}\"\r\n\r\nif [ -f ${SERVER_JARFILE} ]; then\r\n\tmv ${SERVER_JARFILE} ${SERVER_JARFILE}.old\r\nfi\r\n\r\ncurl --user-agent \"${USER_AGENT}\"  -o ${SERVER_JARFILE} ${DOWNLOAD_URL}\r\n\r\nif [ ! -f server.properties ]; then\r\n    echo -e \"Downloading MC server.properties\"\r\n    curl --user-agent \"${USER_AGENT}\"  -o server.properties https:\/\/raw.githubusercontent.com\/pterodactyl\/game-eggs\/main\/minecraft\/java\/server.properties\r\nfi",
-            "container": "ghcr.io\/pterodactyl\/installers:alpine",
+            "script": "#!/bin/ash\r\n# Paper 安裝腳本\r\n#\r\n# 伺服器檔案位置：/mnt/server\r\nPROJECT=paper\r\nUSER_AGENT=\"Pterodactyl (https://Pterodactyl.io)\"\r\n\r\nif [ -n \"${DL_PATH}\" ]; then\r\n\techo -e \"使用提供的下載連結：${DL_PATH}\"\r\n\tDOWNLOAD_URL=`eval echo $(echo ${DL_PATH} | sed -e 's/{{/${/g' -e 's/}}/}/g')`\r\nelse\r\n\tVER_EXISTS=`curl --user-agent \"${USER_AGENT}\"  -s https://fill.papermc.io/v3/projects/${PROJECT} | jq -r --arg VERSION $MINECRAFT_VERSION '.versions | any(.[]; index($VERSION))' | grep -m1 true`\r\n\tLATEST_VERSION=`curl --user-agent \"${USER_AGENT}\"  -s https://fill.papermc.io/v3/projects/${PROJECT} | jq -r '.versions | to_entries | .[0].value[0]'`\r\n\r\n\tif [ \"${VER_EXISTS}\" == \"true\" ]; then\r\n\t\techo -e \"版本有效，使用版本 ${MINECRAFT_VERSION}\"\r\n\telse\r\n\t\techo -e \"找不到指定的版本，將預設使用最新的 ${PROJECT} 版本\"\r\n\t\tMINECRAFT_VERSION=${LATEST_VERSION}\r\n\tfi\r\n\r\n\tBUILD_EXISTS=`curl --user-agent \"${USER_AGENT}\"  -s https://fill.papermc.io/v3/projects/${PROJECT}/versions/${MINECRAFT_VERSION} | jq -r --arg BUILD ${BUILD_NUMBER} '.builds[] | tostring | contains($BUILD)' | grep -m1 true`\r\n\tLATEST_BUILD=`curl --user-agent \"${USER_AGENT}\"  -s https://fill.papermc.io/v3/projects/${PROJECT}/versions/${MINECRAFT_VERSION} | jq -r '.builds' | jq -r '.[0]'`\r\n\r\n\tif [ \"${BUILD_EXISTS}\" == \"true\" ]; then\r\n\t\techo -e \"此組建適用於版本 ${MINECRAFT_VERSION}，使用組建 ${BUILD_NUMBER}\"\r\n\telse\r\n\t\techo -e \"使用版本 ${MINECRAFT_VERSION} 的最新 ${PROJECT} 組建\"\r\n\t\tBUILD_NUMBER=${LATEST_BUILD}\r\n\tfi\r\n\r\n\techo \"正在下載的版本\"\r\n\techo -e \"專案：${PROJECT}\"\r\n\techo -e \"MC 版本：${MINECRAFT_VERSION}\"\r\n\techo -e \"組建：${BUILD_NUMBER}\"\r\n\tDOWNLOAD_URL=`curl --user-agent \"${USER_AGENT}\"  -s https://fill.papermc.io/v3/projects/${PROJECT}/versions/${MINECRAFT_VERSION}/builds/${BUILD_NUMBER} | jq -r '.downloads.\"server:default\".url'`\r\nfi\r\n\r\ncd /mnt/server\r\n\r\necho -e \"正在執行 curl --user-agent \\\"${USER_AGENT}\\\"  -o ${SERVER_JARFILE} ${DOWNLOAD_URL}\"\r\n\r\nif [ -f ${SERVER_JARFILE} ]; then\r\n\tmv ${SERVER_JARFILE} ${SERVER_JARFILE}.old\r\nfi\r\n\r\ncurl --user-agent \"${USER_AGENT}\"  -o ${SERVER_JARFILE} ${DOWNLOAD_URL}\r\n\r\nif [ ! -f server.properties ]; then\r\n    echo -e \"正在下載 MC server.properties\"\r\n    curl --user-agent \"${USER_AGENT}\"  -o server.properties https://raw.githubusercontent.com/pterodactyl/game-eggs/main/minecraft/java/server.properties\r\nfi",
+            "container": "ghcr.io/ptero-eggs/installers:alpine",
             "entrypoint": "ash"
         }
     },
     "variables": [
         {
             "name": "Minecraft Version",
-            "description": "The version of minecraft to download. \r\n\r\nLeave at latest to always get the latest version. Invalid versions will default to latest.",
+            "description": "要下載的 Minecraft 版本。\r\n\r\n保留 latest 可永遠取得最新版本。無效的版本將預設使用最新版本。",
             "env_variable": "MINECRAFT_VERSION",
             "default_value": "latest",
             "user_viewable": true,
@@ -49,17 +50,17 @@
         },
         {
             "name": "Server Jar File",
-            "description": "The name of the server jarfile to run the server with.",
+            "description": "執行伺服器所使用的伺服器 jar 檔名稱。",
             "env_variable": "SERVER_JARFILE",
             "default_value": "server.jar",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|regex:\/^([\\w\\d._-]+)(\\.jar)$\/",
+            "rules": "required|regex:/^([\\w\\d._-]+)(\\.jar)$/",
             "field_type": "text"
         },
         {
             "name": "Download Path",
-            "description": "A URL to use to download a server.jar rather than the ones in the install script. This is not user viewable.",
+            "description": "用於下載 server.jar 的網址，會取代安裝腳本內建的下載來源。此欄位不對使用者顯示。",
             "env_variable": "DL_PATH",
             "default_value": "",
             "user_viewable": false,
@@ -69,7 +70,7 @@
         },
         {
             "name": "Build Number",
-            "description": "The build number for the paper release.\r\n\r\nLeave at latest to always get the latest version. Invalid versions will default to latest.",
+            "description": "Paper 版本的組建編號。\r\n\r\n保留 latest 可永遠取得最新版本。無效的版本將預設使用最新版本。",
             "env_variable": "BUILD_NUMBER",
             "default_value": "latest",
             "user_viewable": true,

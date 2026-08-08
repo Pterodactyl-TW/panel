@@ -1,62 +1,144 @@
 {
-    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "_comment": "請勿編輯：此檔案由 PTERODACTYL PANEL 自動產生 - PTERODACTYL.TW",
     "meta": {
-        "version": "PTDL_v1",
+        "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2022-01-30T14:09:22-05:00",
+    "exported_at": "2026-07-02T02:37:00+10:00",
     "name": "Team Fortress 2",
-    "author": "support@pterodactyl.io",
-    "description": "Team Fortress 2 is a team-based first-person shooter multiplayer video game developed and published by Valve Corporation. It is the sequel to the 1996 mod Team Fortress for Quake and its 1999 remake.",
+    "author": "mark@bytesizelabs.com.au",
+    "description": "Team Fortress 2 是由 Valve 開發的團隊制多人第一人稱射擊遊戲。玩家會加入兩個隊伍其中之一，並從九種各具獨特武器與能力的職業中選擇角色，在奪旗、控制點、傷害運輸（Payload）、山丘之王等多種遊戲模式中對戰。",
     "features": [
-        "gsl_token",
         "steam_disk_space"
     ],
-    "images": [
-        "ghcr.io\/pterodactyl\/games:source"
-    ],
+    "docker_images": {
+        "ghcr.io/ptero-eggs/games:source": "ghcr.io/ptero-eggs/games:source"
+    },
     "file_denylist": [],
-    "startup": ".\/srcds_run -game tf -console -port {{SERVER_PORT}} +map {{SRCDS_MAP}} +ip 0.0.0.0 -strictportbind -norestart +sv_setsteamaccount {{STEAM_ACC}}",
+    "startup": "./srcds_run -game {{SRCDS_GAME}} -strictportbind -ip 0.0.0.0 -port {{SERVER_PORT}} +clientport {{SRCDS_CPORT}} +tv_port {{SRCDS_STV}} +map {{SRCDS_MAP}} +servercfgfile server.cfg -maxplayers {{MAX_PLAYERS}} +sv_setsteamaccount {{STEAM_GSLT}}",
     "config": {
-        "files": "{}",
+        "files": "{\r\n    \"tf/cfg/server.cfg\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"hostname\": \"hostname \\\"{{env.HOSTNAME}}\\\"\",\r\n            \"sv_password\": \"sv_password \\\"{{env.SERVER_PASSWORD}}\\\"\",\r\n            \"rcon_password\": \"rcon_password \\\"{{env.RCON_PASSWORD}}\\\"\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"gameserver Steam ID\"\r\n}",
         "logs": "{}",
         "stop": "quit"
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/bash\r\n# steamcmd Base Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n# Image to install with is 'debian:buster-slim'\r\n\r\n##\r\n#\r\n# Variables\r\n# STEAM_USER, STEAM_PASS, STEAM_AUTH - Steam user setup. If a user has 2fa enabled it will most likely fail due to timeout. Leave blank for anon install.\r\n# WINDOWS_INSTALL - if it's a windows server you want to install set to 1\r\n# SRCDS_APPID - steam app id ffound here - https:\/\/developer.valvesoftware.com\/wiki\/Dedicated_Servers_List\r\n# EXTRA_FLAGS - when a server has extra glas for things like beta installs or updates.\r\n#\r\n##\r\n\r\n## just in case someone removed the defaults.\r\nif [ \"${STEAM_USER}\" == \"\" ]; then\r\n    echo -e \"steam user is not set.\\n\"\r\n    echo -e \"Using anonymous user.\\n\"\r\n    STEAM_USER=anonymous\r\n    STEAM_PASS=\"\"\r\n    STEAM_AUTH=\"\"\r\nelse\r\n    echo -e \"user set to ${STEAM_USER}\"\r\nfi\r\n\r\n## download and install steamcmd\r\ncd \/tmp\r\nmkdir -p \/mnt\/server\/steamcmd\r\ncurl -sSL -o steamcmd.tar.gz https:\/\/steamcdn-a.akamaihd.net\/client\/installer\/steamcmd_linux.tar.gz\r\ntar -xzvf steamcmd.tar.gz -C \/mnt\/server\/steamcmd\r\nmkdir -p \/mnt\/server\/steamapps # Fix steamcmd disk write error when this folder is missing\r\ncd \/mnt\/server\/steamcmd\r\n\r\n# SteamCMD fails otherwise for some reason, even running as root.\r\n# This is changed at the end of the install process anyways.\r\nchown -R root:root \/mnt\r\nexport HOME=\/mnt\/server\r\n\r\n## install game using steamcmd\r\n.\/steamcmd.sh +force_install_dir \/mnt\/server +login ${STEAM_USER} ${STEAM_PASS} ${STEAM_AUTH} $( [[ \"${WINDOWS_INSTALL}\" == \"1\" ]] && printf %s '+@sSteamCmdForcePlatformType windows' ) +app_update ${SRCDS_APPID} ${EXTRA_FLAGS} validate +quit ## other flags may be needed depending on install. looking at you cs 1.6\r\n\r\n## set up 32 bit libraries\r\nmkdir -p \/mnt\/server\/.steam\/sdk32\r\ncp -v linux32\/steamclient.so ..\/.steam\/sdk32\/steamclient.so\r\n\r\n## set up 64 bit libraries\r\nmkdir -p \/mnt\/server\/.steam\/sdk64\r\ncp -v linux64\/steamclient.so ..\/.steam\/sdk64\/steamclient.so",
-            "container": "ghcr.io\/pterodactyl\/installers:debian",
+            "script": "#!/bin/bash\r\n# steamcmd 基礎安裝腳本\r\n#\r\n# 伺服器檔案位置：/mnt/server\r\n# 安裝時使用的映像檔為 'ghcr.io/ptero-eggs/installers:debian'\r\n\r\n##\r\n#\r\n# 變數\r\n# STEAM_USER, STEAM_PASS, STEAM_AUTH - Steam 帳號設定。若使用者已啟用二階段驗證（2FA），通常會因逾時而失敗。若要以匿名方式安裝請留空。\r\n# WINDOWS_INSTALL - 若要安裝的是 Windows 伺服器，請設為 1\r\n# SRCDS_APPID - Steam 應用程式 ID，可在此查詢 - https://developer.valvesoftware.com/wiki/Dedicated_Servers_List\r\n# SRCDS_BETAID - Steam 應用程式的測試分支。留空則安裝正式分支\r\n# SRCDS_BETAPASS - 若測試分支在私人或封閉測試階段需要密碼，請於此設定。若不需要密碼請留空。\r\n# INSTALL_FLAGS - 安裝時要傳遞的任何額外 SteamCMD 旗標。請注意，Docker 映像檔中的 steamcmd 自動更新流程在伺服器啟動時執行更新，可能會覆蓋或忽略這些設定。\r\n# AUTO_UPDATE - 將此變數加入 egg 中可啟用或停用開機時的自動更新。布林值。0 為停用，1 為啟用。\r\n#\r\n ##\r\n\r\n# 安裝套件。若使用我們現有的安裝映像檔，以下預設套件並非必要，藉此加快安裝速度。\r\n#apt -y update\r\n#apt -y --no-install-recommends install curl lib32gcc-s1 ca-certificates\r\n\r\n## 以防有人移除了預設值\r\nif [[ \"${STEAM_USER}\" == \"\" ]] || [[ \"${STEAM_PASS}\" == \"\" ]]; then\r\n    echo -e \"未設定 steam 帳號。\\n\"\r\n    echo -e \"使用匿名帳號。\\n\"\r\n    STEAM_USER=anonymous\r\n    STEAM_PASS=\"\"\r\n    STEAM_AUTH=\"\"\r\nelse\r\n    echo -e \"已將帳號設定為 ${STEAM_USER}\"\r\nfi\r\n\r\n## 下載並安裝 steamcmd\r\ncd /tmp\r\nmkdir -p /mnt/server/steamcmd\r\ncurl -sSL -o steamcmd.tar.gz https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz\r\ntar -xzvf steamcmd.tar.gz -C /mnt/server/steamcmd\r\nmkdir -p /mnt/server/steamapps # 修正此資料夾缺少時 steamcmd 出現的磁碟寫入錯誤\r\ncd /mnt/server/steamcmd\r\n\r\n# 若不這麼做，即使以 root 執行 SteamCMD 也會因故失敗。\r\n# 反正這在安裝流程結束時也會被變更。\r\nchown -R root:root /mnt\r\nexport HOME=/mnt/server\r\n\r\n## 使用 steamcmd 安裝遊戲\r\n./steamcmd.sh +force_install_dir /mnt/server +login ${STEAM_USER} ${STEAM_PASS} ${STEAM_AUTH} $( [[ \"${WINDOWS_INSTALL}\" == \"1\" ]] && printf %s '+@sSteamCmdForcePlatformType windows' ) +app_update ${SRCDS_APPID} $( [[ -z ${SRCDS_BETAID} ]] || printf %s \"-beta ${SRCDS_BETAID}\" ) $( [[ -z ${SRCDS_BETAPASS} ]] || printf %s \"-betapassword ${SRCDS_BETAPASS}\" ) ${INSTALL_FLAGS} validate +quit\r\n\r\n## 設定 32 位元函式庫\r\nmkdir -p /mnt/server/.steam/sdk32\r\ncp -v linux32/steamclient.so ../.steam/sdk32/steamclient.so\r\n\r\n## 設定 64 位元函式庫\r\nmkdir -p /mnt/server/.steam/sdk64\r\ncp -v linux64/steamclient.so ../.steam/sdk64/steamclient.so\r\n\r\n## 如有需要，請在下方加入你的自訂指令\r\n\r\n## 建立初始的 server.cfg，讓 hostname／密碼可以在每次開機時寫入\r\nmkdir -p /mnt/server/tf/cfg\r\nif [ ! -f /mnt/server/tf/cfg/server.cfg ]; then\r\ncat <<EOF > /mnt/server/tf/cfg/server.cfg\r\nhostname \"A Pterodactyl Hosted TF2 Server\"\r\nsv_password \"\"\r\nrcon_password \"\"\r\nEOF\r\nfi\r\n\r\n## 安裝結束\r\necho \"-----------------------------------------\"\r\necho \"安裝完成...\"\r\necho \"-----------------------------------------\"",
+            "container": "ghcr.io/ptero-eggs/installers:debian",
             "entrypoint": "bash"
         }
     },
     "variables": [
         {
-            "name": "Game ID",
-            "description": "The ID corresponding to the game to download and run using SRCDS.",
-            "env_variable": "SRCDS_APPID",
-            "default_value": "232250",
+            "name": "Server Name",
+            "description": "伺服器在遊戲內伺服器瀏覽清單中顯示的名稱。",
+            "env_variable": "HOSTNAME",
+            "default_value": "A Pterodactyl Hosted TF2 Server",
             "user_viewable": true,
-            "user_editable": false,
-            "rules": "required|regex:\/^(232250)$\/"
+            "user_editable": true,
+            "rules": "required|string|max:64",
+            "field_type": "text"
         },
         {
             "name": "Default Map",
-            "description": "The default map to use when starting the server.",
+            "description": "伺服器啟動時載入的地圖。常見選項：ctf_2fort, cp_dustbowl, pl_badwater, koth_harvest_event。",
             "env_variable": "SRCDS_MAP",
-            "default_value": "cp_dustbowl",
+            "default_value": "ctf_2fort",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|regex:\/^(\\w{1,20})$\/"
+            "rules": "required|string|max:25",
+            "field_type": "text"
         },
         {
-            "name": "Steam",
-            "description": "The Steam Game Server Login Token to display servers publicly. Generate one at https:\/\/steamcommunity.com\/dev\/managegameservers",
-            "env_variable": "STEAM_ACC",
+            "name": "Max Players",
+            "description": "允許同時加入伺服器的最大玩家人數。",
+            "env_variable": "MAX_PLAYERS",
+            "default_value": "24",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|integer|max:128",
+            "field_type": "text"
+        },
+        {
+            "name": "Server Password",
+            "description": "若有設定，玩家需輸入此密碼才能加入伺服器。留空則任何人皆可加入。",
+            "env_variable": "SERVER_PASSWORD",
             "default_value": "",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|string|alpha_num|size:32"
+            "rules": "nullable|string|max:32",
+            "field_type": "text"
+        },
+        {
+            "name": "Admin (RCON) Password",
+            "description": "遠端管理工具用來管理伺服器（例如變更地圖、踢除玩家等）的密碼。留空則停用遠端管理存取。",
+            "env_variable": "RCON_PASSWORD",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:32",
+            "field_type": "text"
+        },
+        {
+            "name": "Game Server Login Token (GSLT)",
+            "description": "Valve 提供的免費權杖，可讓你的伺服器出現在公開伺服器瀏覽清單中。可於 https://steamcommunity.com/dev/managegameservers 取得（選擇「Team Fortress 2」）。留空則以私人伺服器運作，僅限你直接邀請的人加入。",
+            "env_variable": "STEAM_GSLT",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:32",
+            "field_type": "text"
+        },
+        {
+            "name": "Client Port",
+            "description": "遊戲與主要伺服器連接埠並用的第二個網路連接埠。需要額外配置（Additional Allocation）——請設為你為此伺服器配置的第二個連接埠。",
+            "env_variable": "SRCDS_CPORT",
+            "default_value": "27005",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|integer|between:1025,65535",
+            "field_type": "text"
+        },
+        {
+            "name": "SourceTV Port",
+            "description": "SourceTV 所使用的連接埠，此功能可讓其他人觀戰或錄製伺服器上的比賽。需要額外配置（Additional Allocation）——請設為你為此伺服器配置的第二個連接埠。",
+            "env_variable": "SRCDS_STV",
+            "default_value": "27020",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|integer|between:1025,65535",
+            "field_type": "text"
+        },
+        {
+            "name": "Auto Update",
+            "description": "每次重新啟動時自動將伺服器更新至最新版本。",
+            "env_variable": "AUTO_UPDATE",
+            "default_value": "1",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|boolean",
+            "field_type": "text"
+        },
+        {
+            "name": "Game ID",
+            "description": "用於下載並更新伺服器的內部 Steam 識別碼。請勿變更。",
+            "env_variable": "SRCDS_APPID",
+            "default_value": "232250",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "required|string|in:232250",
+            "field_type": "text"
+        },
+        {
+            "name": "Game Folder",
+            "description": "伺服器軟體執行所在的內部資料夾名稱。請勿變更。",
+            "env_variable": "SRCDS_GAME",
+            "default_value": "tf",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "required|string|max:20",
+            "field_type": "text"
         }
     ]
 }

@@ -1,21 +1,21 @@
 {
-    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "_comment": "請勿編輯：此檔案由 PTERODACTYL PANEL 自動產生 - PTERODACTYL.TW",
     "meta": {
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2025-06-12T18:44:29+02:00",
+    "exported_at": "2025-07-16T10:03:10+00:00",
     "name": "Ark: Survival Evolved",
-    "author": "support@pterodactyl.io",
-    "description": "As a man or woman stranded, naked, freezing, and starving on the unforgiving shores of a mysterious island called ARK, use your skill and cunning to kill or tame and ride the plethora of leviathan dinosaurs and other primeval creatures roaming the land. Hunt, harvest resources, craft items, grow crops, research technologies, and build shelters to withstand the elements and store valuables, all while teaming up with (or preying upon) hundreds of other players to survive, dominate... and escape! \u2014 Gamepedia: ARK",
+    "author": "dev@shepper.fr",
+    "description": "身為一位赤裸、飢寒交迫地漂流在名為 ARK 的神秘島嶼上的男人或女人，您必須運用技巧與智慧，獵殺或馴服並騎乘徘徊在此地的各種巨獸恐龍與遠古生物。狩獵、採集資源、製作物品、種植作物、研發科技，並建造居所以抵禦環境並儲存貴重物品，同時與數百名其他玩家組隊（或以他們為獵物），求生、稱霸……並逃離此地！— Gamepedia：ARK",
     "features": [
         "steam_disk_space"
     ],
     "docker_images": {
-        "ghcr.io\/pterodactyl\/games:source": "ghcr.io\/pterodactyl\/games:source"
+        "ghcr.io/ptero-eggs/games:source": "ghcr.io/ptero-eggs/games:source"
     },
     "file_denylist": [],
-    "startup": "rmv() { echo  \"stopping server\"; rcon -t rcon -a 127.0.0.1:${RCON_PORT} -p ${ARK_ADMIN_PASSWORD} saveworld &&rcon -t rcon -a 127.0.0.1:${RCON_PORT} -p ${ARK_ADMIN_PASSWORD} DoExit && wait ${ARK_PID}; echo \"Server Closed\"; exit; }; trap rmv 15 2; cd ShooterGame\/Binaries\/Linux && .\/ShooterGameServer {{SERVER_MAP}}?listen?SessionName=\"{{SESSION_NAME}}\"?ServerPassword={{ARK_PASSWORD}}?ServerAdminPassword={{ARK_ADMIN_PASSWORD}}?Port={{SERVER_PORT}}?RCONPort={{RCON_PORT}}?QueryPort={{QUERY_PORT}}?RCONEnabled=True?MaxPlayers={{MAX_PLAYERS}}?GameModIds={{MOD_ID}}$( [ \"$BATTLE_EYE\" == \"1\" ] || printf %s ' -NoBattlEye' ) -server -automanagedmods {{ARGS}} -log & ARK_PID=$! ; until echo \"waiting for rcon connection...\"; (rcon -t rcon -a 127.0.0.1:${RCON_PORT} -p ${ARK_ADMIN_PASSWORD})<&0 & wait $!; do sleep 5; done",
+    "startup": "rmv() { echo  \"stopping server\"; rcon -t rcon -a 127.0.0.1:${RCON_PORT} -p ${ARK_ADMIN_PASSWORD} saveworld &&rcon -t rcon -a 127.0.0.1:${RCON_PORT} -p ${ARK_ADMIN_PASSWORD} DoExit && wait ${ARK_PID}; echo \"Server Closed\"; exit; }; trap rmv 15 2; cd ShooterGame/Binaries/Linux && ./ShooterGameServer {{SERVER_MAP}}?listen?SessionName=\"{{SESSION_NAME}}\"?ServerPassword={{ARK_PASSWORD}}?ServerAdminPassword={{ARK_ADMIN_PASSWORD}}?Port={{SERVER_PORT}}?RCONPort={{RCON_PORT}}?QueryPort={{QUERY_PORT}}?RCONEnabled=True?MaxPlayers={{MAX_PLAYERS}}?GameModIds=\\\"{{MOD_ID}}\\\"$( [ \"$BATTLE_EYE\" == \"1\" ] || printf %s ' -NoBattlEye' ) -server -automanagedmods {{ARGS}} -log & ARK_PID=$! ; until echo \"waiting for rcon connection...\"; (rcon -t rcon -a 127.0.0.1:${RCON_PORT} -p ${ARK_ADMIN_PASSWORD})<&0 & wait $!; do sleep 5; done",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"Waiting commands for 127.0.0.1:\"\r\n}",
@@ -24,15 +24,15 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/bash\r\n# steamcmd Base Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n# Image to install with is 'ubuntu:18.04'\r\napt -y update\r\napt -y --no-install-recommends --no-install-suggests install curl lib32gcc-s1 ca-certificates\r\n\r\n## just in case someone removed the defaults.\r\nif [ \"${STEAM_USER}\" == \"\" ]; then\r\n    STEAM_USER=anonymous\r\n    STEAM_PASS=\"\"\r\n    STEAM_AUTH=\"\"\r\nfi\r\n\r\n## download and install steamcmd\r\ncd \/tmp\r\nmkdir -p \/mnt\/server\/steamcmd\r\ncurl -sSL -o steamcmd.tar.gz https:\/\/steamcdn-a.akamaihd.net\/client\/installer\/steamcmd_linux.tar.gz\r\ntar -xzvf steamcmd.tar.gz -C \/mnt\/server\/steamcmd\r\n\r\nmkdir -p \/mnt\/server\/Engine\/Binaries\/ThirdParty\/SteamCMD\/Linux\r\ntar -xzvf steamcmd.tar.gz -C \/mnt\/server\/Engine\/Binaries\/ThirdParty\/SteamCMD\/Linux\r\nmkdir -p \/mnt\/server\/steamapps # Fix steamcmd disk write error when this folder is missing\r\ncd \/mnt\/server\/steamcmd\r\n\r\n# SteamCMD fails otherwise for some reason, even running as root.\r\n# This is changed at the end of the install process anyways.\r\nchown -R root:root \/mnt\r\nexport HOME=\/mnt\/server\r\n\r\n## install game using steamcmd\r\n.\/steamcmd.sh +login ${STEAM_USER} ${STEAM_PASS} ${STEAM_AUTH} +force_install_dir \/mnt\/server +app_update ${SRCDS_APPID} ${EXTRA_FLAGS} +quit ## other flags may be needed depending on install. looking at you cs 1.6\r\n\r\n## set up 32 bit libraries\r\nmkdir -p \/mnt\/server\/.steam\/sdk32\r\ncp -v linux32\/steamclient.so ..\/.steam\/sdk32\/steamclient.so\r\n\r\n## set up 64 bit libraries\r\nmkdir -p \/mnt\/server\/.steam\/sdk64\r\ncp -v linux64\/steamclient.so ..\/.steam\/sdk64\/steamclient.so\r\n\r\n## create a symbolic link for loading mods\r\ncd \/mnt\/server\/Engine\/Binaries\/ThirdParty\/SteamCMD\/Linux\r\nln -sf ..\/..\/..\/..\/..\/Steam\/steamapps steamapps\r\ncd \/mnt\/server",
-            "container": "ghcr.io\/pterodactyl\/installers:debian",
+            "script": "#!/bin/bash\r\n\r\nif [[ \"${STEAM_USER}\" == \"\" ]] || [[ \"${STEAM_PASS}\" == \"\" ]]; then\r\n    echo -e \"未設定 steam 使用者。\\n\"\r\n    echo -e \"使用匿名使用者。\\n\"\r\n    STEAM_USER=anonymous\r\n    STEAM_PASS=\"\"\r\n    STEAM_AUTH=\"\"\r\nelse\r\n    echo -e \"使用者已設定為 ${STEAM_USER}\"\r\nfi\r\n\r\ncd /tmp\r\nmkdir -p /mnt/server/steamcmd\r\ncurl -sSL -o steamcmd.tar.gz https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz\r\ntar -xzvf steamcmd.tar.gz -C /mnt/server/steamcmd\r\nmkdir -p /mnt/server/steamapps # 修正此資料夾缺少時 steamcmd 的磁碟寫入錯誤\r\ncd /mnt/server/steamcmd\r\n\r\nchown -R root:root /mnt\r\nexport HOME=/mnt/serve\r\n\r\n## 使用 steamcmd 安裝遊戲\r\n./steamcmd.sh +force_install_dir /mnt/server +login ${STEAM_USER} ${STEAM_PASS} ${STEAM_AUTH} $( [[ \"${WINDOWS_INSTALL}\" == \"1\" ]] && printf %s '+@sSteamCmdForcePlatformType windows' ) +app_update ${SRCDS_APPID} $( [[ -z ${SRCDS_BETAID} ]] || printf %s \"-beta ${SRCDS_BETAID}\" ) $( [[ -z ${SRCDS_BETAPASS} ]] || printf %s \"-betapassword ${SRCDS_BETAPASS}\" ) ${INSTALL_FLAGS} validate +quit ## 依安裝情況可能需要其他參數。(沒錯，就是說你，cs 1.6)\r\n\r\n## 設定 32 位元函式庫\r\nmkdir -p /mnt/server/.steam/sdk32\r\ncp -v linux32/steamclient.so ../.steam/sdk32/steamclient.so\r\n\r\n## 設定 64 位元函式庫\r\nmkdir -p /mnt/server/.steam/sdk64\r\ncp -v linux64/steamclient.so ../.steam/sdk64/steamclient.so\r\n\r\n\r\n\r\n# 將 SteamCMD 安裝至伺服器資料夾內\r\nmkdir -p /mnt/server/Engine/Binaries/ThirdParty/SteamCMD/Linux\r\ntar -xzvf /tmp/steamcmd.tar.gz -C /mnt/server/Engine/Binaries/ThirdParty/SteamCMD/Linux\r\n\r\n## 建立用於載入模組的符號連結\r\ncd /mnt/server/Engine/Binaries/ThirdParty/SteamCMD/Linux\r\nln -sf ../../../../../Steam/steamapps steamapps",
+            "container": "ghcr.io/ptero-eggs/installers:debian",
             "entrypoint": "bash"
         }
     },
     "variables": [
         {
             "name": "Server Password",
-            "description": "If specified, players must provide this password to join the server.",
+            "description": "若有指定，玩家必須輸入此密碼才能加入伺服器。",
             "env_variable": "ARK_PASSWORD",
             "default_value": "",
             "user_viewable": true,
@@ -42,7 +42,7 @@
         },
         {
             "name": "Admin Password",
-            "description": "If specified, players must provide this password (via the in-game console) to gain access to administrator commands on the server.",
+            "description": "若有指定，玩家必須（透過遊戲內主控台）輸入此密碼，才能在伺服器上取得管理員指令的存取權限。",
             "env_variable": "ARK_ADMIN_PASSWORD",
             "default_value": "PleaseChangeMe",
             "user_viewable": true,
@@ -52,7 +52,7 @@
         },
         {
             "name": "Server Map",
-            "description": "Available Maps: TheIsland, TheCenter, Ragnarok, ScorchedEarth_P, Aberration_P, Extinction, Valguero_P, Genesis, CrystalIsles, Gen2, Fjordur",
+            "description": "可用地圖：TheIsland、TheCenter、Ragnarok、ScorchedEarth_P、Aberration_P、Extinction、Valguero_P、Genesis、CrystalIsles、Gen2、Fjordur",
             "env_variable": "SERVER_MAP",
             "default_value": "TheIsland",
             "user_viewable": true,
@@ -62,7 +62,7 @@
         },
         {
             "name": "Server Name",
-            "description": "ARK server name",
+            "description": "ARK 伺服器名稱",
             "env_variable": "SESSION_NAME",
             "default_value": "A Pterodactyl Hosted ARK Server",
             "user_viewable": true,
@@ -72,7 +72,7 @@
         },
         {
             "name": "Rcon Port",
-            "description": "ARK rcon port used by rcon tools.",
+            "description": "rcon 工具所使用的 ARK rcon 連接埠。",
             "env_variable": "RCON_PORT",
             "default_value": "27020",
             "user_viewable": true,
@@ -82,7 +82,7 @@
         },
         {
             "name": "Query Port",
-            "description": "ARK query port used by steam server browser and ark client server browser.",
+            "description": "steam 伺服器瀏覽器與 ark 客戶端伺服器瀏覽器所使用的 ARK 查詢連接埠。",
             "env_variable": "QUERY_PORT",
             "default_value": "27015",
             "user_viewable": true,
@@ -92,27 +92,27 @@
         },
         {
             "name": "Auto-update server",
-            "description": "This is to enable auto-updating for servers.\r\n\r\nDefault is 0. Set to 1 to update",
+            "description": "啟用來自 steam 的自動更新",
             "env_variable": "AUTO_UPDATE",
-            "default_value": "0",
+            "default_value": "1",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|boolean",
+            "rules": "required|boolean|in:0,1",
             "field_type": "text"
         },
         {
             "name": "Battle Eye",
-            "description": "Enable BattleEye\r\n\r\n0 to disable\r\n1 to enable\r\n\r\ndefault=\"1\"",
+            "description": "啟用 BattleEye",
             "env_variable": "BATTLE_EYE",
             "default_value": "1",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|boolean",
+            "rules": "required|boolean|in:0,1",
             "field_type": "text"
         },
         {
             "name": "App ID",
-            "description": "ARK steam app id for auto updates. Leave blank to avoid auto update.",
+            "description": "用於自動更新的 ARK steam app id。留空以避免自動更新。",
             "env_variable": "SRCDS_APPID",
             "default_value": "376030",
             "user_viewable": true,
@@ -122,7 +122,7 @@
         },
         {
             "name": "Additional Arguments",
-            "description": "Specify additional launch parameters such as -crossplay. You must include a dash - and separate each parameter with space: -crossplay -exclusivejoin",
+            "description": "指定額外的啟動參數，例如 -crossplay。每個參數前必須加上減號 -，並以空格分隔：-crossplay -exclusivejoin",
             "env_variable": "ARGS",
             "default_value": "",
             "user_viewable": true,
@@ -132,22 +132,32 @@
         },
         {
             "name": "Mods",
-            "description": "Specifies the order and which mods are loaded. ModIDs need to be comma-separated such as: ModID1,ModID2",
+            "description": "指定要載入的模組及其順序。ModID 之間需以逗號分隔，例如：ModID1,ModID2",
             "env_variable": "MOD_ID",
             "default_value": "",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "nullable|string",
+            "rules": "nullable|regex:/^[0-9,]+$/",
             "field_type": "text"
         },
         {
             "name": "Max Players",
-            "description": "Specifies the maximum amount of players able to join the server.",
+            "description": "指定可加入伺服器的最大玩家人數。",
             "env_variable": "MAX_PLAYERS",
             "default_value": "12",
             "user_viewable": true,
             "user_editable": true,
             "rules": "numeric",
+            "field_type": "text"
+        },
+        {
+            "name": "Beta Branch",
+            "description": "若有指定則安裝測試(beta)分支。",
+            "env_variable": "SRCDS_BETAID",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:50",
             "field_type": "text"
         }
     ]
