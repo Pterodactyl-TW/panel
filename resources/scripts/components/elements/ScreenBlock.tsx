@@ -69,16 +69,11 @@ type ServerErrorProps = (Omit<PropsWithBack, 'image' | 'title'> | Omit<PropsWith
 };
 
 const ServerError = ({ title, ...props }: ServerErrorProps) => (
-    <ScreenBlock title={title || 'Something went wrong'} image={ServerErrorSvg} {...props} />
+    <ScreenBlock title={title || '發生錯誤'} image={ServerErrorSvg} {...props} />
 );
 
 const NotFound = ({ title, message, onBack }: Partial<Pick<ScreenBlockProps, 'title' | 'message' | 'onBack'>>) => (
-    <ScreenBlock
-        title={title || '404'}
-        image={NotFoundSvg}
-        message={message || 'The requested resource was not found.'}
-        onBack={onBack}
-    />
+    <ScreenBlock title={title || '404'} image={NotFoundSvg} message={message || '找不到請求的資源。'} onBack={onBack} />
 );
 
 export { ServerError, NotFound };
