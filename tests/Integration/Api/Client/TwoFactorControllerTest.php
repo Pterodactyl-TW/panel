@@ -48,7 +48,7 @@ class TwoFactorControllerTest extends ClientApiIntegrationTestCase
 
         $response->assertStatus(Response::HTTP_BAD_REQUEST);
         $response->assertJsonPath('errors.0.code', 'BadRequestHttpException');
-        $response->assertJsonPath('errors.0.detail', 'Two-factor authentication is already enabled on this account.');
+        $response->assertJsonPath('errors.0.detail', '此帳號已啟用兩步驟驗證。');
     }
 
     /**
@@ -138,7 +138,7 @@ class TwoFactorControllerTest extends ClientApiIntegrationTestCase
 
         $response->assertStatus(Response::HTTP_BAD_REQUEST);
         $response->assertJsonPath('errors.0.code', 'BadRequestHttpException');
-        $response->assertJsonPath('errors.0.detail', 'The password provided was not valid.');
+        $response->assertJsonPath('errors.0.detail', '提供的密碼不正確。');
 
         $response = $this->actingAs($user)->postJson('/api/client/account/two-factor/disable', [
             'password' => 'password',
