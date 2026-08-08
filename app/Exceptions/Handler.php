@@ -198,14 +198,14 @@ class Handler extends ExceptionHandler
                 : strval($match ?? '500'),
             'detail' => $e instanceof HttpExceptionInterface || !is_null($match)
                 ? $e->getMessage()
-                : 'An unexpected error was encountered while processing this request, please try again.',
+                : '處理此請求時發生非預期的錯誤，請再試一次。',
         ];
 
         if ($e instanceof ModelNotFoundException || $e->getPrevious() instanceof ModelNotFoundException) {
             // Show a nicer error message compared to the standard "No query results for model"
             // response that is normally returned. If we are in debug mode this will get overwritten
             // with a more specific error message to help narrow down things.
-            $error['detail'] = 'The requested resource could not be found on the server.';
+            $error['detail'] = '在伺服器上找不到請求的資源。';
         }
 
         if (config('app.debug')) {

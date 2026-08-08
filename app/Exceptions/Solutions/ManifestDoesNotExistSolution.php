@@ -8,18 +8,18 @@ class ManifestDoesNotExistSolution implements Solution
 {
     public function getSolutionTitle(): string
     {
-        return "The manifest.json file hasn't been generated yet";
+        return 'manifest.json 檔案尚未產生';
     }
 
     public function getSolutionDescription(): string
     {
-        return 'Run yarn run build:production to build the frontend first.';
+        return '請先執行 yarn run build:production 以建置前端資源。';
     }
 
     public function getDocumentationLinks(): array
     {
         return [
-            'Docs' => 'https://github.com/pterodactyl/panel/blob/develop/package.json',
+            '文件' => 'https://github.com/Pterodactyl-TW/panel/blob/1.0-develop/package.json',
         ];
     }
 }

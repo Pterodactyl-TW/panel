@@ -12,7 +12,7 @@ class AutoAllocationNotEnabledException extends DisplayException
     public function __construct()
     {
         parent::__construct(
-            'Server auto-allocation is not enabled for this instance.'
+            '此實例未啟用伺服器自動配置功能。'
         );
     }
 }
