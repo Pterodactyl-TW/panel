@@ -3,12 +3,11 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Password Reset Language Lines
+    | 密碼重設語系字串
     |--------------------------------------------------------------------------
     |
-    | The following language lines are the default lines which match reasons
-    | that are given by the password broker for a password update attempt
-    | has failed, such as for an invalid token or invalid new password.
+    | 以下語系字串是密碼代理器（password broker）在更新密碼失敗時所回傳的預設訊息，
+    | 例如權杖無效或新密碼無效等原因。
     |
     */
     'password' => '密碼長度至少須為 6 個字元，且須與確認密碼相符。',

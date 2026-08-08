@@ -3,12 +3,12 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Validation Language Lines
+    | 驗證語系字串
     |--------------------------------------------------------------------------
     |
-    | The following language lines contain the default error messages used by
-    | the validator class. Some of these rules have multiple versions such
-    | as the size rules. Feel free to tweak each of these messages here.
+    | 以下語系字串包含驗證器（validator）類別所使用的預設錯誤訊息。
+    | 其中部分規則有多種版本，例如長度限制相關規則。
+    | 你可以自由在這裡調整這些訊息內容。
     |
     */
 
@@ -87,18 +87,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Custom Validation Attributes
+    | 自訂驗證屬性名稱
     |--------------------------------------------------------------------------
     |
-    | The following language lines are used to swap attribute place-holders
-    | with something more reader friendly such as E-Mail Address instead
-    | of "email". This simply helps us make messages a little cleaner.
+    | 以下語系字串用來將屬性佔位字（attribute place-holder）替換成更易讀的名稱，
+    | 例如把 "email" 換成「電子郵件地址」。這能讓錯誤訊息看起來更簡潔清楚。
     |
     */
 
     'attributes' => [],
 
-    // Internal validation logic for Pterodactyl
+    // Pterodactyl 內部驗證邏輯
     'internal' => [
         'variable_value' => ':env 變數',
         'invalid_password' => '此帳號提供的密碼無效。',

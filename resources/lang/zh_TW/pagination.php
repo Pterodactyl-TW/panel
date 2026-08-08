@@ -3,12 +3,11 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Pagination Language Lines
+    | 分頁語系字串
     |--------------------------------------------------------------------------
     |
-    | The following language lines are used by the paginator library to build
-    | the simple pagination links. You are free to change them to anything
-    | you want to customize your views to better match your application.
+    | 以下語系字串由分頁器（paginator）用來產生簡易的分頁連結。
+    | 你可以自由變更這些內容，讓它們更符合你的應用程式需求。
     |
     */
 

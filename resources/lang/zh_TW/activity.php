@@ -1,10 +1,9 @@
 <?php
 
 /**
- * Contains all of the translation strings for different activity log
- * events. These should be keyed by the value in front of the colon (:)
- * in the event name. If there is no colon present, they should live at
- * the top level.
+ * 這裡包含了各種活動紀錄事件的翻譯字串。
+ * 這些字串應以事件名稱中冒號（:）前面的值作為 key；
+ * 若事件名稱中沒有冒號，則應放在最上層。
  */
 return [
     'auth' => [
