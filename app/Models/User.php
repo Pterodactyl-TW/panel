@@ -231,7 +231,11 @@ class User extends Model implements
      */
     public function getNameAttribute(): string
     {
-        return trim($this->name_last . ' ' . $this->name_first);
+        // 中文姓名習慣姓氏與名字之間不加空格（例如「王小明」），
+        // 但拉丁字母姓名需要空格才能區分姓氏與名字（例如「Ke Vin」）。
+        $separator = preg_match('/\p{Han}/u', $this->name_last . $this->name_first) ? '' : ' ';
+
+        return trim($this->name_last . $separator . $this->name_first);
     }
 
     /**
