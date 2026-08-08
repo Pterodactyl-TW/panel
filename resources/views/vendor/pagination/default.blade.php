@@ -1,20 +1,20 @@
 @if ($paginator->lastPage() > 1)
     <ul class="pagination pull-right no-margin">
-        <!-- Previous Page Link -->
+        <!-- 上一頁連結 -->
         @if ($paginator->onFirstPage())
             {{-- <li class="disabled"><span>&laquo;</span></li> --}}
         @else
             <li><a href="{{ $paginator->previousPageUrl() }}" rel="prev">&laquo;</a></li>
         @endif
 
-        <!-- Pagination Elements -->
+        <!-- 分頁元素 -->
         @foreach ($elements as $element)
-            <!-- "Three Dots" Separator -->
+            <!-- 「三個點」分隔符 -->
             @if (is_string($element))
                 <li class="disabled"><span>{{ $element }}</span></li>
             @endif
 
-            <!-- Array Of Links -->
+            <!-- 連結陣列 -->
             @if (is_array($element))
                 @foreach ($element as $page => $url)
                     @if ($page == $paginator->currentPage())
@@ -26,7 +26,7 @@
             @endif
         @endforeach
 
-        <!-- Next Page Link -->
+        <!-- 下一頁連結 -->
         @if ($paginator->hasMorePages())
             <li><a href="{{ $paginator->nextPageUrl() }}" rel="next">&raquo;</a></li>
         @else
