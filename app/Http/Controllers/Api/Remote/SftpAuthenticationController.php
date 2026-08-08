@@ -36,13 +36,13 @@ class SftpAuthenticationController extends Controller
     {
         $connection = $this->parseUsername($request->input('username'));
         if (empty($connection['server'])) {
-            throw new BadRequestHttpException('No valid server identifier was included in the request.');
+            throw new BadRequestHttpException('請求中未包含有效的伺服器識別碼。');
         }
 
         if ($this->hasTooManyLoginAttempts($request)) {
             $seconds = $this->limiter()->availableIn($this->throttleKey($request));
 
-            throw new TooManyRequestsHttpException($seconds, "Too many login attempts for this account, please try again in $seconds seconds.");
+            throw new TooManyRequestsHttpException($seconds, "此帳號的登入嘗試次數過多，請在 $seconds 秒後再試一次。");
         }
 
         $user = $this->getUser($request, $connection['username']);
@@ -137,7 +137,7 @@ class SftpAuthenticationController extends Controller
             $this->incrementLoginAttempts($request);
         }
 
-        throw new HttpForbiddenException('Authorization credentials were not correct, please try again.');
+        throw new HttpForbiddenException('提供的驗證憑證不正確，請再試一次。');
     }
 
     /**
@@ -151,7 +151,7 @@ class SftpAuthenticationController extends Controller
             if (!in_array(Permission::ACTION_FILE_SFTP, $permissions)) {
                 Activity::event('server:sftp.denied')->actor($user)->subject($server)->log();
 
-                throw new HttpForbiddenException('You do not have permission to access SFTP for this server.');
+                throw new HttpForbiddenException('你沒有權限存取此伺服器的 SFTP。');
             }
         }
 

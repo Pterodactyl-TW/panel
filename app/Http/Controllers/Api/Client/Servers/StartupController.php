@@ -55,9 +55,9 @@ class StartupController extends ClientApiController
         $variable = $server->variables()->where('env_variable', $request->input('key'))->first();
 
         if (is_null($variable) || !$variable->user_viewable) {
-            throw new BadRequestHttpException('The environment variable you are trying to edit does not exist.');
+            throw new BadRequestHttpException('你嘗試編輯的環境變數不存在。');
         } elseif (!$variable->user_editable) {
-            throw new BadRequestHttpException('The environment variable you are trying to edit is read-only.');
+            throw new BadRequestHttpException('你嘗試編輯的環境變數為唯讀狀態。');
         }
 
         $original = $variable->server_value;
