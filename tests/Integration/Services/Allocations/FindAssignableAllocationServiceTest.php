@@ -100,7 +100,7 @@ class FindAssignableAllocationServiceTest extends IntegrationTestCase
         }
 
         $this->expectException(NoAutoAllocationSpaceAvailableException::class);
-        $this->expectExceptionMessage('Cannot assign additional allocation: no more space available on node.');
+        $this->expectExceptionMessage('無法指派額外的連接埠配置：此節點上已無可用空間。');
 
         $this->getService()->handle($server);
     }
@@ -116,7 +116,7 @@ class FindAssignableAllocationServiceTest extends IntegrationTestCase
         Allocation::factory()->times(5)->create(['node_id' => $server->node_id]);
 
         $this->expectException(NoAutoAllocationSpaceAvailableException::class);
-        $this->expectExceptionMessage('Cannot assign additional allocation: no more space available on node.');
+        $this->expectExceptionMessage('無法指派額外的連接埠配置：此節點上已無可用空間。');
 
         $this->getService()->handle($server);
     }
@@ -126,7 +126,7 @@ class FindAssignableAllocationServiceTest extends IntegrationTestCase
         $server = $this->createServerModel();
 
         $this->expectException(NoAutoAllocationSpaceAvailableException::class);
-        $this->expectExceptionMessage('Cannot assign additional allocation: no more space available on node.');
+        $this->expectExceptionMessage('無法指派額外的連接埠配置：此節點上已無可用空間。');
 
         $this->getService()->handle($server);
     }

@@ -95,7 +95,7 @@ class LoginCheckpointControllerTest extends HttpTestCase
             'authentication_code' => $totp,
         ]))
             ->assertBadRequest()
-            ->assertJsonPath('errors.0.detail', 'The two-factor authentication token was invalid.');
+            ->assertJsonPath('errors.0.detail', '雙重驗證權杖無效。');
 
         $this->assertGuest();
         $this->assertEquals(now()->addSeconds($seconds), $user->refresh()->totp_authenticated_at);

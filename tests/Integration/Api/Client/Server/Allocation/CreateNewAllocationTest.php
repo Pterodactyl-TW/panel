@@ -67,7 +67,7 @@ class CreateNewAllocationTest extends ClientApiIntegrationTestCase
         $this->actingAs($user)->postJson($this->link($server, '/network/allocations'))
             ->assertStatus(Response::HTTP_BAD_REQUEST)
             ->assertJsonPath('errors.0.code', 'AutoAllocationNotEnabledException')
-            ->assertJsonPath('errors.0.detail', 'Server auto-allocation is not enabled for this instance.');
+            ->assertJsonPath('errors.0.detail', '此實例未啟用伺服器自動配置功能。');
     }
 
     /**
@@ -82,7 +82,7 @@ class CreateNewAllocationTest extends ClientApiIntegrationTestCase
         $this->actingAs($user)->postJson($this->link($server, '/network/allocations'))
             ->assertStatus(Response::HTTP_BAD_REQUEST)
             ->assertJsonPath('errors.0.code', 'DisplayException')
-            ->assertJsonPath('errors.0.detail', 'Cannot assign additional allocations to this server: limit has been reached.');
+            ->assertJsonPath('errors.0.detail', '無法為此伺服器指派額外的連接埠配置：已達到上限。');
     }
 
     public static function permissionDataProvider(): array

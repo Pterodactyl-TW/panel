@@ -77,7 +77,7 @@ class DeleteAllocationTest extends ClientApiIntegrationTestCase
 
         $this->actingAs($user)->deleteJson($this->link($allocation))
             ->assertStatus(400)
-            ->assertJsonPath('errors.0.detail', 'You cannot delete allocations for this server: no allocation limit is set.');
+            ->assertJsonPath('errors.0.detail', '你無法刪除此伺服器的連接埠配置：未設定連接埠配置上限。');
 
         $allocation->refresh();
         $this->assertNotNull($allocation->notes);

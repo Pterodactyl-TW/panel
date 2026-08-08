@@ -192,7 +192,7 @@ class CreateServerScheduleTaskTest extends ClientApiIntegrationTestCase
         ])
             ->assertStatus(Response::HTTP_BAD_REQUEST)
             ->assertJsonPath('errors.0.code', 'ServiceLimitExceededException')
-            ->assertJsonPath('errors.0.detail', 'Schedules may not have more than 2 tasks associated with them. Creating this task would put this schedule over the limit.');
+            ->assertJsonPath('errors.0.detail', '排程關聯的任務數量不可超過 2 個。建立此任務將使此排程超過上限。');
     }
 
     /**

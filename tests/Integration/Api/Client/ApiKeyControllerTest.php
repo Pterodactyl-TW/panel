@@ -91,7 +91,7 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
                 'allowed_ips' => $ips,
             ])
             ->assertUnprocessable()
-            ->assertJsonPath('errors.0.detail', 'The allowed ips may not have more than 50 items.');
+            ->assertJsonPath('errors.0.detail', 'allowed ips 的項目數量不能超過 50 個。');
     }
 
     /**
@@ -141,7 +141,7 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
         ])
             ->assertUnprocessable()
             ->assertJsonPath('errors.0.meta.rule', 'max')
-            ->assertJsonPath('errors.0.detail', 'The description may not be greater than 500 characters.');
+            ->assertJsonPath('errors.0.detail', 'description 不能大於 500 個字元。');
 
         $this->postJson('/api/client/account/api-keys', [
             'description' => 'Foobar',
