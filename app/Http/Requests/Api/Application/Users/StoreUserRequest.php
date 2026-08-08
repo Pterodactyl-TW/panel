@@ -52,10 +52,10 @@ class StoreUserRequest extends ApplicationApiRequest
     public function attributes(): array
     {
         return [
-            'external_id' => 'Third Party Identifier',
-            'name_first' => 'First Name',
-            'name_last' => 'Last Name',
-            'root_admin' => 'Root Administrator Status',
+            'external_id' => '第三方識別碼',
+            'name_first' => '名字',
+            'name_last' => '姓氏',
+            'root_admin' => '最高管理員狀態',
         ];
     }
 }
