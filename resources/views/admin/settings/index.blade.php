@@ -62,6 +62,20 @@
                                     <p class="text-muted"><small>渲染 UI 元件時使用的預設語言。</small></p>
                                 </div>
                             </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label">使用者姓名顯示間距</label>
+                                <div>
+                                    @php
+                                        $spacing = old('pterodactyl:name_display_spacing', config('pterodactyl.name_display_spacing', 'auto'));
+                                    @endphp
+                                    <select name="pterodactyl:name_display_spacing" class="form-control">
+                                        <option value="auto" @if($spacing === 'auto') selected @endif>依語言自動判斷（王小明 / Ke Vin）</option>
+                                        <option value="always" @if($spacing === 'always') selected @endif>一律加上空格（王 小明 / Ke Vin）</option>
+                                        <option value="never" @if($spacing === 'never') selected @endif>一律不加空格（王小明 / KeVin）</option>
+                                    </select>
+                                    <p class="text-muted"><small>控制使用者全名（姓氏＋名字）顯示時中間是否加上空格。</small></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="box-footer">
