@@ -12,7 +12,7 @@ class ProcessRunnableCommand extends Command
 {
     protected $signature = 'p:schedule:process';
 
-    protected $description = 'Process schedules in the database and determine which are ready to run.';
+    protected $description = '處理資料庫中的排程，並判斷哪些已準備好可以執行。';
 
     /**
      * Handle command execution.
@@ -28,7 +28,7 @@ class ProcessRunnableCommand extends Command
             ->get();
 
         if ($schedules->count() < 1) {
-            $this->line('There are no scheduled tasks for servers that need to be run.');
+            $this->line('目前沒有伺服器的排程工作需要執行。');
 
             return 0;
         }
@@ -69,7 +69,7 @@ class ProcessRunnableCommand extends Command
         } catch (\Throwable $exception) {
             Log::error($exception, ['schedule_id' => $schedule->id]);
 
-            $this->error("An error was encountered while processing Schedule #$schedule->id: " . $exception->getMessage());
+            $this->error("處理排程 #$schedule->id 時發生錯誤：" . $exception->getMessage());
         }
     }
 }

@@ -11,7 +11,7 @@ class CleanServiceBackupFilesCommand extends Command
 {
     public const BACKUP_THRESHOLD_MINUTES = 5;
 
-    protected $description = 'Clean orphaned .bak files created when modifying services.';
+    protected $description = '清理修改服務時產生的孤立 .bak 檔案。';
 
     protected $signature = 'p:maintenance:clean-service-backups';
 

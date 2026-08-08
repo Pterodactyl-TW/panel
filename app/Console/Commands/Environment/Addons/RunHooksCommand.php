@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Process;
 class RunHooksCommand extends Command
 {
     protected $signature = 'p:environment:addons:run-hooks
-                            {event : The lifecycle event to run hooks for (e.g. post-install).}';
+                            {event : 要執行掛勾腳本的生命週期事件（例如 post-install）。}';
 
-    protected $description = 'Execute addon lifecycle hook scripts for the given event.';
+    protected $description = '為指定的事件執行附加元件生命週期掛勾腳本。';
 
     /**
      * Runs every executable "addons/<name>/hooks/<event>" script for the given lifecycle event when addon hooks are enabled.
@@ -26,7 +26,7 @@ class RunHooksCommand extends Command
 
         $event = $this->argument('event');
         if (!Str::isMatch('/^[a-z0-9-]+$/', $event)) {
-            $this->components->error("Invalid hook event name: {$event}");
+            $this->components->error("無效的掛勾事件名稱：{$event}");
 
             return self::INVALID;
         }
@@ -40,7 +40,7 @@ class RunHooksCommand extends Command
         }
 
         if ($this->input->isInteractive() && !$this->confirm(
-            sprintf('Execute %d addon hook script(s) for the "%s" event? They run with the privileges of this process.', $hooks->count(), $event)
+            sprintf('要為「%2$s」事件執行 %1$d 個附加元件掛勾腳本嗎？它們將以此程序的權限執行。', $hooks->count(), $event)
         )) {
             return self::SUCCESS;
         }
@@ -55,14 +55,14 @@ class RunHooksCommand extends Command
      */
     private function runHook(string $hook): void
     {
-        $this->components->info("Running addon hook: {$hook}");
+        $this->components->info("正在執行附加元件掛勾：{$hook}");
 
         $result = Process::path(base_path())
             ->forever()
             ->run([$hook], fn (string $type, string $output) => $this->output->write($output));
 
         if ($result->failed()) {
-            $this->components->warn("Addon hook exited with an error: {$hook}");
+            $this->components->warn("附加元件掛勾以錯誤結束：{$hook}");
         }
     }
 }

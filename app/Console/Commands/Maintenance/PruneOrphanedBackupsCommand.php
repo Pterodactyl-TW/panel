@@ -10,7 +10,7 @@ class PruneOrphanedBackupsCommand extends Command
 {
     protected $signature = 'p:maintenance:prune-backups {--prune-age=}';
 
-    protected $description = 'Marks all backups older than "n" minutes that have not yet completed as being failed.';
+    protected $description = '將所有超過「n」分鐘、尚未完成的備份標記為失敗。';
 
     /**
      * PruneOrphanedBackupsCommand constructor.
@@ -33,12 +33,12 @@ class PruneOrphanedBackupsCommand extends Command
 
         $count = $query->count();
         if (!$count) {
-            $this->info('There are no orphaned backups to be marked as failed.');
+            $this->info('沒有需要標記為失敗的孤立備份。');
 
             return;
         }
 
-        $this->warn("Marking $count uncompleted backups that are older than $since minutes as failed.");
+        $this->warn("正在將 $count 筆超過 $since 分鐘、尚未完成的備份標記為失敗。");
 
         $query->update([
             'is_successful' => false,

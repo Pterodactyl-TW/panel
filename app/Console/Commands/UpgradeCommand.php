@@ -9,16 +9,16 @@ use Symfony\Component\Console\Helper\ProgressBar;
 
 class UpgradeCommand extends Command
 {
-    protected const DEFAULT_URL = 'https://github.com/pterodactyl/panel/releases/%s/panel.tar.gz';
+    protected const DEFAULT_URL = 'https://github.com/Pterodactyl-TW/panel/releases/%s/panel.tar.gz';
 
     protected $signature = 'p:upgrade
-        {--user= : The user that PHP runs under. All files will be owned by this user.}
-        {--group= : The group that PHP runs under. All files will be owned by this group.}
-        {--url= : The specific archive to download.}
-        {--release= : A specific Pterodactyl version to download from GitHub. Leave blank to use latest.}
-        {--skip-download : If set no archive will be downloaded.}';
+        {--user= : PHP 執行所使用的使用者，所有檔案將歸屬於此使用者。}
+        {--group= : PHP 執行所使用的群組，所有檔案將歸屬於此群組。}
+        {--url= : 要下載的特定壓縮檔。}
+        {--release= : 要從 GitHub 下載的特定 Pterodactyl 版本，留空則使用最新版本。}
+        {--skip-download : 若設定此選項，則不會下載任何壓縮檔。}';
 
-    protected $description = 'Downloads a new archive for Pterodactyl from GitHub and then executes the normal upgrade commands.';
+    protected $description = '從 GitHub 下載 Pterodactyl 的新版壓縮檔，接著執行一般的升級指令。';
 
     /**
      * Executes an upgrade command which will run through all of our standard
@@ -34,29 +34,29 @@ class UpgradeCommand extends Command
     {
         $skipDownload = $this->option('skip-download');
         if (!$skipDownload) {
-            $this->output->warning('This command does not verify the integrity of downloaded assets. Please ensure that you trust the download source before continuing. If you do not wish to download an archive, please indicate that using the --skip-download flag, or answering "no" to the question below.');
-            $this->output->comment('Download Source (set with --url=):');
+            $this->output->warning('此指令不會驗證下載資源的完整性。請在繼續之前確認你信任此下載來源。若你不想下載壓縮檔，請使用 --skip-download 旗標，或在下方問題回答「no」表示。');
+            $this->output->comment('下載來源（可用 --url= 設定）：');
             $this->line($this->getUrl());
         }
 
         if (version_compare(PHP_VERSION, '8.2.0', '<')) {
-            $this->error('Cannot execute self-upgrade process. The minimum required PHP version required is 8.2.0, you have [' . PHP_VERSION . '].');
+            $this->error('無法執行自動升級程序，最低需求的 PHP 版本為 8.2.0，你目前的版本為 [' . PHP_VERSION . ']。');
         }
 
         $user = 'www-data';
         $group = 'www-data';
         if ($this->input->isInteractive()) {
             if (!$skipDownload) {
-                $skipDownload = !$this->confirm('Would you like to download and unpack the archive files for the latest version?', true);
+                $skipDownload = !$this->confirm('你想要下載並解壓縮最新版本的壓縮檔嗎？', true);
             }
 
             if (is_null($this->option('user'))) {
                 $userDetails = posix_getpwuid(fileowner('public'));
                 $user = $userDetails['name'] ?? 'www-data';
 
-                if (!$this->confirm("Your webserver user has been detected as <fg=blue>[{$user}]:</> is this correct?", true)) {
+                if (!$this->confirm("偵測到你的網頁伺服器使用者為 <fg=blue>[{$user}]：</> 這樣正確嗎？", true)) {
                     $user = $this->anticipate(
-                        'Please enter the name of the user running your webserver process. This varies from system to system, but is generally "www-data", "nginx", or "apache".',
+                        '請輸入執行你網頁伺服器程序的使用者名稱。這會因系統而異，但通常是「www-data」、「nginx」或「apache」。',
                         [
                             'www-data',
                             'nginx',
@@ -70,9 +70,9 @@ class UpgradeCommand extends Command
                 $groupDetails = posix_getgrgid(filegroup('public'));
                 $group = $groupDetails['name'] ?? 'www-data';
 
-                if (!$this->confirm("Your webserver group has been detected as <fg=blue>[{$group}]:</> is this correct?", true)) {
+                if (!$this->confirm("偵測到你的網頁伺服器群組為 <fg=blue>[{$group}]：</> 這樣正確嗎？", true)) {
                     $group = $this->anticipate(
-                        'Please enter the name of the group running your webserver process. Normally this is the same as your user.',
+                        '請輸入執行你網頁伺服器程序的群組名稱，通常會與你的使用者相同。',
                         [
                             'www-data',
                             'nginx',
@@ -82,8 +82,8 @@ class UpgradeCommand extends Command
                 }
             }
 
-            if (!$this->confirm('Are you sure you want to run the upgrade process for your Panel?')) {
-                $this->warn('Upgrade process terminated by user.');
+            if (!$this->confirm('你確定要為你的 Panel 執行升級程序嗎？')) {
+                $this->warn('升級程序已由使用者終止。');
 
                 return;
             }
@@ -173,7 +173,7 @@ class UpgradeCommand extends Command
         });
 
         $this->newLine(2);
-        $this->info('Panel has been successfully upgraded. Please ensure you also update any Wings instances: https://pterodactyl.io/wings/1.0/upgrading.html');
+        $this->info('Panel 已成功升級。請確保你也更新了所有 Wings 實例：https://pterodactyl.tw/wings/1.0/upgrading.html');
     }
 
     protected function withProgress(ProgressBar $bar, \Closure $callback)

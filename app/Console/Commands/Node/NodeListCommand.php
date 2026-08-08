@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 
 class NodeListCommand extends Command
 {
-    protected $signature = 'p:node:list {--format=text : The output format: "text" or "json". }';
+    protected $signature = 'p:node:list {--format=text : 輸出格式："text" 或 "json"。}';
 
     public function handle(): int
     {
@@ -24,7 +24,7 @@ class NodeListCommand extends Command
         if ($this->option('format') === 'json') {
             $this->output->write($nodes->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
         } else {
-            $this->table(['ID', 'UUID', 'Name', 'Location', 'Host'], $nodes->toArray());
+            $this->table(['ID', 'UUID', '名稱', '位置', '主機'], $nodes->toArray());
         }
 
         $this->output->newLine();

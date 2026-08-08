@@ -11,40 +11,40 @@ class AppSettingsCommand extends Command
     use EnvironmentWriterTrait;
 
     public const CACHE_DRIVERS = [
-        'redis' => 'Redis (recommended)',
+        'redis' => 'Redis（建議）',
         'memcached' => 'Memcached',
-        'file' => 'Filesystem',
+        'file' => '檔案系統',
     ];
 
     public const SESSION_DRIVERS = [
-        'redis' => 'Redis (recommended)',
+        'redis' => 'Redis（建議）',
         'memcached' => 'Memcached',
-        'database' => 'MySQL Database',
-        'file' => 'Filesystem',
+        'database' => 'MySQL 資料庫',
+        'file' => '檔案系統',
         'cookie' => 'Cookie',
     ];
 
     public const QUEUE_DRIVERS = [
-        'redis' => 'Redis (recommended)',
-        'database' => 'MySQL Database',
-        'sync' => 'Sync',
+        'redis' => 'Redis（建議）',
+        'database' => 'MySQL 資料庫',
+        'sync' => 'Sync（同步）',
     ];
 
-    protected $description = 'Configure basic environment settings for the Panel.';
+    protected $description = '配置 Panel 的基本環境設定。';
 
     protected $signature = 'p:environment:setup
-                            {--new-salt : Whether or not to generate a new salt for Hashids.}
-                            {--author= : The email that services created on this instance should be linked to.}
-                            {--url= : The URL that this Panel is running on.}
-                            {--timezone= : The timezone to use for Panel times.}
-                            {--cache= : The cache driver backend to use.}
-                            {--session= : The session driver backend to use.}
-                            {--queue= : The queue driver backend to use.}
-                            {--redis-host= : Redis host to use for connections.}
-                            {--redis-pass= : Password used to connect to redis.}
-                            {--redis-port= : Port to connect to redis over.}
-                            {--settings-ui= : Enable or disable the settings UI.}
-                            {--telemetry= : Enable or disable anonymous telemetry.}';
+                            {--new-salt : 是否要為 Hashids 產生新的 salt。}
+                            {--author= : 此實例建立的服務要關聯的電子郵件地址。}
+                            {--url= : 此 Panel 執行所在的網址。}
+                            {--timezone= : Panel 時間所使用的時區。}
+                            {--cache= : 要使用的快取驅動程式後端。}
+                            {--session= : 要使用的 Session 驅動程式後端。}
+                            {--queue= : 要使用的佇列驅動程式後端。}
+                            {--redis-host= : 用於連線的 Redis 主機。}
+                            {--redis-pass= : 連接 Redis 使用的密碼。}
+                            {--redis-port= : 連接 Redis 使用的連接埠。}
+                            {--settings-ui= : 啟用或停用設定介面。}
+                            {--telemetry= : 啟用或停用匿名遙測。}';
 
     protected array $variables = [];
 
@@ -67,48 +67,48 @@ class AppSettingsCommand extends Command
             $this->variables['HASHIDS_SALT'] = str_random(20);
         }
 
-        $this->output->comment('Provide the email address that eggs exported by this Panel should be from. This should be a valid email address.');
+        $this->output->comment('請提供此 Panel 匯出的 Egg 應歸屬的電子郵件地址，此欄位須為有效的電子郵件地址。');
         $this->variables['APP_SERVICE_AUTHOR'] = $this->option('author') ?? $this->ask(
-            'Egg Author Email',
+            'Egg 作者電子郵件',
             config('pterodactyl.service.author', 'unknown@unknown.com')
         );
 
         if (!filter_var($this->variables['APP_SERVICE_AUTHOR'], FILTER_VALIDATE_EMAIL)) {
-            $this->output->error('The service author email provided is invalid.');
+            $this->output->error('提供的服務作者電子郵件無效。');
 
             return 1;
         }
 
-        $this->output->comment('The application URL MUST begin with https:// or http:// depending on if you are using SSL or not. If you do not include the scheme your emails and other content will link to the wrong location.');
+        $this->output->comment('應用程式網址必須以 https:// 或 http:// 開頭（視你是否使用 SSL 而定）。若未包含通訊協定，你的電子郵件與其他內容將會連結到錯誤的位置。');
         $this->variables['APP_URL'] = $this->option('url') ?? $this->ask(
-            'Application URL',
+            '應用程式網址',
             config('app.url', 'https://example.com')
         );
 
-        $this->output->comment('The timezone should match one of PHP\'s supported timezones. If you are unsure, please reference https://php.net/manual/en/timezones.php.');
+        $this->output->comment('時區應符合 PHP 支援的時區之一。若你不確定，請參考 https://php.net/manual/en/timezones.php。');
         $this->variables['APP_TIMEZONE'] = $this->option('timezone') ?? $this->anticipate(
-            'Application Timezone',
+            '應用程式時區',
             \DateTimeZone::listIdentifiers(),
             config('app.timezone')
         );
 
         $selected = config('cache.default', 'redis');
         $this->variables['CACHE_DRIVER'] = $this->option('cache') ?? $this->choice(
-            'Cache Driver',
+            '快取驅動程式',
             self::CACHE_DRIVERS,
             array_key_exists($selected, self::CACHE_DRIVERS) ? $selected : null
         );
 
         $selected = config('session.driver', 'redis');
         $this->variables['SESSION_DRIVER'] = $this->option('session') ?? $this->choice(
-            'Session Driver',
+            'Session 驅動程式',
             self::SESSION_DRIVERS,
             array_key_exists($selected, self::SESSION_DRIVERS) ? $selected : null
         );
 
         $selected = config('queue.default', 'redis');
         $this->variables['QUEUE_CONNECTION'] = $this->option('queue') ?? $this->choice(
-            'Queue Driver',
+            '佇列驅動程式',
             self::QUEUE_DRIVERS,
             array_key_exists($selected, self::QUEUE_DRIVERS) ? $selected : null
         );
@@ -116,12 +116,12 @@ class AppSettingsCommand extends Command
         if (!is_null($this->option('settings-ui'))) {
             $this->variables['APP_ENVIRONMENT_ONLY'] = $this->option('settings-ui') == 'true' ? 'false' : 'true';
         } else {
-            $this->variables['APP_ENVIRONMENT_ONLY'] = $this->confirm('Enable UI based settings editor?', true) ? 'false' : 'true';
+            $this->variables['APP_ENVIRONMENT_ONLY'] = $this->confirm('啟用介面式設定編輯器？', true) ? 'false' : 'true';
         }
 
-        $this->output->comment('Please reference https://pterodactyl.io/panel/1.0/additional_configuration.html#telemetry for more detailed information regarding telemetry data and collection.');
+        $this->output->comment('關於遙測資料蒐集的詳細資訊，請參考 https://pterodactyl.tw/panel/1.0/additional_configuration.html#telemetry。');
         $this->variables['PTERODACTYL_TELEMETRY_ENABLED'] = $this->option('telemetry') ?? $this->confirm(
-            'Enable sending anonymous telemetry data?',
+            '是否啟用傳送匿名遙測資料？',
             config('pterodactyl.telemetry.enabled', true)
         ) ? 'true' : 'false';
 
@@ -152,22 +152,22 @@ class AppSettingsCommand extends Command
             return;
         }
 
-        $this->output->note('You\'ve selected the Redis driver for one or more options, please provide valid connection information below. In most cases you can use the defaults provided unless you have modified your setup.');
+        $this->output->note('你已為一個或多個選項選擇了 Redis 驅動程式，請在下方提供有效的連線資訊。多數情況下，除非你修改過設定，否則可直接使用預設值。');
         $this->variables['REDIS_HOST'] = $this->option('redis-host') ?? $this->ask(
-            'Redis Host',
+            'Redis 主機',
             config('database.redis.default.host')
         );
 
         $askForRedisPassword = true;
         if (!empty(config('database.redis.default.password'))) {
             $this->variables['REDIS_PASSWORD'] = config('database.redis.default.password');
-            $askForRedisPassword = $this->confirm('It seems a password is already defined for Redis, would you like to change it?');
+            $askForRedisPassword = $this->confirm('看起來 Redis 已經設定了密碼，你想要變更它嗎？');
         }
 
         if ($askForRedisPassword) {
-            $this->output->comment('By default a Redis server instance has no password as it is running locally and inaccessible to the outside world. If this is the case, simply hit enter without entering a value.');
+            $this->output->comment('預設情況下，Redis 伺服器實例並沒有密碼，因為它是在本機執行，外部無法存取。若你的情況正是如此，直接按下 Enter 而不輸入任何值即可。');
             $this->variables['REDIS_PASSWORD'] = $this->option('redis-pass') ?? $this->output->askHidden(
-                'Redis Password'
+                'Redis 密碼'
             );
         }
 
@@ -176,7 +176,7 @@ class AppSettingsCommand extends Command
         }
 
         $this->variables['REDIS_PORT'] = $this->option('redis-port') ?? $this->ask(
-            'Redis Port',
+            'Redis 連接埠',
             config('database.redis.default.port')
         );
     }

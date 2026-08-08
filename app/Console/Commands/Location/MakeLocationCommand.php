@@ -11,7 +11,7 @@ class MakeLocationCommand extends Command
                             {--short= : The shortcode name of this location (ex. us1).}
                             {--long= : A longer description of this location.}';
 
-    protected $description = 'Creates a new location on the system via the CLI.';
+    protected $description = '透過 CLI 在系統中建立一個新位置。';
 
     /**
      * Create a new command instance.

@@ -8,7 +8,7 @@ use Pterodactyl\Services\Telemetry\TelemetryCollectionService;
 
 class TelemetryCommand extends Command
 {
-    protected $description = 'Displays all the data that would be sent to the Pterodactyl Telemetry Service if telemetry collection is enabled.';
+    protected $description = '顯示若啟用遙測資料蒐集功能時，將會傳送給 Pterodactyl 遙測服務的所有資料。';
 
     protected $signature = 'p:telemetry';
 

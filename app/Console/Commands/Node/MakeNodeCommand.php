@@ -8,24 +8,24 @@ use Pterodactyl\Services\Nodes\NodeCreationService;
 class MakeNodeCommand extends Command
 {
     protected $signature = 'p:node:make
-                            {--name= : A name to identify the node.}
-                            {--description= : A description to identify the node.}
-                            {--locationId= : A valid locationId.}
-                            {--fqdn= : The domain name (e.g node.example.com) to be used for connecting to the daemon. An IP address may only be used if you are not using SSL for this node.}
-                            {--public= : Should the node be public or private? (public=1 / private=0).}
-                            {--scheme= : Which scheme should be used? (Enable SSL=https / Disable SSL=http).}
-                            {--proxy= : Is the daemon behind a proxy? (Yes=1 / No=0).}
-                            {--maintenance= : Should maintenance mode be enabled? (Enable Maintenance mode=1 / Disable Maintenance mode=0).}
-                            {--maxMemory= : Set the max memory amount.}
-                            {--overallocateMemory= : Enter the amount of ram to overallocate (% or -1 to overallocate the maximum).}
-                            {--maxDisk= : Set the max disk amount.}
-                            {--overallocateDisk= : Enter the amount of disk to overallocate (% or -1 to overallocate the maximum).}
-                            {--uploadSize= : Enter the maximum upload filesize.}
-                            {--daemonListeningPort= : Enter the wings listening port.}
-                            {--daemonSFTPPort= : Enter the wings SFTP listening port.}
-                            {--daemonBase= : Enter the base folder.}';
+                            {--name= : 用來識別此節點的名稱。}
+                            {--description= : 用來識別此節點的描述。}
+                            {--locationId= : 有效的 locationId。}
+                            {--fqdn= : 用於連接 daemon 的網域名稱（例如 node.example.com）。僅在此節點未使用 SSL 時，才可以使用 IP 位址。}
+                            {--public= : 此節點應為公開還是私人？（公開=1 / 私人=0）。}
+                            {--scheme= : 應使用哪種通訊協定？（啟用 SSL=https / 停用 SSL=http）。}
+                            {--proxy= : daemon 是否位於代理伺服器後方？（是=1 / 否=0）。}
+                            {--maintenance= : 是否應啟用維護模式？（啟用維護模式=1 / 停用維護模式=0）。}
+                            {--maxMemory= : 設定最大記憶體數量。}
+                            {--overallocateMemory= : 輸入要超額配置的記憶體數量（百分比，或 -1 表示無限制超額配置）。}
+                            {--maxDisk= : 設定最大磁碟數量。}
+                            {--overallocateDisk= : 輸入要超額配置的磁碟數量（百分比，或 -1 表示無限制超額配置）。}
+                            {--uploadSize= : 輸入最大上傳檔案大小。}
+                            {--daemonListeningPort= : 輸入 wings 監聽連接埠。}
+                            {--daemonSFTPPort= : 輸入 wings SFTP 監聽連接埠。}
+                            {--daemonBase= : 輸入基礎資料夾路徑。}';
 
-    protected $description = 'Creates a new node on the system via the CLI.';
+    protected $description = '透過 CLI 在系統中建立一個新節點。';
 
     /**
      * MakeNodeCommand constructor.
@@ -42,28 +42,28 @@ class MakeNodeCommand extends Command
      */
     public function handle()
     {
-        $data['name'] = $this->option('name') ?? $this->ask('Enter a short identifier used to distinguish this node from others');
-        $data['description'] = $this->option('description') ?? $this->ask('Enter a description to identify the node');
-        $data['location_id'] = $this->option('locationId') ?? $this->ask('Enter a valid location id');
+        $data['name'] = $this->option('name') ?? $this->ask('請輸入用來與其他節點區別的簡短識別名稱');
+        $data['description'] = $this->option('description') ?? $this->ask('請輸入用來識別此節點的描述');
+        $data['location_id'] = $this->option('locationId') ?? $this->ask('請輸入有效的位置 ID');
         $data['scheme'] = $this->option('scheme') ?? $this->anticipate(
-            'Please either enter https for SSL or http for a non-ssl connection',
+            '請輸入 https 以使用 SSL，或輸入 http 以使用非 SSL 連線',
             ['https', 'http'],
             'https'
         );
-        $data['fqdn'] = $this->option('fqdn') ?? $this->ask('Enter a domain name (e.g node.example.com) to be used for connecting to the daemon. An IP address may only be used if you are not using SSL for this node');
-        $data['public'] = $this->option('public') ?? $this->confirm('Should this node be public? As a note, setting a node to private you will be denying the ability to auto-deploy to this node.', true);
-        $data['behind_proxy'] = $this->option('proxy') ?? $this->confirm('Is your FQDN behind a proxy?');
-        $data['maintenance_mode'] = $this->option('maintenance') ?? $this->confirm('Should maintenance mode be enabled?');
-        $data['memory'] = $this->option('maxMemory') ?? $this->ask('Enter the maximum amount of memory');
-        $data['memory_overallocate'] = $this->option('overallocateMemory') ?? $this->ask('Enter the amount of memory to over allocate by, -1 will disable checking and 0 will prevent creating new servers');
-        $data['disk'] = $this->option('maxDisk') ?? $this->ask('Enter the maximum amount of disk space');
-        $data['disk_overallocate'] = $this->option('overallocateDisk') ?? $this->ask('Enter the amount of memory to over allocate by, -1 will disable checking and 0 will prevent creating new server');
-        $data['upload_size'] = $this->option('uploadSize') ?? $this->ask('Enter the maximum filesize upload', '100');
-        $data['daemonListen'] = $this->option('daemonListeningPort') ?? $this->ask('Enter the wings listening port', '8080');
-        $data['daemonSFTP'] = $this->option('daemonSFTPPort') ?? $this->ask('Enter the wings SFTP listening port', '2022');
-        $data['daemonBase'] = $this->option('daemonBase') ?? $this->ask('Enter the base folder', '/var/lib/pterodactyl/volumes');
+        $data['fqdn'] = $this->option('fqdn') ?? $this->ask('請輸入用於連接 daemon 的網域名稱（例如 node.example.com）。僅在此節點未使用 SSL 時，才可以使用 IP 位址');
+        $data['public'] = $this->option('public') ?? $this->confirm('此節點是否應為公開？請注意，若將節點設為私人，將無法對此節點自動部署。', true);
+        $data['behind_proxy'] = $this->option('proxy') ?? $this->confirm('你的 FQDN 是否位於代理伺服器後方？');
+        $data['maintenance_mode'] = $this->option('maintenance') ?? $this->confirm('是否應啟用維護模式？');
+        $data['memory'] = $this->option('maxMemory') ?? $this->ask('請輸入最大記憶體數量');
+        $data['memory_overallocate'] = $this->option('overallocateMemory') ?? $this->ask('請輸入要超額配置的記憶體數量，-1 將停用檢查，0 則會禁止建立新伺服器');
+        $data['disk'] = $this->option('maxDisk') ?? $this->ask('請輸入最大磁碟空間數量');
+        $data['disk_overallocate'] = $this->option('overallocateDisk') ?? $this->ask('請輸入要超額配置的磁碟數量，-1 將停用檢查，0 則會禁止建立新伺服器');
+        $data['upload_size'] = $this->option('uploadSize') ?? $this->ask('請輸入最大上傳檔案大小', '100');
+        $data['daemonListen'] = $this->option('daemonListeningPort') ?? $this->ask('請輸入 wings 監聽連接埠', '8080');
+        $data['daemonSFTP'] = $this->option('daemonSFTPPort') ?? $this->ask('請輸入 wings SFTP 監聽連接埠', '2022');
+        $data['daemonBase'] = $this->option('daemonBase') ?? $this->ask('請輸入基礎資料夾路徑', '/var/lib/pterodactyl/volumes');
 
         $node = $this->creationService->handle($data);
-        $this->line('Successfully created a new node on the location ' . $data['location_id'] . ' with the name ' . $data['name'] . ' and has an id of ' . $node->id . '.');
+        $this->line('已成功在位置 ' . $data['location_id'] . ' 建立名為 ' . $data['name'] . ' 的新節點，其 ID 為 ' . $node->id . '。');
     }
 }

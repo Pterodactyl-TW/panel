@@ -13,12 +13,12 @@ class KeyGenerateCommand extends BaseKeyGenerateCommand
     public function handle()
     {
         if (!empty(config('app.key')) && $this->input->isInteractive()) {
-            $this->output->warning('It appears you have already configured an application encryption key. Continuing with this process with overwrite that key and cause data corruption for any existing encrypted data. DO NOT CONTINUE UNLESS YOU KNOW WHAT YOU ARE DOING.');
-            if (!$this->confirm('I understand the consequences of performing this command and accept all responsibility for the loss of encrypted data.')) {
+            $this->output->warning('看起來你已經設定過應用程式加密金鑰。繼續執行此程序將會覆蓋該金鑰，並導致所有既有的加密資料損毀。除非你清楚自己在做什麼，否則請勿繼續。');
+            if (!$this->confirm('我理解執行此指令的後果，並承擔加密資料遺失的全部責任。')) {
                 return;
             }
 
-            if (!$this->confirm('Are you sure you wish to continue? Changing the application encryption key WILL CAUSE DATA LOSS.')) {
+            if (!$this->confirm('你確定要繼續嗎？變更應用程式加密金鑰將會導致資料遺失。')) {
                 return;
             }
         }

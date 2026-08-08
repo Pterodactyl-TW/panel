@@ -10,12 +10,12 @@ class EmailSettingsCommand extends Command
 {
     use EnvironmentWriterTrait;
 
-    protected $description = 'Set or update the email sending configuration for the Panel.';
+    protected $description = '設定或更新 Panel 寄送電子郵件的相關組態設定。';
 
     protected $signature = 'p:environment:mail
-                            {--driver= : The mail driver to use.}
-                            {--email= : Email address that messages from the Panel will originate from.}
-                            {--from= : The name emails from the Panel will appear to be from.}
+                            {--driver= : 要使用的郵件驅動程式。}
+                            {--email= : Panel 寄出郵件的來源電子郵件地址。}
+                            {--from= : Panel 寄出郵件顯示的寄件者名稱。}
                             {--encryption=}
                             {--host=}
                             {--port=}
@@ -43,11 +43,11 @@ class EmailSettingsCommand extends Command
         $this->variables['MAIL_DRIVER'] = $this->option('driver') ?? $this->choice(
             trans('command/messages.environment.mail.ask_driver'),
             [
-                'smtp' => 'SMTP Server',
-                'sendmail' => 'sendmail Binary',
-                'mailgun' => 'Mailgun Transactional Email',
-                'mandrill' => 'Mandrill Transactional Email',
-                'postmark' => 'Postmark Transactional Email',
+                'smtp' => 'SMTP 伺服器',
+                'sendmail' => 'sendmail 執行檔',
+                'mailgun' => 'Mailgun 交易型電子郵件',
+                'mandrill' => 'Mandrill 交易型電子郵件',
+                'postmark' => 'Postmark 交易型電子郵件',
             ],
             $this->config->get('mail.default', 'smtp')
         );
@@ -69,7 +69,7 @@ class EmailSettingsCommand extends Command
 
         $this->writeToEnvironment($this->variables);
 
-        $this->line('Updating stored environment configuration file.');
+        $this->line('正在更新已儲存的環境組態設定檔。');
         $this->line('');
     }
 
@@ -99,7 +99,7 @@ class EmailSettingsCommand extends Command
 
         $this->variables['MAIL_ENCRYPTION'] = $this->option('encryption') ?? $this->choice(
             trans('command/messages.environment.mail.ask_encryption'),
-            ['tls' => 'TLS', 'ssl' => 'SSL', '' => 'None'],
+            ['tls' => 'TLS', 'ssl' => 'SSL', '' => '無'],
             $this->config->get('mail.mailers.smtp.encryption', 'tls')
         );
     }

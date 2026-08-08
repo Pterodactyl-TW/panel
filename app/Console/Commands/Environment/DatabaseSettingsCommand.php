@@ -11,14 +11,14 @@ class DatabaseSettingsCommand extends Command
 {
     use EnvironmentWriterTrait;
 
-    protected $description = 'Configure database settings for the Panel.';
+    protected $description = '配置 Panel 的資料庫設定。';
 
     protected $signature = 'p:environment:database
-                            {--host= : The connection address for the MySQL server.}
-                            {--port= : The connection port for the MySQL server.}
-                            {--database= : The database to use.}
-                            {--username= : Username to use when connecting.}
-                            {--password= : Password to use for this database.}';
+                            {--host= : MySQL 伺服器的連線位址。}
+                            {--port= : MySQL 伺服器的連線連接埠。}
+                            {--database= : 要使用的資料庫。}
+                            {--username= : 連線時使用的使用者名稱。}
+                            {--password= : 此資料庫使用的密碼。}';
 
     protected array $variables = [];
 
@@ -37,45 +37,45 @@ class DatabaseSettingsCommand extends Command
      */
     public function handle(): int
     {
-        $this->output->note('It is highly recommended to not use "localhost" as your database host as we have seen frequent socket connection issues. If you want to use a local connection you should be using "127.0.0.1".');
+        $this->output->note('強烈建議不要使用「localhost」作為你的資料庫主機，因為我們經常看到 socket 連線問題。若你想使用本機連線，應改用「127.0.0.1」。');
         $this->variables['DB_HOST'] = $this->option('host') ?? $this->ask(
-            'Database Host',
+            '資料庫主機',
             config('database.connections.mysql.host', '127.0.0.1')
         );
 
         $this->variables['DB_PORT'] = $this->option('port') ?? $this->ask(
-            'Database Port',
+            '資料庫連接埠',
             config('database.connections.mysql.port', 3306)
         );
 
         $this->variables['DB_DATABASE'] = $this->option('database') ?? $this->ask(
-            'Database Name',
+            '資料庫名稱',
             config('database.connections.mysql.database', 'panel')
         );
 
-        $this->output->note('Using the "root" account for MySQL connections is not only highly frowned upon, it is also not allowed by this application. You\'ll need to have created a MySQL user for this software.');
+        $this->output->note('使用「root」帳號進行 MySQL 連線不僅相當不建議，此應用程式也不允許這麼做。你需要為此軟體另外建立一個 MySQL 使用者。');
         $this->variables['DB_USERNAME'] = $this->option('username') ?? $this->ask(
-            'Database Username',
+            '資料庫使用者名稱',
             config('database.connections.mysql.username', 'pterodactyl')
         );
 
         $askForMySQLPassword = true;
         if (!empty(config('database.connections.mysql.password')) && $this->input->isInteractive()) {
             $this->variables['DB_PASSWORD'] = config('database.connections.mysql.password');
-            $askForMySQLPassword = $this->confirm('It appears you already have a MySQL connection password defined, would you like to change it?');
+            $askForMySQLPassword = $this->confirm('看起來你已經設定了 MySQL 連線密碼，你想要變更它嗎？');
         }
 
         if ($askForMySQLPassword) {
-            $this->variables['DB_PASSWORD'] = $this->option('password') ?? $this->secret('Database Password');
+            $this->variables['DB_PASSWORD'] = $this->option('password') ?? $this->secret('資料庫密碼');
         }
 
         try {
             $this->testMySQLConnection();
         } catch (\PDOException $exception) {
-            $this->output->error(sprintf('Unable to connect to the MySQL server using the provided credentials. The error returned was "%s".', $exception->getMessage()));
-            $this->output->error('Your connection credentials have NOT been saved. You will need to provide valid connection information before proceeding.');
+            $this->output->error(sprintf('無法使用提供的憑證連接至 MySQL 伺服器，回傳的錯誤訊息為「%s」。', $exception->getMessage()));
+            $this->output->error('你的連線憑證尚未儲存，在繼續之前你需要提供有效的連線資訊。');
 
-            if ($this->confirm('Go back and try again?')) {
+            if ($this->confirm('要返回並重試嗎？')) {
                 $this->database->disconnect('_pterodactyl_command_test');
 
                 return $this->handle();
