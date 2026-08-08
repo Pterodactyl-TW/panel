@@ -61,7 +61,7 @@ class SoftwareVersionService
      */
     public function getDiscord(): string
     {
-        return Arr::get(self::$result, 'discord') ?? 'https://pterodactyl.io/discord';
+        return Arr::get(self::$result, 'discord') ?? 'https://pterodactyl.tw/discord';
     }
 
     /**
@@ -69,7 +69,7 @@ class SoftwareVersionService
      */
     public function getDonations(): string
     {
-        return Arr::get(self::$result, 'donations') ?? 'https://github.com/sponsors/matthewpi';
+        return Arr::get(self::$result, 'donations') ?? 'https://pterodactyl.tw/discord';
     }
 
     /**
