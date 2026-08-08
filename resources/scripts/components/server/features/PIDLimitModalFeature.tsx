@@ -60,20 +60,20 @@ const PIDLimitModalFeature = () => {
                 <>
                     <div css={tw`mt-4 sm:flex items-center`}>
                         <FontAwesomeIcon css={tw`pr-4`} icon={faExclamationTriangle} color={'orange'} size={'4x'} />
-                        <h2 css={tw`text-2xl mb-4 text-neutral-100 `}>Memory or process limit reached...</h2>
+                        <h2 css={tw`text-2xl mb-4 text-neutral-100 `}>已達記憶體或程序限制...</h2>
                     </div>
-                    <p css={tw`mt-4`}>This server has reached the maximum process or memory limit.</p>
+                    <p css={tw`mt-4`}>此伺服器已達最大程序或記憶體限制。</p>
                     <p css={tw`mt-4`}>
-                        Increasing <code css={tw`font-mono bg-neutral-900`}>container_pid_limit</code> in the wings
-                        configuration, <code css={tw`font-mono bg-neutral-900`}>config.yml</code>, might help resolve
-                        this issue.
+                        在 wings 組態設定 <code css={tw`font-mono bg-neutral-900`}>config.yml</code> 中提高{' '}
+                        <code css={tw`font-mono bg-neutral-900`}>container_pid_limit</code> 的值，
+                        或許有助於解決此問題。
                     </p>
                     <p css={tw`mt-4`}>
-                        <b>Note: Wings must be restarted for the configuration file changes to take effect</b>
+                        <b>注意：組態設定檔的變更須重新啟動 Wings 才會生效</b>
                     </p>
                     <div css={tw`mt-8 sm:flex items-center justify-end`}>
                         <Button onClick={() => setVisible(false)} css={tw`w-full sm:w-auto border-transparent`}>
-                            Close
+                            關閉
                         </Button>
                     </div>
                 </>
@@ -81,12 +81,9 @@ const PIDLimitModalFeature = () => {
                 <>
                     <div css={tw`mt-4 sm:flex items-center`}>
                         <FontAwesomeIcon css={tw`pr-4`} icon={faExclamationTriangle} color={'orange'} size={'4x'} />
-                        <h2 css={tw`text-2xl mb-4 text-neutral-100`}>Possible resource limit reached...</h2>
+                        <h2 css={tw`text-2xl mb-4 text-neutral-100`}>可能已達資源限制...</h2>
                     </div>
-                    <p css={tw`mt-4`}>
-                        This server is attempting to use more resources than allocated. Please contact the administrator
-                        and give them the error below.
-                    </p>
+                    <p css={tw`mt-4`}>此伺服器正嘗試使用超過配置量的資源，請聯絡管理員並提供下方的錯誤訊息。</p>
                     <p css={tw`mt-4`}>
                         <code css={tw`font-mono bg-neutral-900`}>
                             pthread_create failed, Possibly out of memory or process/resource limits reached
@@ -94,7 +91,7 @@ const PIDLimitModalFeature = () => {
                     </p>
                     <div css={tw`mt-8 sm:flex items-center justify-end`}>
                         <Button onClick={() => setVisible(false)} css={tw`w-full sm:w-auto border-transparent`}>
-                            Close
+                            關閉
                         </Button>
                     </div>
                 </>

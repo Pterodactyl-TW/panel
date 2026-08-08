@@ -70,12 +70,11 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
             </div>
             <CopyOnClick text={token?.secret}>
                 <p className={'font-mono text-sm text-gray-100 text-center mt-2'}>
-                    {token?.secret.match(/.{1,4}/g)!.join(' ') || 'Loading...'}
+                    {token?.secret.match(/.{1,4}/g)!.join(' ') || '載入中...'}
                 </p>
             </CopyOnClick>
             <p id={'totp-code-description'} className={'mt-6'}>
-                Scan the QR code above using the two-step authentication app of your choice. Then, enter the 6-digit
-                code generated into the field below.
+                使用你選擇的兩步驟驗證應用程式掃描上方 QR code，接著將產生的 6 位數代碼輸入下方欄位。
             </p>
             <Input.Text
                 aria-labelledby={'totp-code-description'}
@@ -90,7 +89,7 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
                 pattern={'\\d{6}'}
             />
             <label htmlFor={'totp-password'} className={'block mt-3'}>
-                Account Password
+                帳號密碼
             </label>
             <Input.Text
                 variant={Input.Text.Variants.Loose}
@@ -100,14 +99,10 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.currentTarget.value)}
             />
             <Dialog.Footer>
-                <Button.Text onClick={close}>Cancel</Button.Text>
+                <Button.Text onClick={close}>取消</Button.Text>
                 <Tooltip
                     disabled={password.length > 0 && value.length === 6}
-                    content={
-                        !token
-                            ? 'Waiting for QR code to load...'
-                            : 'You must enter the 6-digit code and your password to continue.'
-                    }
+                    content={!token ? '正在等待 QR code 載入...' : '你必須輸入 6 位數代碼與密碼才能繼續。'}
                     delay={100}
                 >
                     <Button
@@ -115,7 +110,7 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
                         type={'submit'}
                         form={'enable-totp-form'}
                     >
-                        Enable
+                        啟用
                     </Button>
                 </Tooltip>
             </Dialog.Footer>
@@ -124,7 +119,6 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
 };
 
 export default asDialog({
-    title: 'Enable Two-Step Verification',
-    description:
-        "Help protect your account from unauthorized access. You'll be prompted for a verification code each time you sign in.",
+    title: '啟用兩步驟驗證',
+    description: '協助保護你的帳號免於未經授權的存取。每次登入時系統都會要求你輸入驗證碼。',
 })(ConfigureTwoFactorForm);
