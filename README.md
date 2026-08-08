@@ -1,49 +1,50 @@
-[![Logo Image](https://cdn.pterodactyl.io/logos/new/pterodactyl_logo.png)](https://pterodactyl.io)
+[![Logo Image](https://cdn.pterodactyl.io/logos/new/pterodactyl_logo.png)](https://pterodactyl.tw)
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/pterodactyl/panel/ci.yaml?label=Tests&style=for-the-badge&branch=1.0-develop)
 ![Discord](https://img.shields.io/discord/122900397965705216?label=Discord&logo=Discord&logoColor=white&style=for-the-badge)
 ![GitHub Releases](https://img.shields.io/github/downloads/pterodactyl/panel/latest/total?style=for-the-badge)
 ![GitHub contributors](https://img.shields.io/github/contributors/pterodactyl/panel?style=for-the-badge)
 
-# Pterodactyl Panel
+# Pterodactyl Panel（繁體中文化版本）
 
-Pterodactyl® is a free, open-source game server management panel built with PHP, React, and Go. Designed with security
-in mind, Pterodactyl runs all game servers in isolated Docker containers while exposing a beautiful and intuitive
-UI to end users.
+> [!NOTE]
+> 本倉庫由 **Pterodactyl 台灣翻譯團隊** 維護，提供 Pterodactyl 官方 Panel 的繁體中文化版本。若你發現翻譯有誤或需要更新的地方，歡迎直接開 Pull Request，或透過 [Discord](https://pterodactyl.tw/discord) 與我們聯繫。
 
-Stop settling for less. Make game servers a first class citizen on your platform.
+Pterodactyl® 是一套使用 PHP、React 與 Go 打造的免費開源遊戲伺服器管理面板。Pterodactyl 以安全性為設計核心，
+所有遊戲伺服器都在隔離的 Docker 容器中執行，同時提供終端使用者美觀又直覺的操作介面。
+
+別再將就了，讓遊戲伺服器成為你平台上的一等公民。
 
 ![Image](https://cdn.pterodactyl.io/site-assets/pterodactyl_v1_demo.gif)
 
-## Documentation
+## 文件
 
-* [Panel Documentation](https://pterodactyl.io/panel/1.0/getting_started.html)
-* [Wings Documentation](https://pterodactyl.io/wings/1.0/installing.html)
-* [Community Guides](https://pterodactyl.io/community/about.html)
-* Or, get additional help [via Discord](https://discord.gg/pterodactyl)
+* [Panel 文件](https://pterodactyl.tw/panel/1.0/getting_started.html)
+* [Wings 文件](https://pterodactyl.tw/wings/1.0/installing.html)
+* [社群指南](https://pterodactyl.tw/community/about.html)
+* 或透過 [Discord](https://pterodactyl.tw/discord) 尋求協助
 
-## Sponsors
+## 贊助商
 
-I would like to extend my sincere thanks to the following sponsors for helping fund Pterodactyl's development.
-[Interested in becoming a sponsor?](https://github.com/sponsors/pterodactyl)
+在此由衷感謝以下贊助商協助資助 Pterodactyl 的開發。
+[有興趣成為贊助商嗎？](https://github.com/sponsors/pterodactyl)
 
-| Company                                                                           | About                                                                                                                                                                                                                                           |
-|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [**Aussie Server Hosts**](https://aussieserverhosts.com/)                         | No frills Australian Owned and operated High Performance Server hosting for some of the most demanding games serving Australia and New Zealand.                                                                                                 |
-| [**BisectHosting**](https://www.bisecthosting.com/)                               | BisectHosting provides Minecraft, Valheim and other server hosting services with the highest reliability and lightning fast support since 2012.                                                                                                 |
-| [**MineStrator**](https://minestrator.com/)                                       | Looking for the most highend French hosting company for your minecraft server? More than 24,000 members on our discord trust us. Give us a try!                                                                                                 |
-| [**HostEZ**](https://hostez.io)                                                   | US & EU Rust & Minecraft Hosting. DDoS Protected bare metal, VPS and colocation with low latency, high uptime and maximum availability. EZ!                                                                                                     |
-| [**Blueprint**](https://blueprint.zip/?utm_source=pterodactyl&utm_medium=sponsor) | Create and install Pterodactyl addons and themes with the growing Blueprint framework - the package-manager for Pterodactyl. Use multiple modifications at once without worrying about conflicts and make use of the large extension ecosystem. |
-| [**indifferent broccoli**](https://indifferentbroccoli.com/)                      | indifferent broccoli is a game server hosting and rental company. With us, you get top-notch computer power for your gaming sessions. We destroy lag, latency, and complexity--letting you focus on the fun stuff.                              |
+| 公司                                                                                 | 介紹                                                                                                                                                                                                                                            |
+|-------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [**Aussie Server Hosts**](https://aussieserverhosts.com/)                         | 澳洲人自有自營、不搞花俏噱頭的高效能伺服器代管服務，為澳洲與紐西蘭提供部分最吃資源的遊戲伺服器。                                                                                                                                                                 |
+| [**BisectHosting**](https://www.bisecthosting.com/)                               | BisectHosting 自 2012 年起提供 Minecraft、Valheim 及其他伺服器代管服務，以高可靠度與極速支援著稱。                                                                                                                                                                 |
+| [**MineStrator**](https://minestrator.com/)                                       | 想找最頂級的法國代管公司來架設你的 Minecraft 伺服器嗎？我們的 Discord 已有超過 24,000 名成員信賴我們，歡迎你也來試試看！                                                                                                                                                                 |
+| [**HostEZ**](https://hostez.io)                                                   | 美國與歐洲的 Rust 與 Minecraft 代管服務。提供具備 DDoS 防護的裸機、VPS 與機房代管服務，低延遲、高可用性，簡單又輕鬆！                                                                                                                                                                     |
+| [**Blueprint**](https://blueprint.zip/?utm_source=pterodactyl&utm_medium=sponsor) | 使用日益成長的 Blueprint 框架來建立並安裝 Pterodactyl 附加元件與佈景主題，這是 Pterodactyl 的套件管理工具。可同時使用多項修改而不必擔心衝突，並善用龐大的擴充生態系。 |
+| [**indifferent broccoli**](https://indifferentbroccoli.com/)                      | indifferent broccoli 是一間遊戲伺服器代管與租賃公司。在我們這裡，你能為遊戲時光取得頂級的運算效能。我們消滅延遲、掉線與複雜性，讓你能專心享受遊戲樂趣。                              |
 
-### Supported Games
+### 支援的遊戲
 
-Pterodactyl supports a wide variety of games by utilizing Docker containers to isolate each instance. This gives
-you the power to run game servers without bloating machines with a host of additional dependencies.
+Pterodactyl 藉由使用 Docker 容器隔離每個實例，支援種類繁多的遊戲。這讓你能在不讓主機塞滿一堆額外相依套件的情況下執行遊戲伺服器。
 
-Some of our core supported games include:
+我們核心支援的部分遊戲包括：
 
-* Minecraft — including Paper, Sponge, Bungeecord, Waterfall, and more
+* Minecraft（包括 Paper、Sponge、Bungeecord、Waterfall 等）
 * Rust
 * Terraria
 * Teamspeak
@@ -53,8 +54,7 @@ Some of our core supported games include:
 * Garry's Mod
 * ARK: Survival Evolved
 
-In addition to our standard nest of supported games, our community is constantly pushing the limits of this software
-and there are plenty more games available provided by the community. Some of these games include:
+除了我們標準內建的遊戲支援之外，我們的社群也持續不斷地挑戰這套軟體的極限，還有更多由社群提供的遊戲可供使用。這些遊戲包括：
 
 * Factorio
 * San Andreas: MP
@@ -62,11 +62,27 @@ and there are plenty more games available provided by the community. Some of the
 * Squad
 * Xonotic
 * Starmade
-* Discord ATLBot, and most other Node.js/Python discord bots
-* [and many more...](https://pterodactyleggs.com)
+* Discord ATLBot，以及大多數其他的 Node.js/Python Discord 機器人
+* [還有更多……](https://eggs.pterodactyl.tw)
 
-## License
+## 繁體中文化服務團隊
 
-Pterodactyl® Copyright © 2015 - 2022 Dane Everitt and contributors.
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/AvianJay"><img src="https://github.com/AvianJay.png" width="80px;" alt="AvianJay"/><br /><sub><b>AvianJay</b></sub></a></td>
+    <td align="center"><a href="https://github.com/creeperdevme"><img src="https://github.com/creeperdevme.png" width="80px;" alt="creeperdevme"/><br /><sub><b>creeperdevme</b></sub></a></td>
+    <td align="center"><a href="https://github.com/Kevin28576"><img src="https://github.com/Kevin28576.png" width="80px;" alt="Kevin28576"/><br /><sub><b>Kevin28576</b></sub></a></td>
+    <td align="center"><a href="https://github.com/kusanagi-akane"><img src="https://github.com/kusanagi-akane.png" width="80px;" alt="kusanagi-akane"/><br /><sub><b>kusanagi-akane</b></sub></a></td>
+    <td align="center"><a href="https://github.com/littlecommandcat"><img src="https://github.com/littlecommandcat.png" width="80px;" alt="littlecommandcat"/><br /><sub><b>littlecommandcat</b></sub></a></td>
+    <td align="center"><a href="https://github.com/rise0313"><img src="https://github.com/rise0313.png" width="80px;" alt="rise0313"/><br /><sub><b>rise0313</b></sub></a></td>
+  </tr>
+</table>
 
-Code released under the [MIT License](./LICENSE.md).
+如果你也想加入我們的繁體中文化服務團隊，歡迎透過 [Discord](https://pterodactyl.tw/discord) 與我們聯絡。
+
+## 授權
+
+Pterodactyl® Copyright © 2015 - 2022 Dane Everitt 與貢獻者。
+繁體中文化版本 Copyright © Pterodactyl 台灣翻譯團隊。
+
+程式碼採用 [MIT 授權條款](./LICENSE.md) 釋出。

@@ -1,24 +1,15 @@
-# Security Policy
+# 安全政策
 
-## Supported Versions
+## 支援版本
 
-Pterodactyl only provides security support for the latest `major.minor` versions of the Panel and Wings software.
-If a security vulnerability is found in an older version but cannot be reproduced on a supported version it will
-not be considered. Additionally, security issues found in unreleased code will be addressed, but do not warrant a
-security advisory.
+Pterodactyl 僅為 Panel 與 Wings 軟體最新的 `major.minor` 版本提供安全性支援。若在較舊版本中發現安全漏洞，但無法在受支援版本上重現，則不會被列入處理。此外，在尚未發佈的程式碼中發現的安全性問題也會被處理，但不會因此發佈安全公告。
 
-For example, if the latest version of the Panel is `1.2.5` then we only support security reports for issues that
-occur on `>= 1.2.x` versions of the Panel software. The Panel and Wings have their own versions, but they generally
-follow eachother.
+舉例來說，若 Panel 的最新版本為 `1.2.5`，我們就只支援 `>= 1.2.x` 版本 Panel 軟體所發生問題的安全性回報。Panel 與 Wings 各自擁有獨立的版本號，但通常會同步更新。
 
-## Reporting a Vulnerability
+## 回報漏洞
 
-Please use our GitHub Security reporting meachnism to quickly alert the team to any security issues you come across,
-or send an email to `security@pterodactyl.io` with the details of your report.
+請使用 GitHub 的安全性回報機制，以便盡快讓團隊知悉你發現的任何安全性問題，或將詳細回報內容寄送至 `security@pterodactyl.io`。
 
-We make every effort to respond as soon as possible, although it may take a day or two for us to sync internally and
-determine the severity of the report and its impact. Please, _do not_ use a public facing channel or GitHub issues to
-report sensitive security issues.
+我們會盡全力盡快回應，但內部同步討論並判定回報的嚴重程度與影響範圍，可能需要一兩天的時間。請**勿**使用公開頻道或 GitHub issue 回報敏感的安全性問題。
 
-As part of our process, we will create a security advisory for the affected versions and disclose it publicly, usually
-two to four weeks after a releasing a version that addresses it.
+依照我們的流程，我們會針對受影響的版本建立安全公告，並在發佈修復版本後的兩到四週內公開揭露。

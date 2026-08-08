@@ -1,18 +1,17 @@
 x-common:
   database:
     &db-environment
-    # Do not remove the "&db-password" from the end of the line below, it is important
-    # for Panel functionality.
+    # 請勿移除下方這行結尾的 "&db-password"，這對 Panel 的正常運作而言相當重要。
     MYSQL_PASSWORD: &db-password "CHANGE_ME"
     MYSQL_ROOT_PASSWORD: "CHANGE_ME_TOO"
   panel:
     &panel-environment
     APP_URL: "http://example.com"
-    # A list of valid timezones can be found here: http://php.net/manual/en/timezones.php
+    # 可用的時區清單請參見：http://php.net/manual/en/timezones.php
     APP_TIMEZONE: "UTC"
     APP_SERVICE_AUTHOR: "noreply@example.com"
-    # Uncomment the line below and set to a non-empty value if you want to use Let's Encrypt
-    # to generate an SSL certificate for the Panel.
+    # 若你想使用 Let's Encrypt 為 Panel 產生 SSL 憑證，
+    # 請取消下方這行的註解，並設定為非空值。
     # LE_EMAIL: ""
   mail:
     &mail-environment
@@ -26,10 +25,10 @@ x-common:
 
 #
 # ------------------------------------------------------------------------------------------
-# DANGER ZONE BELOW
+# 危險區域，以下內容請小心修改
 #
-# The remainder of this file likely does not need to be changed. Please only make modifications
-# below if you understand what you are doing.
+# 此檔案其餘的部分通常不需要變更。除非你清楚自己在做什麼，
+# 否則請不要修改以下內容。
 #
 services:
   database:
