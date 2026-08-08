@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Features, Help, or Questions
+  - name: 功能、協助或問題
     url: https://github.com/orgs/pterodactyl/discussions/categories/feature-requests
-    about: The preferred method for getting help with Pterodactyl or seeking new features for the software.
+    about: 取得 Pterodactyl 使用協助，或提出軟體新功能的建議首選管道。
   - name: Discord
-    url: https://discord.gg/pterodactyl
-    about: For quicker support with installations issues or running ideas by the community.
+    url: https://pterodactyl.tw/discord
+    about: 快速取得安裝問題支援，或與社群討論想法。
