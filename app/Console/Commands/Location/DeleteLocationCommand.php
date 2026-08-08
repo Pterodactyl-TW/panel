@@ -11,7 +11,7 @@ class DeleteLocationCommand extends Command
 {
     protected $description = '從 Panel 中刪除一個位置。';
 
-    protected $signature = 'p:location:delete {--short= : The short code of the location to delete.}';
+    protected $signature = 'p:location:delete {--short= : 要刪除的位置短碼。}';
 
     protected Collection $locations;
 
