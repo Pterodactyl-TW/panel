@@ -231,7 +231,7 @@ class User extends Model implements
      */
     public function getNameAttribute(): string
     {
-        return trim($this->name_first . ' ' . $this->name_last);
+        return trim($this->name_last . ' ' . $this->name_first);
     }
 
     /**
