@@ -8,7 +8,7 @@ export default async (uuid: string, directory: string, files: string[]): Promise
         { root: directory, files },
         {
             timeout: 60000,
-            timeoutErrorMessage: '此壓縮檔的產生似乎需要較長時間，完成後將會出現。',
+            timeoutErrorMessage: '此封存檔的產生似乎需要較長時間，完成後將會出現。',
         }
     );
 

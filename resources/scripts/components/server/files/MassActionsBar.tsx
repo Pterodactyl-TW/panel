@@ -33,7 +33,7 @@ const MassActionsBar = () => {
     const onClickCompress = () => {
         setLoading(true);
         clearFlashes('files');
-        setLoadingMessage('正在壓縮檔案...');
+        setLoadingMessage('正在封存檔案...');
 
         compressFiles(uuid, directory, selectedFiles)
             .then(() => mutate())
@@ -97,7 +97,7 @@ const MassActionsBar = () => {
                         <Fade timeout={75} in={selectedFiles.length > 0} unmountOnExit>
                             <div css={tw`flex items-center space-x-4 pointer-events-auto rounded p-4 bg-black/50`}>
                                 <Button onClick={() => setShowMove(true)}>移動</Button>
-                                <Button onClick={onClickCompress}>壓縮</Button>
+                                <Button onClick={onClickCompress}>封存</Button>
                                 <Button.Danger variant={Button.Variants.Secondary} onClick={() => setShowConfirm(true)}>
                                     刪除
                                 </Button.Danger>
