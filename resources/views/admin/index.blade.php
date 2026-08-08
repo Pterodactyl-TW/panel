@@ -38,7 +38,7 @@
                     </small>
                 </p>
                 <p class="text-muted" style="margin-top: 5px; margin-bottom: 0;">
-                    <small>你現在使用的是由 Pterodactyl 台灣翻譯團隊維護，提供 Pterodactyl 官方的繁體中文化版本。</small>
+                    <small>你現在使用的是由 <a href="https://pterodactyl.tw/" target="_blank">Pterodactyl 台灣翻譯團隊</a>維護，提供 Pterodactyl 官方的繁體中文化版本。</small>
                 </p>
             </div>
         </div>
