@@ -14,14 +14,14 @@ return [
     /*
      * 使用自訂的密鑰，預設會使用我們的公開密鑰
      */
-    'secret_key' => env('RECAPTCHA_SECRET_KEY', '6LcJcjwUAAAAALOcDJqAEYKTDhwELCkzUkNDQ0J5'),
-    '_shipped_secret_key' => '6LcJcjwUAAAAALOcDJqAEYKTDhwELCkzUkNDQ0J5',
+    'secret_key' => env('RECAPTCHA_SECRET_KEY', '6Ld73XotAAAAALO-paiy8zhcPoMOzUaHCRUBkU88'),
+    '_shipped_secret_key' => '6Ld73XotAAAAALO-paiy8zhcPoMOzUaHCRUBkU88',
 
     /*
      * 使用自訂的網站金鑰，預設會使用我們的公開金鑰
      */
-    'website_key' => env('RECAPTCHA_WEBSITE_KEY', '6LcJcjwUAAAAAO_Xqjrtj9wWufUpYRnK6BW8lnfn'),
-    '_shipped_website_key' => '6LcJcjwUAAAAAO_Xqjrtj9wWufUpYRnK6BW8lnfn',
+    'website_key' => env('RECAPTCHA_WEBSITE_KEY', '6Ld73XotAAAAAF_Xac2jPJWNJTG_2sgPp2qz_QEK'),
+    '_shipped_website_key' => '6Ld73XotAAAAAF_Xac2jPJWNJTG_2sgPp2qz_QEK',
 
     /*
      * 網域驗證預設為啟用，會比對解決驗證碼時使用的網域，
