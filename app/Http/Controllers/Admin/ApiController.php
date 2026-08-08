@@ -66,7 +66,7 @@ class ApiController extends Controller
             'user_id' => $request->user()->id,
         ], $request->getKeyPermissions());
 
-        $this->alert->success('A new application API key has been generated for your account.')->flash();
+        $this->alert->success('已為你的帳號產生一組新的應用程式 API 金鑰。')->flash();
 
         return redirect()->route('admin.api.index');
     }

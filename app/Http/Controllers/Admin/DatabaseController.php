@@ -68,7 +68,7 @@ class DatabaseController extends Controller
         } catch (\Exception $exception) {
             if ($exception instanceof \PDOException || $exception->getPrevious() instanceof \PDOException) {
                 $this->alert->danger(
-                    sprintf('There was an error while trying to connect to the host or while executing a query: "%s"', $exception->getMessage())
+                    sprintf('嘗試連線至主機或執行查詢時發生錯誤：「%s」', $exception->getMessage())
                 )->flash();
 
                 return redirect()->route('admin.databases')->withInput($request->validated());
@@ -77,7 +77,7 @@ class DatabaseController extends Controller
             }
         }
 
-        $this->alert->success('Successfully created a new database host on the system.')->flash();
+        $this->alert->success('已在系統上成功建立新的資料庫主機。')->flash();
 
         return redirect()->route('admin.databases.view', $host->id);
     }
@@ -93,13 +93,13 @@ class DatabaseController extends Controller
 
         try {
             $this->updateService->handle($host->id, $request->normalize());
-            $this->alert->success('Database host was updated successfully.')->flash();
+            $this->alert->success('資料庫主機已成功更新。')->flash();
         } catch (\Exception $exception) {
             // Catch any SQL related exceptions and display them back to the user, otherwise just
             // throw the exception like normal and move on with it.
             if ($exception instanceof \PDOException || $exception->getPrevious() instanceof \PDOException) {
                 $this->alert->danger(
-                    sprintf('There was an error while trying to connect to the host or while executing a query: "%s"', $exception->getMessage())
+                    sprintf('嘗試連線至主機或執行查詢時發生錯誤：「%s」', $exception->getMessage())
                 )->flash();
 
                 return $redirect->withInput($request->normalize());
@@ -119,7 +119,7 @@ class DatabaseController extends Controller
     public function delete(int $host): RedirectResponse
     {
         $this->deletionService->handle($host);
-        $this->alert->success('The requested database host has been deleted from the system.')->flash();
+        $this->alert->success('請求的資料庫主機已從系統中刪除。')->flash();
 
         return redirect()->route('admin.databases');
     }
