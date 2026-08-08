@@ -60,7 +60,7 @@ class RunHooksCommandTest extends TestCase
         Process::fake();
 
         $this->runHooks('BadEvent')
-            ->expectsOutputToContain('Invalid hook event name')
+            ->expectsOutputToContain('無效的掛勾事件名稱')
             ->assertExitCode(Command::INVALID);
 
         Process::assertNothingRan();
@@ -78,7 +78,7 @@ class RunHooksCommandTest extends TestCase
         ]);
 
         $this->runHooks()
-            ->expectsOutputToContain('exited with an error')
+            ->expectsOutputToContain('附加元件掛勾以錯誤結束')
             ->assertExitCode(Command::SUCCESS);
 
         Process::assertRan(fn ($process) => $process->command === [$failing]);
@@ -92,7 +92,7 @@ class RunHooksCommandTest extends TestCase
         $this->makeHook('example');
 
         $this->artisan('p:environment:addons:run-hooks', ['event' => 'post-install'])
-            ->expectsConfirmation('Execute 1 addon hook script(s) for the "post-install" event? They run with the privileges of this process.', 'no')
+            ->expectsConfirmation('要為「post-install」事件執行 1 個附加元件掛勾腳本嗎？它們將以此程序的權限執行。', 'no')
             ->assertExitCode(Command::SUCCESS);
 
         Process::assertNothingRan();
