@@ -49,11 +49,11 @@
         <a href="{{ $version->getDiscord() }}"><button class="btn btn-warning" style="width:100%;"><i class="fa fa-fw fa-support"></i> 取得協助 <small>（透過 Discord）</small></button></a>
     </div>
     <div class="col-xs-6 col-sm-3 text-center">
-        <a href="https://pterodactyl.io"><button class="btn btn-primary" style="width:100%;"><i class="fa fa-fw fa-link"></i> 文件</button></a>
+        <a href="https://pterodactyl.tw"><button class="btn btn-primary" style="width:100%;"><i class="fa fa-fw fa-link"></i> 文件</button></a>
     </div>
     <div class="clearfix visible-xs-block">&nbsp;</div>
     <div class="col-xs-6 col-sm-3 text-center">
-        <a href="https://github.com/pterodactyl/panel"><button class="btn btn-primary" style="width:100%;"><i class="fa fa-fw fa-support"></i> GitHub</button></a>
+        <a href="https://github.com/Pterodactyl-TW/panel"><button class="btn btn-primary" style="width:100%;"><i class="fa fa-fw fa-support"></i> GitHub</button></a>
     </div>
     <div class="col-xs-6 col-sm-3 text-center">
         <a href="{{ $version->getDonations() }}"><button class="btn btn-success" style="width:100%;"><i class="fa fa-fw fa-money"></i> 贊助此專案</button></a>
