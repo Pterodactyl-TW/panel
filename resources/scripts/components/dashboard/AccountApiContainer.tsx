@@ -72,7 +72,7 @@ export default () => {
                                     <p css={tw`text-sm break-words`}>{key.description}</p>
                                     <p css={tw`text-2xs text-neutral-300 uppercase`}>
                                         上次使用：&nbsp;
-                                        {key.lastUsedAt ? format(key.lastUsedAt, 'MMM do, yyyy HH:mm') : '從未使用'}
+                                        {key.lastUsedAt ? format(key.lastUsedAt, 'yyyy/MM/dd HH:mm') : '從未使用'}
                                     </p>
                                 </div>
                                 <p css={tw`text-sm ml-4 hidden md:block`}>

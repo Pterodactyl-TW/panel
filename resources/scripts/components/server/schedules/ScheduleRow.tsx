@@ -14,7 +14,7 @@ export default ({ schedule }: { schedule: Schedule }) => (
         <div css={tw`flex-1 md:ml-4`}>
             <p>{schedule.name}</p>
             <p css={tw`text-xs text-neutral-400`}>
-                上次執行時間：{schedule.lastRunAt ? format(schedule.lastRunAt, "MMM do 'at' h:mma") : '從未執行'}
+                上次執行時間：{schedule.lastRunAt ? format(schedule.lastRunAt, 'yyyy/MM/dd HH:mm') : '從未執行'}
             </p>
         </div>
         <div>
