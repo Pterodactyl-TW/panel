@@ -66,7 +66,7 @@ export default () => {
                 description: server.description,
             }}
             validationSchema={object().shape({
-                name: string().required().min(1),
+                name: string().required('必須提供名稱。').min(1),
                 description: string().nullable(),
             })}
         >

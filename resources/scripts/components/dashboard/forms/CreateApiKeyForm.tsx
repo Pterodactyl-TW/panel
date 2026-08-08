@@ -52,7 +52,7 @@ export default ({ onKeyCreated }: { onKeyCreated: (key: ApiKey) => void }) => {
                 initialValues={{ description: '', allowedIps: '' }}
                 validationSchema={object().shape({
                     allowedIps: string(),
-                    description: string().required().min(4),
+                    description: string().required('必須提供描述。').min(4),
                 })}
             >
                 {({ isSubmitting }) => (

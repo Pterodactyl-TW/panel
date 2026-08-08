@@ -29,7 +29,7 @@ export default ({ onFileNamed, onDismissed, ...props }: Props) => {
             onSubmit={submit}
             initialValues={{ fileName: '' }}
             validationSchema={object().shape({
-                fileName: string().required().min(1),
+                fileName: string().required('必須提供檔案名稱。').min(1),
             })}
         >
             {({ resetForm }) => (

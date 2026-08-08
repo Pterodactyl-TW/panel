@@ -18,7 +18,7 @@ interface Values {
 
 const schema = Yup.object().shape({
     current: Yup.string().min(1).required('你必須提供目前的密碼。'),
-    password: Yup.string().min(8).required(),
+    password: Yup.string().min(8).required('必須提供新密碼。'),
     confirmPassword: Yup.string().test('password', '確認密碼與你輸入的密碼不相符。', function (value) {
         return value === this.parent.password;
     }),

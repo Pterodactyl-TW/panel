@@ -41,8 +41,8 @@ export default () => {
                 onSubmit={submit}
                 initialValues={{ name: '', publicKey: '' }}
                 validationSchema={object().shape({
-                    name: string().required(),
-                    publicKey: string().required(),
+                    name: string().required('必須提供名稱。'),
+                    publicKey: string().required('必須提供公鑰。'),
                 })}
             >
                 {({ isSubmitting }) => (
