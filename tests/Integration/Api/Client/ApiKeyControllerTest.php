@@ -148,9 +148,9 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
             'allowed_ips' => ['hodor', '127.0.0.1', 'hodor/24'],
         ])
             ->assertUnprocessable()
-            ->assertJsonPath('errors.0.detail', '"hodor" is not a valid IP address or CIDR range.')
+            ->assertJsonPath('errors.0.detail', '「hodor」不是有效的 IP 位址或 CIDR 範圍。')
             ->assertJsonPath('errors.0.meta.source_field', 'allowed_ips.0')
-            ->assertJsonPath('errors.1.detail', '"hodor/24" is not a valid IP address or CIDR range.')
+            ->assertJsonPath('errors.1.detail', '「hodor/24」不是有效的 IP 位址或 CIDR 範圍。')
             ->assertJsonPath('errors.1.meta.source_field', 'allowed_ips.2');
     }
 
