@@ -13,33 +13,32 @@ $app = require __DIR__ . '/app.php';
 $kernel = $app->make(Kernel::class);
 
 /*
- * Bootstrap the kernel and prepare application for testing.
+ * 啟動 kernel 並讓應用程式準備好進行測試。
  */
 $kernel->bootstrap();
 
-// Register the collision service provider so that errors during the test
-// setup process are output nicely.
+// 註冊 collision 服務提供者，讓測試設定過程中發生的錯誤
+// 能以美觀的格式輸出。
 (new Provider())->register();
 
 $output = new ConsoleOutput();
 
 $prefix = 'database.connections.' . config('database.default');
 if (!Str::contains(config("$prefix.database"), 'test')) {
-    $output->writeln(PHP_EOL . '<error>Cannot run test process against non-testing database.</error>');
-    $output->writeln(PHP_EOL . '<error>Environment is currently pointed at: "' . config("$prefix.database") . '".</error>');
+    $output->writeln(PHP_EOL . '<error>無法針對非測試用的資料庫執行測試流程。</error>');
+    $output->writeln(PHP_EOL . '<error>目前環境指向的資料庫為：「' . config("$prefix.database") . '」。</error>');
     exit(1);
 }
 
 /*
- * Perform database migrations and reseeding before continuing with
- * running the tests.
+ * 在繼續執行測試之前，先進行資料庫遷移與重新填入種子資料。
  */
 if (!env('SKIP_MIGRATIONS')) {
-    $output->writeln(PHP_EOL . '<info>Refreshing database for Integration tests...</info>');
+    $output->writeln(PHP_EOL . '<info>正在為整合測試重新整理資料庫...</info>');
     $kernel->call('migrate:fresh');
 
-    $output->writeln('<info>Seeding database for Integration tests...</info>' . PHP_EOL);
+    $output->writeln('<info>正在為整合測試填入種子資料...</info>' . PHP_EOL);
     $kernel->call('db:seed');
 } else {
-    $output->writeln(PHP_EOL . '<comment>Skipping database migrations...</comment>' . PHP_EOL);
+    $output->writeln(PHP_EOL . '<comment>略過資料庫遷移...</comment>' . PHP_EOL);
 }
