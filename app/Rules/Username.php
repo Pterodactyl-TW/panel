@@ -29,8 +29,7 @@ class Username implements Rule
      */
     public function message(): string
     {
-        return ':attribute 必須以英數字元開頭與結尾，且只能包含英文字母、數字、
-                破折號、底線及句號。';
+        return ':attribute 必須以英數字元開頭與結尾，且只能包含英文字母、數字、破折號、底線及句號。';
     }
 
     /**
