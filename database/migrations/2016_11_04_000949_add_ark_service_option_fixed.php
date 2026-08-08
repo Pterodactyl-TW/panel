@@ -12,12 +12,12 @@ class AddArkServiceOptionFixed extends Migration
         DB::transaction(function () {
             $service = DB::table('services')->select('id')->where('author', 'ptrdctyl-v040-11e6-8b77-86f30ca893d3')->where('name', 'Source Engine')->first();
 
-            // No SRCDS Service, Skipping
+            // 沒有 SRCDS 服務，略過
             if (!$service) {
                 return;
             }
 
-            // Already have this service option installed.
+            // 此服務選項已安裝。
             if (DB::table('service_options')->select('id')->where('name', 'Ark: Survival Evolved')->where('parent_service', $service->id)->first()) {
                 return;
             }
@@ -25,7 +25,7 @@ class AddArkServiceOptionFixed extends Migration
             $oid = DB::table('service_options')->insertGetId([
                 'parent_service' => $service->id,
                 'name' => 'Ark: Survival Evolved',
-                'description' => 'As a man or woman stranded, naked, freezing, and starving on the unforgiving shores of a mysterious island called ARK, use your skill and cunning to kill or tame and ride the plethora of leviathan dinosaurs and other primeval creatures roaming the land. Hunt, harvest resources, craft items, grow crops, research technologies, and build shelters to withstand the elements and store valuables, all while teaming up with (or preying upon) hundreds of other players to survive, dominate... and escape! — Gamepedia: ARK',
+                'description' => '身為一名流落荒島、赤身裸體、又凍又餓的男人或女人，在這座名為 ARK 的神秘島嶼的無情海岸上，運用你的技巧與智謀，獵殺、馴服並騎乘充斥全島的巨型恐龍與其他遠古生物。狩獵、採集資源、製作道具、種植作物、研究科技並建造庇護所以抵禦環境並保存貴重物品，同時還要與其他數百名玩家組隊（或互相獵殺）以求生存、稱霸，並逃出生天！（資料來源：Gamepedia ARK）',
                 'tag' => 'ark',
                 'docker_image' => 'quay.io/pterodactyl/srcds:ark',
                 'executable' => './ShooterGameServer',
@@ -35,7 +35,7 @@ class AddArkServiceOptionFixed extends Migration
             DB::table('service_variables')->insert([
                 'option_id' => $oid,
                 'name' => 'Server Password',
-                'description' => 'If specified, players must provide this password to join the server.',
+                'description' => '若有設定，玩家必須提供此密碼才能加入伺服器。',
                 'env_variable' => 'ARK_PASSWORD',
                 'default_value' => '',
                 'user_viewable' => 1,
@@ -47,7 +47,7 @@ class AddArkServiceOptionFixed extends Migration
             DB::table('service_variables')->insert([
                 'option_id' => $oid,
                 'name' => 'Admin Password',
-                'description' => 'If specified, players must provide this password (via the in-game console) to gain access to administrator commands on the server.',
+                'description' => '若有設定，玩家必須（透過遊戲內主控台）提供此密碼才能取得伺服器管理員指令的存取權限。',
                 'env_variable' => 'ARK_ADMIN_PASSWORD',
                 'default_value' => '',
                 'user_viewable' => 1,
@@ -59,7 +59,7 @@ class AddArkServiceOptionFixed extends Migration
             DB::table('service_variables')->insert([
                 'option_id' => $oid,
                 'name' => 'Maximum Players',
-                'description' => 'Specifies the maximum number of players that can play on the server simultaneously.',
+                'description' => '指定伺服器上可同時遊玩的最大玩家人數。',
                 'env_variable' => 'SERVER_MAX_PLAYERS',
                 'default_value' => 20,
                 'user_viewable' => 1,
