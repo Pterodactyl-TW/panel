@@ -6,7 +6,7 @@ export default async (uuid: string, directory: string, file: string): Promise<vo
         { root: directory, file },
         {
             timeout: 300000,
-            timeoutErrorMessage: '此封存檔的解壓縮似乎需要較長時間，解壓縮完成後檔案將會出現。',
+            timeoutErrorMessage: '此壓縮檔的解壓縮似乎需要較長時間，解壓縮完成後檔案將會出現。',
         }
     );
 };
