@@ -16,7 +16,7 @@ class AuthenticateApplicationUser
         /** @var \Pterodactyl\Models\User|null $user */
         $user = $request->user();
         if (!$user || !$user->root_admin) {
-            throw new AccessDeniedHttpException('This account does not have permission to access the API.');
+            throw new AccessDeniedHttpException('此帳號沒有存取 API 的權限。');
         }
 
         return $next($request);
