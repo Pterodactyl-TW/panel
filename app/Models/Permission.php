@@ -100,110 +100,110 @@ class Permission extends Model
      */
     protected static array $permissions = [
         'websocket' => [
-            'description' => 'Allows the user to connect to the server websocket, giving them access to view console output and realtime server stats.',
+            'description' => '允許使用者連接伺服器的 websocket，讓他們能檢視主控台輸出與即時伺服器狀態。',
             'keys' => [
-                'connect' => 'Allows a user to connect to the websocket instance for a server to stream the console.',
+                'connect' => '允許使用者連接伺服器的 websocket 實例，以串流主控台內容。',
             ],
         ],
 
         'control' => [
-            'description' => 'Permissions that control a user\'s ability to control the power state of a server, or send commands.',
+            'description' => '控管使用者是否能控制伺服器的電源狀態，或傳送指令的權限。',
             'keys' => [
-                'console' => 'Allows a user to send commands to the server instance via the console.',
-                'start' => 'Allows a user to start the server if it is stopped.',
-                'stop' => 'Allows a user to stop a server if it is running.',
-                'restart' => 'Allows a user to perform a server restart. This allows them to start the server if it is offline, but not put the server in a completely stopped state.',
+                'console' => '允許使用者透過主控台向伺服器實例傳送指令。',
+                'start' => '允許使用者在伺服器停止時將其啟動。',
+                'stop' => '允許使用者在伺服器執行中時將其停止。',
+                'restart' => '允許使用者重新啟動伺服器。這讓他們能在伺服器離線時將其啟動，但不能讓伺服器維持在完全停止的狀態。',
             ],
         ],
 
         'user' => [
-            'description' => 'Permissions that allow a user to manage other subusers on a server. They will never be able to edit their own account, or assign permissions they do not have themselves.',
+            'description' => '允許使用者管理伺服器上其他子使用者的權限。他們永遠無法編輯自己的帳號，也無法指派自己沒有的權限。',
             'keys' => [
-                'create' => 'Allows a user to create new subusers for the server.',
-                'read' => 'Allows the user to view subusers and their permissions for the server.',
-                'update' => 'Allows a user to modify other subusers.',
-                'delete' => 'Allows a user to delete a subuser from the server.',
+                'create' => '允許使用者為伺服器建立新的子使用者。',
+                'read' => '允許使用者檢視伺服器的子使用者及其權限。',
+                'update' => '允許使用者修改其他子使用者。',
+                'delete' => '允許使用者從伺服器刪除子使用者。',
             ],
         ],
 
         'file' => [
-            'description' => 'Permissions that control a user\'s ability to modify the filesystem for this server.',
+            'description' => '控管使用者是否能修改此伺服器檔案系統的權限。',
             'keys' => [
-                'create' => 'Allows a user to create additional files and folders via the Panel or direct upload.',
-                'read' => 'Allows a user to view the contents of a directory, but not view the contents of or download files.',
-                'read-content' => 'Allows a user to view the contents of a given file. This will also allow the user to download files.',
-                'update' => 'Allows a user to update the contents of an existing file or directory.',
-                'delete' => 'Allows a user to delete files or directories.',
-                'archive' => 'Allows a user to archive the contents of a directory as well as decompress existing archives on the system.',
-                'sftp' => 'Allows a user to connect to SFTP and manage server files using the other assigned file permissions.',
+                'create' => '允許使用者透過 Panel 或直接上傳建立額外的檔案與資料夾。',
+                'read' => '允許使用者檢視目錄內容，但無法檢視或下載檔案內容。',
+                'read-content' => '允許使用者檢視特定檔案的內容，這也會允許使用者下載檔案。',
+                'update' => '允許使用者更新現有檔案或目錄的內容。',
+                'delete' => '允許使用者刪除檔案或目錄。',
+                'archive' => '允許使用者將目錄內容壓縮成壓縮檔，並解壓縮系統上現有的壓縮檔。',
+                'sftp' => '允許使用者連接 SFTP，並使用其他已指派的檔案權限管理伺服器檔案。',
             ],
         ],
 
         'backup' => [
-            'description' => 'Permissions that control a user\'s ability to generate and manage server backups.',
+            'description' => '控管使用者是否能產生與管理伺服器備份的權限。',
             'keys' => [
-                'create' => 'Allows a user to create new backups for this server.',
-                'read' => 'Allows a user to view all backups that exist for this server.',
-                'delete' => 'Allows a user to remove backups from the system.',
-                'download' => 'Allows a user to download a backup for the server. Danger: this allows a user to access all files for the server in the backup.',
-                'restore' => 'Allows a user to restore a backup for the server. Danger: this allows the user to delete all of the server files in the process.',
+                'create' => '允許使用者為此伺服器建立新的備份。',
+                'read' => '允許使用者檢視此伺服器所有現有的備份。',
+                'delete' => '允許使用者從系統中移除備份。',
+                'download' => '允許使用者下載伺服器的備份。危險：這將允許使用者存取備份中此伺服器的所有檔案。',
+                'restore' => '允許使用者還原伺服器的備份。危險：這將允許使用者在過程中刪除此伺服器的所有檔案。',
             ],
         ],
 
         // Controls permissions for editing or viewing a server's allocations.
         'allocation' => [
-            'description' => 'Permissions that control a user\'s ability to modify the port allocations for this server.',
+            'description' => '控管使用者是否能修改此伺服器連接埠配置的權限。',
             'keys' => [
-                'read' => 'Allows a user to view all allocations currently assigned to this server. Users with any level of access to this server can always view the primary allocation.',
-                'create' => 'Allows a user to assign additional allocations to the server.',
-                'update' => 'Allows a user to change the primary server allocation and attach notes to each allocation.',
-                'delete' => 'Allows a user to delete an allocation from the server.',
+                'read' => '允許使用者檢視目前指派給此伺服器的所有連接埠配置。對此伺服器擁有任何層級存取權限的使用者，永遠都能檢視主要配置。',
+                'create' => '允許使用者為伺服器指派額外的連接埠配置。',
+                'update' => '允許使用者變更伺服器的主要連接埠配置，並為每個配置附加備註。',
+                'delete' => '允許使用者從伺服器刪除連接埠配置。',
             ],
         ],
 
         // Controls permissions for editing or viewing a server's startup parameters.
         'startup' => [
-            'description' => 'Permissions that control a user\'s ability to view this server\'s startup parameters.',
+            'description' => '控管使用者是否能檢視此伺服器啟動參數的權限。',
             'keys' => [
-                'read' => 'Allows a user to view the startup variables for a server.',
-                'update' => 'Allows a user to modify the startup variables for the server.',
-                'docker-image' => 'Allows a user to modify the Docker image used when running the server.',
+                'read' => '允許使用者檢視伺服器的啟動變數。',
+                'update' => '允許使用者修改伺服器的啟動變數。',
+                'docker-image' => '允許使用者修改執行伺服器時所使用的 Docker 映像檔。',
             ],
         ],
 
         'database' => [
-            'description' => 'Permissions that control a user\'s access to the database management for this server.',
+            'description' => '控管使用者對此伺服器資料庫管理的存取權限。',
             'keys' => [
-                'create' => 'Allows a user to create a new database for this server.',
-                'read' => 'Allows a user to view the database associated with this server.',
-                'update' => 'Allows a user to rotate the password on a database instance. If the user does not have the view_password permission they will not see the updated password.',
-                'delete' => 'Allows a user to remove a database instance from this server.',
-                'view_password' => 'Allows a user to view the password associated with a database instance for this server.',
+                'create' => '允許使用者為此伺服器建立新的資料庫。',
+                'read' => '允許使用者檢視與此伺服器關聯的資料庫。',
+                'update' => '允許使用者重設資料庫實例的密碼。若使用者沒有 view_password 權限，將無法看到更新後的密碼。',
+                'delete' => '允許使用者從此伺服器移除資料庫實例。',
+                'view_password' => '允許使用者檢視與此伺服器資料庫實例關聯的密碼。',
             ],
         ],
 
         'schedule' => [
-            'description' => 'Permissions that control a user\'s access to the schedule management for this server.',
+            'description' => '控管使用者對此伺服器排程管理的存取權限。',
             'keys' => [
-                'create' => 'Allows a user to create new schedules for this server.', // task.create-schedule
-                'read' => 'Allows a user to view schedules and the tasks associated with them for this server.', // task.view-schedule, task.list-schedules
-                'update' => 'Allows a user to update schedules and schedule tasks for this server.', // task.edit-schedule, task.queue-schedule, task.toggle-schedule
-                'delete' => 'Allows a user to delete schedules for this server.', // task.delete-schedule
+                'create' => '允許使用者為此伺服器建立新的排程。', // task.create-schedule
+                'read' => '允許使用者檢視此伺服器的排程及其相關工作。', // task.view-schedule, task.list-schedules
+                'update' => '允許使用者更新此伺服器的排程與排程工作。', // task.edit-schedule, task.queue-schedule, task.toggle-schedule
+                'delete' => '允許使用者刪除此伺服器的排程。', // task.delete-schedule
             ],
         ],
 
         'settings' => [
-            'description' => 'Permissions that control a user\'s access to the settings for this server.',
+            'description' => '控管使用者對此伺服器設定的存取權限。',
             'keys' => [
-                'rename' => 'Allows a user to rename this server and change the description of it.',
-                'reinstall' => 'Allows a user to trigger a reinstall of this server.',
+                'rename' => '允許使用者重新命名此伺服器並變更其描述。',
+                'reinstall' => '允許使用者觸發此伺服器的重新安裝。',
             ],
         ],
 
         'activity' => [
-            'description' => 'Permissions that control a user\'s access to the server activity logs.',
+            'description' => '控管使用者對伺服器活動紀錄的存取權限。',
             'keys' => [
-                'read' => 'Allows a user to view the activity logs for the server.',
+                'read' => '允許使用者檢視伺服器的活動紀錄。',
             ],
         ],
     ];
