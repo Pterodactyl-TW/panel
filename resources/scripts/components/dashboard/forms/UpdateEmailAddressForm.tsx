@@ -15,7 +15,7 @@ interface Values {
 }
 
 const schema = Yup.object().shape({
-    email: Yup.string().email().required(),
+    email: Yup.string().email('必須提供有效的電子郵件地址。').required('必須提供電子郵件地址。'),
     password: Yup.string().required('你必須提供目前的帳號密碼。'),
 });
 
