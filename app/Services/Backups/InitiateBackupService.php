@@ -80,7 +80,7 @@ class InitiateBackupService
         if ($period > 0) {
             $previous = $this->repository->getBackupsGeneratedDuringTimespan($server->id, $period);
             if ($previous->count() >= $limit) {
-                $message = sprintf('Only %d backups may be generated within a %d second span of time.', $limit, $period);
+                $message = sprintf('在 %2$d 秒的時間範圍內，最多只能產生 %1$d 個備份。', $limit, $period);
 
                 throw new TooManyRequestsHttpException((int) CarbonImmutable::now()->diffInSeconds($previous->last()->created_at->addSeconds($period)), $message);
             }
@@ -111,7 +111,7 @@ class InitiateBackupService
             $backup = $this->repository->create([
                 'server_id' => $server->id,
                 'uuid' => Uuid::uuid4()->toString(),
-                'name' => trim($name) ?: sprintf('Backup at %s', CarbonImmutable::now()->toDateTimeString()),
+                'name' => trim($name) ?: sprintf('備份於 %s', CarbonImmutable::now()->toDateTimeString()),
                 'ignored_files' => array_values($this->ignoredFiles),
                 'disk' => $this->backupManager->getDefaultAdapter(),
                 'is_locked' => $this->isLocked,
