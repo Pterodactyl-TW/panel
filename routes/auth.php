@@ -35,7 +35,7 @@ Route::middleware(['throttle:authentication'])->group(function () {
 });
 
 // 密碼重設路由。使用者透過忘記密碼流程取得權杖後
-//（或帳號建立後），會被導向此端點。
+// （或帳號建立後），會被導向此端點。
 Route::post('/password/reset', Auth\ResetPasswordController::class)->name('auth.reset-password');
 
 // 移除 guest 中介層並套用 authenticated 中介層到此端點，
