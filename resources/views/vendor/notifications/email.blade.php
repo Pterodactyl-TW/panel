@@ -175,10 +175,9 @@ $style = [
                                 <tr>
                                     <td style="{{ $fontFamily }} {{ $style['email-footer_cell'] }}">
                                         <p style="{{ $style['paragraph-sub'] }}">
-                                            Copyright &copy; 2026 - {{ date('Y') }}
-                                            <a style="{{ $style['anchor'] }}" href="https://pterodactyl.tw" target="_blank" rel="noopener nofollow noreferrer">Pterodactyl-TW 臺灣翻譯團隊</a>. All Rights Reserved.<br />
-                                            Based on software originally developed by
-                                            <a style="{{ $style['anchor'] }}" href="https://pterodactyl.io" target="_blank" rel="noopener nofollow noreferrer">Pterodactyl Software</a>.
+                                            Copyright &copy; {{ date('Y') }}
+                                            <a style="{{ $style['anchor'] }}" href="{{ url('/') }}" target="_blank">{{ config('app.name') }}</a>.
+                                            All rights reserved.
                                         </p>
                                     </td>
                                 </tr>
