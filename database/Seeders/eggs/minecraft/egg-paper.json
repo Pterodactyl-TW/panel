@@ -39,7 +39,7 @@
     },
     "variables": [
         {
-            "name": "Minecraft Version",
+            "name": "Minecraft 版本",
             "description": "要下載的 Minecraft 版本。\r\n\r\n保留 latest 可永遠取得最新版本。無效的版本將預設使用最新版本。",
             "env_variable": "MINECRAFT_VERSION",
             "default_value": "latest",
@@ -49,7 +49,7 @@
             "field_type": "text"
         },
         {
-            "name": "Server Jar File",
+            "name": "伺服器 Jar 檔案",
             "description": "執行伺服器所使用的伺服器 jar 檔名稱。",
             "env_variable": "SERVER_JARFILE",
             "default_value": "server.jar",
@@ -59,7 +59,7 @@
             "field_type": "text"
         },
         {
-            "name": "Download Path",
+            "name": "下載路徑",
             "description": "用於下載 server.jar 的網址，會取代安裝腳本內建的下載來源。此欄位不對使用者顯示。",
             "env_variable": "DL_PATH",
             "default_value": "",
@@ -69,7 +69,7 @@
             "field_type": "text"
         },
         {
-            "name": "Build Number",
+            "name": "組建編號",
             "description": "Paper 版本的組建編號。\r\n\r\n保留 latest 可永遠取得最新版本。無效的版本將預設使用最新版本。",
             "env_variable": "BUILD_NUMBER",
             "default_value": "latest",

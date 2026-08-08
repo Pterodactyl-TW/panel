@@ -1,5 +1,5 @@
 {
-    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "_comment": "請勿編輯：此檔案由 PTERODACTYL PANEL 自動產生 - PTERODACTYL.TW",
     "meta": {
         "version": "PTDL_v2",
         "update_url": null
@@ -22,7 +22,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash\r\n\r\nif [ ! -d \/mnt\/server\/ ]; then\r\n    mkdir \/mnt\/server\/\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\nFILE=\/mnt\/server\/murmur.ini\r\nif [ -f \"$FILE\" ]; then\r\n    echo \"Config file already exists.\"\r\nelse \r\n    echo \"Downloading the config file.\"\r\n    apk add --no-cache murmur\r\n    cp \/etc\/murmur.ini \/mnt\/server\/murmur.ini\r\n    apk del murmur\r\nfi\r\necho \"done\"",
+            "script": "#!\/bin\/ash\r\n\r\nif [ ! -d \/mnt\/server\/ ]; then\r\n    mkdir \/mnt\/server\/\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\nFILE=\/mnt\/server\/murmur.ini\r\nif [ -f \"$FILE\" ]; then\r\n    echo \"組態設定檔已存在。\"\r\nelse \r\n    echo \"正在下載組態設定檔。\"\r\n    apk add --no-cache murmur\r\n    cp \/etc\/murmur.ini \/mnt\/server\/murmur.ini\r\n    apk del murmur\r\nfi\r\necho \"完成\"",
             "container": "ghcr.io\/pterodactyl\/installers:alpine",
             "entrypoint": "ash"
         }

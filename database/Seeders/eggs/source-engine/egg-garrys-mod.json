@@ -32,7 +32,7 @@
     },
     "variables": [
         {
-            "name": "Map",
+            "name": "地圖",
             "description": "伺服器的預設地圖。",
             "env_variable": "SRCDS_MAP",
             "default_value": "gm_flatgrass",
@@ -42,7 +42,7 @@
             "field_type": "text"
         },
         {
-            "name": "Steam Account Token",
+            "name": "Steam 帳號權杖",
             "description": "伺服器要公開顯示所需的 Steam 帳號權杖。",
             "env_variable": "STEAM_TOKEN",
             "default_value": "",
@@ -62,7 +62,7 @@
             "field_type": "text"
         },
         {
-            "name": "Workshop ID",
+            "name": "創意工坊 ID",
             "description": "你的創意工坊收藏（workshop collection）ID（網址結尾的數字）",
             "env_variable": "WORKSHOP_ID",
             "default_value": "",
@@ -72,7 +72,7 @@
             "field_type": "text"
         },
         {
-            "name": "Gamemode",
+            "name": "遊戲模式",
             "description": "你伺服器的遊戲模式。",
             "env_variable": "GAMEMODE",
             "default_value": "sandbox",
@@ -82,7 +82,7 @@
             "field_type": "text"
         },
         {
-            "name": "Max Players",
+            "name": "最大玩家數",
             "description": "你的遊戲伺服器允許的最大玩家人數。",
             "env_variable": "MAX_PLAYERS",
             "default_value": "32",
@@ -92,7 +92,7 @@
             "field_type": "text"
         },
         {
-            "name": "Tickrate",
+            "name": "Tick 速率",
             "description": "Tickrate 決定伺服器更新每個實體位置的速度。",
             "env_variable": "TICKRATE",
             "default_value": "22",
@@ -102,7 +102,7 @@
             "field_type": "text"
         },
         {
-            "name": "Lua Refresh",
+            "name": "Lua 重新整理",
             "description": "0 = 停用 Lua 重新整理，\r\n1 = 啟用 Lua 重新整理",
             "env_variable": "LUA_REFRESH",
             "default_value": "0",

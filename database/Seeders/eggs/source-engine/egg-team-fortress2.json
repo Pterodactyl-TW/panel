@@ -31,7 +31,7 @@
     },
     "variables": [
         {
-            "name": "Server Name",
+            "name": "伺服器名稱",
             "description": "伺服器在遊戲內伺服器瀏覽清單中顯示的名稱。",
             "env_variable": "HOSTNAME",
             "default_value": "A Pterodactyl Hosted TF2 Server",
@@ -41,7 +41,7 @@
             "field_type": "text"
         },
         {
-            "name": "Default Map",
+            "name": "預設地圖",
             "description": "伺服器啟動時載入的地圖。常見選項：ctf_2fort, cp_dustbowl, pl_badwater, koth_harvest_event。",
             "env_variable": "SRCDS_MAP",
             "default_value": "ctf_2fort",
@@ -51,7 +51,7 @@
             "field_type": "text"
         },
         {
-            "name": "Max Players",
+            "name": "最大玩家數",
             "description": "允許同時加入伺服器的最大玩家人數。",
             "env_variable": "MAX_PLAYERS",
             "default_value": "24",
@@ -61,7 +61,7 @@
             "field_type": "text"
         },
         {
-            "name": "Server Password",
+            "name": "伺服器密碼",
             "description": "若有設定，玩家需輸入此密碼才能加入伺服器。留空則任何人皆可加入。",
             "env_variable": "SERVER_PASSWORD",
             "default_value": "",
@@ -71,7 +71,7 @@
             "field_type": "text"
         },
         {
-            "name": "Admin (RCON) Password",
+            "name": "管理員（RCON）密碼",
             "description": "遠端管理工具用來管理伺服器（例如變更地圖、踢除玩家等）的密碼。留空則停用遠端管理存取。",
             "env_variable": "RCON_PASSWORD",
             "default_value": "",
@@ -81,7 +81,7 @@
             "field_type": "text"
         },
         {
-            "name": "Game Server Login Token (GSLT)",
+            "name": "遊戲伺服器登入權杖（GSLT）",
             "description": "Valve 提供的免費權杖，可讓你的伺服器出現在公開伺服器瀏覽清單中。可於 https://steamcommunity.com/dev/managegameservers 取得（選擇「Team Fortress 2」）。留空則以私人伺服器運作，僅限你直接邀請的人加入。",
             "env_variable": "STEAM_GSLT",
             "default_value": "",
@@ -91,8 +91,8 @@
             "field_type": "text"
         },
         {
-            "name": "Client Port",
-            "description": "遊戲與主要伺服器連接埠並用的第二個網路連接埠。需要額外配置（Additional Allocation）——請設為你為此伺服器配置的第二個連接埠。",
+            "name": "客戶端連接埠",
+            "description": "遊戲與主要伺服器連接埠並用的第二個網路連接埠。需要額外配置（Additional Allocation），請設為你為此伺服器配置的第二個連接埠。",
             "env_variable": "SRCDS_CPORT",
             "default_value": "27005",
             "user_viewable": true,
@@ -101,8 +101,8 @@
             "field_type": "text"
         },
         {
-            "name": "SourceTV Port",
-            "description": "SourceTV 所使用的連接埠，此功能可讓其他人觀戰或錄製伺服器上的比賽。需要額外配置（Additional Allocation）——請設為你為此伺服器配置的第二個連接埠。",
+            "name": "SourceTV 連接埠",
+            "description": "SourceTV 所使用的連接埠，此功能可讓其他人觀戰或錄製伺服器上的比賽。需要額外配置（Additional Allocation），請設為你為此伺服器配置的第二個連接埠。",
             "env_variable": "SRCDS_STV",
             "default_value": "27020",
             "user_viewable": true,
@@ -111,7 +111,7 @@
             "field_type": "text"
         },
         {
-            "name": "Auto Update",
+            "name": "自動更新",
             "description": "每次重新啟動時自動將伺服器更新至最新版本。",
             "env_variable": "AUTO_UPDATE",
             "default_value": "1",
@@ -121,7 +121,7 @@
             "field_type": "text"
         },
         {
-            "name": "Game ID",
+            "name": "遊戲 ID",
             "description": "用於下載並更新伺服器的內部 Steam 識別碼。請勿變更。",
             "env_variable": "SRCDS_APPID",
             "default_value": "232250",
@@ -131,7 +131,7 @@
             "field_type": "text"
         },
         {
-            "name": "Game Folder",
+            "name": "遊戲資料夾",
             "description": "伺服器軟體執行所在的內部資料夾名稱。請勿變更。",
             "env_variable": "SRCDS_GAME",
             "default_value": "tf",

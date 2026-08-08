@@ -1,5 +1,5 @@
 {
-    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "_comment": "請勿編輯：此檔案由 PTERODACTYL PANEL 自動產生 - PTERODACTYL.TW",
     "meta": {
         "version": "PTDL_v2",
         "update_url": null
@@ -22,7 +22,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash\r\n# TS3 Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n\r\nif [ -z ${TS_VERSION} ] || [ ${TS_VERSION} == latest ]; then\r\n    TS_VERSION=$(curl -sSL https:\/\/teamspeak.com\/versions\/server.json | jq -r '.linux.x86_64.version')\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\necho -e \"getting files from http:\/\/files.teamspeak-services.com\/releases\/server\/${TS_VERSION}\/teamspeak3-server_linux_amd64-${TS_VERSION}.tar.bz2\" \r\ncurl -L http:\/\/files.teamspeak-services.com\/releases\/server\/${TS_VERSION}\/teamspeak3-server_linux_amd64-${TS_VERSION}.tar.bz2 | tar -xvj --strip-components=1\r\ncp .\/redist\/libmariadb.so.2 .\/",
+            "script": "#!\/bin\/ash\r\n# TS3 安裝腳本\r\n#\r\n# 伺服器檔案位置：\/mnt\/server\r\n\r\nif [ -z ${TS_VERSION} ] || [ ${TS_VERSION} == latest ]; then\r\n    TS_VERSION=$(curl -sSL https:\/\/teamspeak.com\/versions\/server.json | jq -r '.linux.x86_64.version')\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\necho -e \"正在從 http:\/\/files.teamspeak-services.com\/releases\/server\/${TS_VERSION}\/teamspeak3-server_linux_amd64-${TS_VERSION}.tar.bz2 取得檔案\" \r\ncurl -L http:\/\/files.teamspeak-services.com\/releases\/server\/${TS_VERSION}\/teamspeak3-server_linux_amd64-${TS_VERSION}.tar.bz2 | tar -xvj --strip-components=1\r\ncp .\/redist\/libmariadb.so.2 .\/",
             "container": "ghcr.io\/pterodactyl\/installers:alpine",
             "entrypoint": "ash"
         }

@@ -39,7 +39,7 @@
     },
     "variables": [
         {
-            "name": "SpongeVanilla Version",
+            "name": "SpongeVanilla 版本",
             "description": "範例：1.12.2-7.1.6\r\n\r\n若版本無效，將預設使用建議版本",
             "env_variable": "SV_VERSION",
             "default_value": "recommended",
@@ -49,7 +49,7 @@
             "field_type": "text"
         },
         {
-            "name": "Server Jar File",
+            "name": "伺服器 Jar 檔案",
             "description": "執行 Mod 時所使用的 Jar 檔名稱。",
             "env_variable": "SERVER_JARFILE",
             "default_value": "server.jar",

@@ -7,7 +7,7 @@
     "exported_at": "2025-07-16T10:03:10+00:00",
     "name": "Ark: Survival Evolved",
     "author": "dev@shepper.fr",
-    "description": "身為一位赤裸、飢寒交迫地漂流在名為 ARK 的神秘島嶼上的男人或女人，您必須運用技巧與智慧，獵殺或馴服並騎乘徘徊在此地的各種巨獸恐龍與遠古生物。狩獵、採集資源、製作物品、種植作物、研發科技，並建造居所以抵禦環境並儲存貴重物品，同時與數百名其他玩家組隊（或以他們為獵物），求生、稱霸……並逃離此地！— Gamepedia：ARK",
+    "description": "身為一位赤裸、飢寒交迫地漂流在名為 ARK 的神秘島嶼上的男人或女人，您必須運用技巧與智慧，獵殺或馴服並騎乘徘徊在此地的各種巨獸恐龍與遠古生物。狩獵、採集資源、製作物品、種植作物、研發科技，並建造居所以抵禦環境並儲存貴重物品，同時與數百名其他玩家組隊（或以他們為獵物），求生、稱霸……並逃離此地！（資料來源：Gamepedia ARK）",
     "features": [
         "steam_disk_space"
     ],
@@ -31,7 +31,7 @@
     },
     "variables": [
         {
-            "name": "Server Password",
+            "name": "伺服器密碼",
             "description": "若有指定，玩家必須輸入此密碼才能加入伺服器。",
             "env_variable": "ARK_PASSWORD",
             "default_value": "",
@@ -41,7 +41,7 @@
             "field_type": "text"
         },
         {
-            "name": "Admin Password",
+            "name": "管理員密碼",
             "description": "若有指定，玩家必須（透過遊戲內主控台）輸入此密碼，才能在伺服器上取得管理員指令的存取權限。",
             "env_variable": "ARK_ADMIN_PASSWORD",
             "default_value": "PleaseChangeMe",
@@ -51,7 +51,7 @@
             "field_type": "text"
         },
         {
-            "name": "Server Map",
+            "name": "伺服器地圖",
             "description": "可用地圖：TheIsland、TheCenter、Ragnarok、ScorchedEarth_P、Aberration_P、Extinction、Valguero_P、Genesis、CrystalIsles、Gen2、Fjordur",
             "env_variable": "SERVER_MAP",
             "default_value": "TheIsland",
@@ -61,7 +61,7 @@
             "field_type": "text"
         },
         {
-            "name": "Server Name",
+            "name": "伺服器名稱",
             "description": "ARK 伺服器名稱",
             "env_variable": "SESSION_NAME",
             "default_value": "A Pterodactyl Hosted ARK Server",
@@ -71,7 +71,7 @@
             "field_type": "text"
         },
         {
-            "name": "Rcon Port",
+            "name": "Rcon 連接埠",
             "description": "rcon 工具所使用的 ARK rcon 連接埠。",
             "env_variable": "RCON_PORT",
             "default_value": "27020",
@@ -81,7 +81,7 @@
             "field_type": "text"
         },
         {
-            "name": "Query Port",
+            "name": "查詢連接埠",
             "description": "steam 伺服器瀏覽器與 ark 客戶端伺服器瀏覽器所使用的 ARK 查詢連接埠。",
             "env_variable": "QUERY_PORT",
             "default_value": "27015",
@@ -91,7 +91,7 @@
             "field_type": "text"
         },
         {
-            "name": "Auto-update server",
+            "name": "自動更新伺服器",
             "description": "啟用來自 steam 的自動更新",
             "env_variable": "AUTO_UPDATE",
             "default_value": "1",
@@ -101,7 +101,7 @@
             "field_type": "text"
         },
         {
-            "name": "Battle Eye",
+            "name": "Battle Eye 反作弊",
             "description": "啟用 BattleEye",
             "env_variable": "BATTLE_EYE",
             "default_value": "1",
@@ -121,7 +121,7 @@
             "field_type": "text"
         },
         {
-            "name": "Additional Arguments",
+            "name": "額外參數",
             "description": "指定額外的啟動參數，例如 -crossplay。每個參數前必須加上減號 -，並以空格分隔：-crossplay -exclusivejoin",
             "env_variable": "ARGS",
             "default_value": "",
@@ -131,7 +131,7 @@
             "field_type": "text"
         },
         {
-            "name": "Mods",
+            "name": "模組",
             "description": "指定要載入的模組及其順序。ModID 之間需以逗號分隔，例如：ModID1,ModID2",
             "env_variable": "MOD_ID",
             "default_value": "",
@@ -141,7 +141,7 @@
             "field_type": "text"
         },
         {
-            "name": "Max Players",
+            "name": "最大玩家數",
             "description": "指定可加入伺服器的最大玩家人數。",
             "env_variable": "MAX_PLAYERS",
             "default_value": "12",
@@ -151,7 +151,7 @@
             "field_type": "text"
         },
         {
-            "name": "Beta Branch",
+            "name": "測試分支",
             "description": "若有指定則安裝測試(beta)分支。",
             "env_variable": "SRCDS_BETAID",
             "default_value": "",
