@@ -3,12 +3,12 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Default Serializer
+    | 預設序列化器
     |--------------------------------------------------------------------------
     |
-    | The default serializer to be used when performing a transformation. It
-    | may be left empty to use Fractal's default one. This can either be a
-    | string or a League\Fractal\Serializer\SerializerAbstract subclass.
+    | 執行資料轉換時所使用的預設序列化器。可以留空以使用 Fractal
+    | 內建的預設序列化器。這個值可以是字串，也可以是
+    | League\Fractal\Serializer\SerializerAbstract 的子類別。
     |
     */
 
@@ -16,11 +16,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Auto Includes
+    | 自動引入（Auto Includes）
     |--------------------------------------------------------------------------
     |
-    | If enabled Fractal will automatically add the includes who's
-    | names are present in the `include` request parameter.
+    | 若啟用，Fractal 會自動加入名稱出現在 `include` 請求參數中的引入項目。
     |
     */
 

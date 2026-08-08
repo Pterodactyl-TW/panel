@@ -4,22 +4,22 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Application Version
+    | 應用程式版本
     |--------------------------------------------------------------------------
-    | This value is set when creating a Pterodactyl release. You should not
-    | change this value if you are not maintaining your own internal versions.
+    | 此值是在建立 Pterodactyl 發行版本時設定的。
+    | 若你並非在維護自己內部的版本，不應該變更此值。
     */
 
     'version' => 'canary',
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name
+    | 應用程式名稱
     |--------------------------------------------------------------------------
     |
-    | This value is the name of your application, which will be used when the
-    | framework needs to place the application's name in a notification or
-    | other UI elements where an application name needs to be displayed.
+    | 此值是你應用程式的名稱，當框架需要在通知
+    | 或其他需要顯示應用程式名稱的 UI 元件中
+    | 放上應用程式名稱時，就會使用這個值。
     |
     */
 
@@ -27,12 +27,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Environment
+    | 應用程式環境
     |--------------------------------------------------------------------------
     |
-    | This value determines the "environment" your application is currently
-    | running in. This may determine how you prefer to configure various
-    | services the application utilizes. Set this in your ".env" file.
+    | 此值決定你的應用程式目前執行所在的「環境」。
+    | 這可能會影響你偏好如何設定應用程式使用的
+    | 各種服務。請在你的「.env」檔案中設定此值。
     |
     */
 
@@ -40,12 +40,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Debug Mode
+    | 應用程式除錯模式
     |--------------------------------------------------------------------------
     |
-    | When your application is in debug mode, detailed error messages with
-    | stack traces will be shown on every error that occurs within your
-    | application. If disabled, a simple generic error page is shown.
+    | 當應用程式處於除錯模式時，應用程式內發生的每個錯誤
+    | 都會顯示包含堆疊追蹤（stack trace）的詳細錯誤訊息。
+    | 若停用此模式，則只會顯示簡單的通用錯誤頁面。
     |
     */
 
@@ -53,12 +53,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application URL
+    | 應用程式網址
     |--------------------------------------------------------------------------
     |
-    | This URL is used by the console to properly generate URLs when using
-    | the Artisan command line tool. You should set this to the root of
-    | the application so that it's available within Artisan commands.
+    | 使用 Artisan 命令列工具時，主控台會用此網址
+    | 正確產生所需的網址。你應該將此值設為
+    | 應用程式的根路徑，以便在 Artisan 指令中使用。
     |
     */
 
@@ -66,12 +66,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Timezone
+    | 應用程式時區
     |--------------------------------------------------------------------------
     |
-    | Here you may specify the default timezone for your application, which
-    | will be used by the PHP date and date-time functions. The timezone
-    | is set to "UTC" by default as it is suitable for most use cases.
+    | 你可以在這裡指定應用程式的預設時區，
+    | PHP 的日期與日期時間函式將會使用此設定。
+    | 時區預設為「UTC」，適合大部分的使用情境。
     |
     */
 
@@ -79,16 +79,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Locale Configuration
+    | 應用程式語系組態設定
     |--------------------------------------------------------------------------
     |
-    | The application locale determines the default locale that will be used
-    | by Laravel's translation / localization methods. This option can be
-    | set to any locale for which you plan to have translation strings.
+    | 應用程式語系決定了 Laravel 翻譯／在地化方法
+    | 所使用的預設語系。此選項可以設為
+    | 你規劃要提供翻譯字串的任何語系。
     |
     */
 
-    'locale' => env('APP_LOCALE', 'en'),
+    'locale' => env('APP_LOCALE', 'zh_TW'),
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 
@@ -96,12 +96,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Encryption Key
+    | 加密金鑰
     |--------------------------------------------------------------------------
     |
-    | This key is utilized by Laravel's encryption services and should be set
-    | to a random, 32 character string to ensure that all encrypted values
-    | are secure. You should do this prior to deploying the application.
+    | 此金鑰由 Laravel 的加密服務使用，應設定為
+    | 一組隨機的 32 字元字串，以確保所有加密後的值都安全無虞。
+    | 你應該在部署應用程式之前完成此設定。
     |
     */
 
@@ -117,14 +117,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Maintenance Mode Driver
+    | 維護模式驅動
     |--------------------------------------------------------------------------
     |
-    | These configuration options determine the driver used to determine and
-    | manage Laravel's "maintenance mode" status. The "cache" driver will
-    | allow maintenance mode to be controlled across multiple machines.
+    | 這些組態設定選項決定了用來判斷與管理 Laravel
+    | 「維護模式」狀態所使用的驅動。「cache」驅動
+    | 能讓維護模式在多台機器之間統一控制。
     |
-    | Supported drivers: "file", "cache"
+    | 支援的驅動："file"、"cache"
     |
     */
 
@@ -135,13 +135,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Exception Reporter Configuration
+    | 例外回報器組態設定
     |--------------------------------------------------------------------------
     |
-    | If you're encountering weird behavior with the Panel and no exceptions
-    | are being logged try changing the environment variable below to be true.
-    | This will override the default "don't report" behavior of the Panel and log
-    | all exceptions. This will be quite noisy.
+    | 若你發現 Panel 出現奇怪的行為，卻沒有任何例外被記錄下來，
+    | 可以嘗試將下方的環境變數改為 true。
+    | 這會覆蓋 Panel 預設「不回報」的行為，改為記錄
+    | 所有的例外。這麼做會產生大量的日誌紀錄。
     |
     */
 
@@ -151,18 +151,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Autoloaded Service Providers
+    | 自動載入的服務提供者
     |--------------------------------------------------------------------------
     |
-    | The service providers listed here will be automatically loaded on the
-    | request to your application. Feel free to add your own services to
-    | this array to grant expanded functionality to your applications.
+    | 這裡列出的服務提供者會在應用程式收到請求時自動載入。
+    | 你可以自由地將自己的服務加入這個陣列，
+    | 為應用程式擴充額外的功能。
     |
     */
 
     'providers' => [
         /*
-         * Laravel Framework Service Providers...
+         * Laravel 框架服務提供者...
          */
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
@@ -188,7 +188,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Application Service Providers...
+         * 應用程式服務提供者...
          */
         Pterodactyl\Providers\ActivityLogServiceProvider::class,
         Pterodactyl\Providers\AppServiceProvider::class,
@@ -202,19 +202,19 @@ return [
         Pterodactyl\Providers\ViewComposerServiceProvider::class,
 
         /*
-         * Additional Dependencies
+         * 額外的相依套件
          */
         Prologue\Alerts\AlertsServiceProvider::class,
     ],
 
     /*
     |--------------------------------------------------------------------------
-    | Class Aliases
+    | 類別別名（Class Aliases）
     |--------------------------------------------------------------------------
     |
-    | This array of class aliases will be registered when this application
-    | is started. However, feel free to register as many as you wish as
-    | the aliases are "lazy" loaded, so they don't hinder performance.
+    | 此陣列中的類別別名會在應用程式啟動時被註冊。
+    | 不過你可以自由註冊任意數量的別名，
+    | 因為這些別名是「延遲（lazy）」載入的，不會影響效能。
     |
     */
 
@@ -224,7 +224,7 @@ return [
         'JavaScript' => Laracasts\Utilities\JavaScript\JavaScriptFacade::class,
         'Theme' => Pterodactyl\Extensions\Facades\Theme::class,
 
-        // Custom Facades
+        // 自訂 Facade
         'Activity' => Pterodactyl\Facades\Activity::class,
         'LogBatch' => Pterodactyl\Facades\LogBatch::class,
         'LogTarget' => Pterodactyl\Facades\LogTarget::class,

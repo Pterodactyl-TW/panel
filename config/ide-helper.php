@@ -4,10 +4,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Filename
+    | 檔案名稱
     |--------------------------------------------------------------------------
     |
-    | The default filename.
+    | 預設的檔案名稱。
     |
     */
 
@@ -15,10 +15,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Models filename
+    | Models 檔案名稱
     |--------------------------------------------------------------------------
     |
-    | The default filename for the models helper file.
+    | Models 輔助檔案的預設檔案名稱。
     |
     */
 
@@ -26,22 +26,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | PhpStorm meta filename
+    | PhpStorm meta 檔案名稱
     |--------------------------------------------------------------------------
     |
-    | PhpStorm also supports the directory `.phpstorm.meta.php/` with arbitrary
-    | files in it, should you need additional files for your project; e.g.
-    | `.phpstorm.meta.php/laravel_ide_Helper.php'.
+    | PhpStorm 也支援在 `.phpstorm.meta.php/` 目錄下放置任意檔案，
+    | 若你的專案需要額外的檔案，例如
+    | `.phpstorm.meta.php/laravel_ide_Helper.php`。
     |
     */
     'meta_filename' => '.phpstorm.meta.php',
 
     /*
     |--------------------------------------------------------------------------
-    | Fluent helpers
+    | Fluent 輔助方法
     |--------------------------------------------------------------------------
     |
-    | Set to true to generate commonly used Fluent methods.
+    | 設為 true 可產生常用的 Fluent 方法。
     |
     */
 
@@ -52,10 +52,10 @@ return [
     | Factory builders
     |--------------------------------------------------------------------------
     |
-    | Set to true to generate factory generators for better factory()
-    | method auto-completion.
+    | 設為 true 可產生 factory 產生器，以便 factory()
+    | 方法有更好的自動完成提示。
     |
-    | Deprecated for Laravel 8 or latest.
+    | 在 Laravel 8 或更新版本中已棄用。
     |
     */
 
@@ -63,10 +63,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Write model magic methods
+    | 寫入 Model 的 magic 方法
     |--------------------------------------------------------------------------
     |
-    | Set to false to disable write magic methods of model.
+    | 設為 false 可停用寫入 model 的 magic 方法。
     |
     */
 
@@ -74,10 +74,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Write model external Eloquent builder methods
+    | 寫入 Model 的外部 Eloquent builder 方法
     |--------------------------------------------------------------------------
     |
-    | Set to false to disable write external Eloquent builder methods.
+    | 設為 false 可停用寫入外部的 Eloquent builder 方法。
     |
     */
 
@@ -85,11 +85,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Write model relation count and exists properties
+    | 寫入 Model 的關聯數量與存在性屬性
     |--------------------------------------------------------------------------
     |
-    | Set to false to disable writing of relation count and exists properties
-    | to model DocBlocks.
+    | 設為 false 可停用將關聯數量與存在性屬性
+    | 寫入 model 的 DocBlock 中。
     |
     */
 
@@ -98,14 +98,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Write Eloquent model mixins
+    | 寫入 Eloquent Model 的 Mixin
     |--------------------------------------------------------------------------
     |
-    | This will add the necessary DocBlock mixins to the model class
-    | contained in the Laravel framework. This helps the IDE with
-    | auto-completion.
+    | 此選項會將必要的 DocBlock mixin 加入 Laravel 框架
+    | 內含的 model 類別中，有助於 IDE 的自動完成功能。
     |
-    | Please be aware that this setting changes a file within the /vendor directory.
+    | 請注意，此設定會變更 /vendor 目錄中的檔案。
     |
     */
 
@@ -113,11 +112,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Helper files to include
+    | 要引入的輔助檔案
     |--------------------------------------------------------------------------
     |
-    | Include helper files. By default not included, but can be toggled with the
-    | -- helpers (-H) option. Extra helper files can be included.
+    | 引入輔助檔案。預設不會引入，但可以透過
+    | --helpers（-H）選項來切換。也可以引入額外的輔助檔案。
     |
     */
 
@@ -130,14 +129,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Model locations to include
+    | 要引入的 Model 位置
     |--------------------------------------------------------------------------
     |
-    | Define in which directories the ide-helper:models command should look
-    | for models.
+    | 定義 ide-helper:models 指令要在哪些目錄中尋找 model。
     |
-    | glob patterns are supported to easier reach models in sub-directories,
-    | e.g. `app/Services/* /Models` (without the space).
+    | 支援 glob 樣式，方便存取子目錄中的 model，
+    | 例如 `app/Services/* /Models`（不含空格）。
     |
     */
 
@@ -147,10 +145,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Models to ignore
+    | 要忽略的 Model
     |--------------------------------------------------------------------------
     |
-    | Define which models should be ignored.
+    | 定義哪些 model 應該被忽略。
     |
     */
 
@@ -163,9 +161,9 @@ return [
     | Models hooks
     |--------------------------------------------------------------------------
     |
-    | Define which hook classes you want to run for models to add custom information.
+    | 定義要為 model 執行哪些 hook 類別，以加入自訂資訊。
     |
-    | Hooks should implement Barryvdh\LaravelIdeHelper\Contracts\ModelHookInterface.
+    | Hook 應該實作 Barryvdh\LaravelIdeHelper\Contracts\ModelHookInterface。
     |
     */
 
@@ -175,10 +173,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Extra classes
+    | 額外的類別
     |--------------------------------------------------------------------------
     |
-    | These implementations are not really extended, but called with magic functions.
+    | 這些實作並非真的被繼承（extend），而是透過 magic 函式呼叫。
     |
     */
 
@@ -191,11 +189,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Interface implementations
+    | 介面實作
     |--------------------------------------------------------------------------
     |
-    | These interfaces will be replaced with the implementing class. Some interfaces
-    | are detected by the helpers, others can be listed below.
+    | 這些介面會被替換成實作該介面的類別。部分介面
+    | 會由輔助工具自動偵測，其餘則可以列在下方。
     |
     */
 
@@ -205,36 +203,36 @@ return [
 
     /*
      |--------------------------------------------------------------------------
-     | Support for camel cased models
+     | 支援駝峰式命名的 Model
      |--------------------------------------------------------------------------
      |
-     | There are some Laravel packages (such as Eloquence) that allow for accessing
-     | Eloquent model properties via camel case, instead of snake case.
+     | 有些 Laravel 套件（例如 Eloquence）允許以駝峰式命名（camel case）
+     | 而非蛇形命名（snake case）來存取 Eloquent model 屬性。
      |
-     | Enabling this option will support these packages by saving all model
-     | properties as camel case, instead of snake case.
+     | 啟用此選項後，會將所有 model 屬性以駝峰式命名儲存，
+     | 而不是蛇形命名，藉此支援這類套件。
      |
-     | For example, normally you would see this:
+     | 舉例來說，一般情況下你會看到：
      |
      |  * @property \Illuminate\Support\Carbon $created_at
      |  * @property \Illuminate\Support\Carbon $updated_at
      |
-     | With this enabled, the properties will be this:
+     | 啟用此選項後，屬性會變成：
      |
      |  * @property \Illuminate\Support\Carbon $createdAt
      |  * @property \Illuminate\Support\Carbon $updatedAt
      |
-     | Note, it is currently an all-or-nothing option.
+     | 請注意，此選項目前是全有或全無（all-or-nothing）的設定。
      |
      */
     'model_camel_case_properties' => false,
 
     /*
     |--------------------------------------------------------------------------
-    | Property casts
+    | 屬性型別轉換
     |--------------------------------------------------------------------------
     |
-    | Cast the given "real type" to the given "type".
+    | 將指定的「實際型別」轉換為指定的「型別」。
     |
     */
     'type_overrides' => [
@@ -244,45 +242,45 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Include DocBlocks from classes
+    | 引入類別的 DocBlock
     |--------------------------------------------------------------------------
     |
-    | Include DocBlocks from classes to allow additional code inspection for
-    | magic methods and properties.
+    | 引入類別的 DocBlock，讓 magic 方法與屬性
+    | 能有額外的程式碼檢查支援。
     |
     */
     'include_class_docblocks' => false,
 
     /*
     |--------------------------------------------------------------------------
-    | Force FQN usage
+    | 強制使用完整限定名稱（FQN）
     |--------------------------------------------------------------------------
     |
-    | Use the fully qualified (class) name in DocBlocks,
-    | even if the class exists in the same namespace
-    | or there is an import (use className) of the class.
+    | 在 DocBlock 中使用完整限定的（類別）名稱，
+    | 即使該類別存在於相同的命名空間中，
+    | 或已透過 import（use 類別名稱）引入。
     |
     */
     'force_fqn' => true,
 
     /*
     |--------------------------------------------------------------------------
-    | Use generics syntax
+    | 使用泛型（Generics）語法
     |--------------------------------------------------------------------------
     |
-    | Use generics syntax within DocBlocks,
-    | e.g. `Collection<User>` instead of `Collection|User[]`.
+    | 在 DocBlock 中使用泛型語法，
+    | 例如使用 `Collection<User>` 而非 `Collection|User[]`。
     |
     */
     'use_generics_annotations' => true,
 
     /*
     |--------------------------------------------------------------------------
-    | Default return types for macros
+    | 巨集（Macro）的預設回傳型別
     |--------------------------------------------------------------------------
     |
-    | Define default return types for macros without explicit return types.
-    | e.g. `\Illuminate\Database\Query\Builder::class => 'static'`,
+    | 為沒有明確回傳型別的巨集定義預設回傳型別。
+    | 例如 `\Illuminate\Database\Query\Builder::class => 'static'`，
     |      `\Illuminate\Support\Str::class => 'string'`
     |
     */
@@ -292,46 +290,45 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Additional relation types
+    | 額外的關聯型別
     |--------------------------------------------------------------------------
     |
-    | Sometimes it's needed to create custom relation types. The key of the array
-    | is the relationship method name. The value of the array is the fully-qualified
-    | class name of the relationship, e.g. `'relationName' => RelationShipClass::class`.
+    | 有時候需要建立自訂的關聯型別。陣列的 key
+    | 是關聯方法的名稱，value 則是該關聯的
+    | 完整限定類別名稱，例如 `'relationName' => RelationShipClass::class`。
     |
     */
     'additional_relation_types' => [],
 
     /*
     |--------------------------------------------------------------------------
-    | Additional relation return types
+    | 額外的關聯回傳型別
     |--------------------------------------------------------------------------
     |
-    | When using custom relation types its possible for the class name to not contain
-    | the proper return type of the relation. The key of the array is the relationship
-    | method name. The value of the array is the return type of the relation ('many'
-    | or 'morphTo').
-    | e.g. `'relationName' => 'many'`.
+    | 使用自訂關聯型別時，類別名稱有可能沒有包含
+    | 該關聯正確的回傳型別。陣列的 key 是關聯方法名稱，
+    | value 則是該關聯的回傳型別（'many' 或 'morphTo'）。
+    | 例如 `'relationName' => 'many'`。
     |
     */
     'additional_relation_return_types' => [],
 
     /*
     |--------------------------------------------------------------------------
-    | Enforce nullable Eloquent relationships on not null columns
+    | 對非 null 欄位強制使用可為 null 的 Eloquent 關聯
     |--------------------------------------------------------------------------
     |
-    | When set to true (default), this option enforces nullable Eloquent relationships.
-    | However, in cases where the application logic ensures the presence of related
-    | records it may be desirable to set this option to false to avoid unwanted null warnings.
+    | 設為 true（預設值）時，此選項會強制 Eloquent 關聯可為 null。
+    | 不過在應用程式邏輯確保相關紀錄一定存在的情況下，
+    | 你可能會想將此選項設為 false，以避免不必要的 null 警告。
     |
-    | Default: true
-    | A not null column with no foreign key constraint will have a "nullable" relationship.
+    | 預設值：true
+    | 沒有外鍵限制的非 null 欄位將擁有「可為 null」的關聯。
     |  * @property int $not_null_column_with_no_foreign_key_constraint
     |  * @property-read BelongsToVariation|null $notNullColumnWithNoForeignKeyConstraint
     |
-    | Option: false
-    | A not null column with no foreign key constraint will have a "not nullable" relationship.
+    | 選項：false
+    | 沒有外鍵限制的非 null 欄位將擁有「不可為 null」的關聯。
     |  * @property int $not_null_column_with_no_foreign_key_constraint
     |  * @property-read BelongsToVariation $notNullColumnWithNoForeignKeyConstraint
     |
@@ -341,10 +338,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Run artisan commands after migrations to generate model helpers
+    | 遷移後執行 artisan 指令以產生 Model 輔助檔案
     |--------------------------------------------------------------------------
     |
-    | The specified commands should run after migrations are finished running.
+    | 指定的指令會在資料庫遷移執行完成後執行。
     |
     */
     'post_migrate' => [

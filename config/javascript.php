@@ -3,13 +3,12 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | View to Bind JavaScript Vars To
+    | 綁定 JavaScript 變數的樣板
     |--------------------------------------------------------------------------
     |
-    | Set this value to the name of the view (or partial) that
-    | you want to prepend all JavaScript variables to.
-    | This can be a single view, or an array of views.
-    | Example: 'footer' or ['footer', 'bottom']
+    | 將此值設為你想要在其中插入所有 JavaScript 變數的樣板（或局部樣板）名稱。
+    | 可以是單一樣板，也可以是樣板陣列。
+    | 範例：'footer' 或 ['footer', 'bottom']
     |
     */
     'bind_js_vars_to_this_view' => [
@@ -18,12 +17,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | JavaScript Namespace
+    | JavaScript 命名空間
     |--------------------------------------------------------------------------
     |
-    | By default, we'll add variables to the global window object. However,
-    | it's recommended that you change this to some namespace - anything.
-    | That way, you can access vars, like "SomeNamespace.someVariable."
+    | 預設情況下，我們會把變數加到全域 window 物件上。
+    | 不過建議你把這個值改成任意一個命名空間名稱，
+    | 這樣就能像「SomeNamespace.someVariable」這樣存取變數。
     |
     */
     'js_namespace' => 'Pterodactyl',

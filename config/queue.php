@@ -3,12 +3,12 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Default Queue Connection Name
+    | 預設佇列連線名稱
     |--------------------------------------------------------------------------
     |
-    | Laravel's queue supports a variety of backends via a single, unified
-    | API, giving you convenient access to each backend using identical
-    | syntax for each. The default queue connection is defined below.
+    | Laravel 的佇列系統透過單一、統一的 API 支援多種後端，
+    | 讓你能以相同的語法方便地存取每一種後端。
+    | 預設的佇列連線設定於下方。
     |
     */
 
@@ -16,14 +16,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Queue Connections
+    | 佇列連線設定
     |--------------------------------------------------------------------------
     |
-    | Here you may configure the connection options for every queue backend
-    | used by your application. An example configuration is provided for
-    | each backend supported by Laravel. You're also free to add more.
+    | 你可以在這裡設定應用程式所使用的每一種佇列後端的連線選項。
+    | 這裡提供了 Laravel 所支援每種後端的範例設定，
+    | 你也可以自由新增更多設定。
     |
-    | Drivers: "sync", "database", "beanstalkd", "sqs", "redis", "null"
+    | 驅動："sync"、"database"、"beanstalkd"、"sqs"、"redis"、"null"
     |
     */
 
@@ -73,14 +73,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Failed Queue Jobs
+    | 失敗的佇列工作
     |--------------------------------------------------------------------------
     |
-    | These options configure the behavior of failed queue job logging so you
-    | can control how and where failed jobs are stored. Laravel ships with
-    | support for storing failed jobs in a simple file or in a database.
+    | 這些選項設定失敗佇列工作記錄的行為，讓你能控制
+    | 失敗的工作要如何、以及儲存在哪裡。Laravel 內建支援
+    | 將失敗的工作儲存在簡單的檔案或資料庫中。
     |
-    | Supported drivers: "database-uuids", "dynamodb", "file", "null"
+    | 支援的驅動："database-uuids"、"dynamodb"、"file"、"null"
     |
     */
 

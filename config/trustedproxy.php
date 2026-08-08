@@ -2,26 +2,23 @@
 
 return [
     /*
-     * Set trusted proxy IP addresses.
+     * 設定信任的 Proxy IP 位址。
      *
-     * Both IPv4 and IPv6 addresses are
-     * supported, along with CIDR notation.
+     * 同時支援 IPv4 與 IPv6 位址，
+     * 也支援 CIDR 表示法。
      *
-     * The "*" character is syntactic sugar
-     * within TrustedProxy to trust any proxy
-     * that connects directly to your server,
-     * a requirement when you cannot know the address
-     * of your proxy (e.g. if using Rackspace balancers).
+     * 「*」字元是 TrustedProxy 提供的語法糖，
+     * 代表信任任何直接連線到你伺服器的 proxy，
+     * 適用於你無法得知 proxy 位址的情況
+     * （例如使用 Rackspace 負載平衡器時）。
      *
-     * The "**" character is syntactic sugar within
-     * TrustedProxy to trust not just any proxy that
-     * connects directly to your server, but also
-     * proxies that connect to those proxies, and all
-     * the way back until you reach the original source
-     * IP. It will mean that $request->getClientIp()
-     * always gets the originating client IP, no matter
-     * how many proxies that client's request has
-     * subsequently passed through.
+     * 「**」字元是 TrustedProxy 提供的語法糖，
+     * 不只信任直接連線到你伺服器的 proxy，
+     * 也信任連線到那些 proxy 的其他 proxy，
+     * 一路回溯直到找到最原始的來源 IP。
+     * 這代表 $request->getClientIp() 一律能取得
+     * 最原始的客戶端 IP，不論該客戶端的請求
+     * 實際上經過了多少層 proxy 轉發。
      */
     'proxies' => in_array(env('TRUSTED_PROXIES', []), ['*', '**']) ?
         env('TRUSTED_PROXIES') : explode(',', env('TRUSTED_PROXIES') ?? ''),

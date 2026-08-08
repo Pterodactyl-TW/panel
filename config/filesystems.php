@@ -3,12 +3,12 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Default Filesystem Disk
+    | 預設檔案系統磁碟
     |--------------------------------------------------------------------------
     |
-    | Here you may specify the default filesystem disk that should be used
-    | by the framework. The "local" disk, as well as a variety of cloud
-    | based disks are available to your application for file storage.
+    | 你可以在這裡指定框架要使用的預設檔案系統磁碟。
+    | 應用程式可以使用「local」磁碟，以及多種
+    | 雲端儲存磁碟來進行檔案儲存。
     |
     */
 
@@ -16,14 +16,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Filesystem Disks
+    | 檔案系統磁碟設定
     |--------------------------------------------------------------------------
     |
-    | Below you may configure as many filesystem disks as necessary, and you
-    | may even configure multiple disks for the same driver. Examples for
-    | most supported storage drivers are configured here for reference.
+    | 你可以在下方視需求設定任意數量的檔案系統磁碟，
+    | 甚至可以為同一個驅動設定多組磁碟。
+    | 這裡提供了大部分支援的儲存驅動的設定範例供你參考。
     |
-    | Supported drivers: "local", "ftp", "sftp", "s3"
+    | 支援的驅動："local"、"ftp"、"sftp"、"s3"
     |
     */
 
@@ -58,12 +58,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Symbolic Links
+    | 符號連結（Symbolic Links）
     |--------------------------------------------------------------------------
     |
-    | Here you may configure the symbolic links that will be created when the
-    | `storage:link` Artisan command is executed. The array keys should be
-    | the locations of the links and the values should be their targets.
+    | 你可以在這裡設定執行 `storage:link` Artisan 指令時會建立的符號連結。
+    | 陣列的 key 應該是連結的位置，value 則應該是連結指向的目標。
     |
     */
 

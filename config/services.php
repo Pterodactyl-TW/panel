@@ -3,13 +3,12 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Third Party Services
+    | 第三方服務
     |--------------------------------------------------------------------------
     |
-    | This file is for storing the credentials for third party services such
-    | as Mailgun, Postmark, AWS and more. This file provides the de facto
-    | location for this type of information, allowing packages to have
-    | a conventional file to locate the various service credentials.
+    | 這個檔案用來存放第三方服務（例如 Mailgun、Postmark、AWS 等）的憑證。
+    | 這是存放此類資訊的慣例位置，讓各個套件都能有一個統一的地方
+    | 找到各種服務的憑證設定。
     |
     */
 

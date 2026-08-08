@@ -3,12 +3,11 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | API Rate Limits
+    | API 速率限制
     |--------------------------------------------------------------------------
     |
-    | Defines the rate limit for the number of requests per minute that can be
-    | executed against both the client and internal (application) APIs over the
-    | defined period (by default, 1 minute).
+    | 定義在指定的時間區間內（預設為 1 分鐘），客戶端 API 與內部（應用程式）API
+    | 各自每分鐘可執行的請求次數上限。
     |
     */
     'rate_limit' => [

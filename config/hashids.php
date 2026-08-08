@@ -3,10 +3,10 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Hashids Configuration
+    | Hashids 組態設定
     |--------------------------------------------------------------------------
     |
-    | Here are the settings that control the Hashids setup and usage in the panel.
+    | 這裡是控制 Panel 中 Hashids 設定與使用方式的相關選項。
     |
     */
     'salt' => env('HASHIDS_SALT'),

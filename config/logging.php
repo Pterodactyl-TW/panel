@@ -8,12 +8,12 @@ use Monolog\Processor\PsrLogMessageProcessor;
 return [
     /*
     |--------------------------------------------------------------------------
-    | Default Log Channel
+    | 預設日誌頻道
     |--------------------------------------------------------------------------
     |
-    | This option defines the default log channel that is utilized to write
-    | messages to your logs. The value provided here should match one of
-    | the channels present in the list of "channels" configured below.
+    | 此選項定義了用來寫入日誌訊息的預設日誌頻道。
+    | 這裡提供的值應該要對應到下方「channels」設定中
+    | 存在的其中一個頻道。
     |
     */
 
@@ -21,12 +21,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Deprecations Log Channel
+    | 棄用警告日誌頻道
     |--------------------------------------------------------------------------
     |
-    | This option controls the log channel that should be used to log warnings
-    | regarding deprecated PHP and library features. This allows you to get
-    | your application ready for upcoming major versions of dependencies.
+    | 此選項控制用來記錄 PHP 與函式庫已棄用功能警告的日誌頻道。
+    | 這能讓你的應用程式提前為即將到來的相依套件
+    | 主要版本更新做好準備。
     |
     */
 
@@ -37,15 +37,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Log Channels
+    | 日誌頻道設定
     |--------------------------------------------------------------------------
     |
-    | Here you may configure the log channels for your application. Laravel
-    | utilizes the Monolog PHP logging library, which includes a variety
-    | of powerful log handlers and formatters that you're free to use.
+    | 你可以在這裡設定應用程式的日誌頻道。Laravel 使用
+    | Monolog PHP 日誌函式庫，其中包含多種你可以自由使用的
+    | 強大日誌處理器（handler）與格式器（formatter）。
     |
-    | Available drivers: "single", "daily", "slack", "syslog",
-    |                    "errorlog", "monolog", "custom", "stack"
+    | 可用的驅動："single"、"daily"、"slack"、"syslog"、
+    |             "errorlog"、"monolog"、"custom"、"stack"
     |
     */
 

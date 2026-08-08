@@ -3,14 +3,13 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Default Hash Driver
+    | 預設雜湊演算法驅動
     |--------------------------------------------------------------------------
     |
-    | This option controls the default hash driver that will be used to hash
-    | passwords for your application. By default, the bcrypt algorithm is
-    | used; however, you remain free to modify this option if you wish.
+    | 此選項控制應用程式用來對密碼進行雜湊運算的預設驅動。
+    | 預設使用 bcrypt 演算法；不過你仍可以自由修改此選項。
     |
-    | Supported: "bcrypt", "argon", "argon2id"
+    | 支援的選項："bcrypt"、"argon"、"argon2id"
     |
     */
 
@@ -18,12 +17,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Bcrypt Options
+    | Bcrypt 選項
     |--------------------------------------------------------------------------
     |
-    | Here you may specify the configuration options that should be used when
-    | passwords are hashed using the Bcrypt algorithm. This will allow you
-    | to control the amount of time it takes to hash the given password.
+    | 你可以在這裡指定使用 Bcrypt 演算法對密碼進行雜湊運算時
+    | 所使用的組態設定選項，用來控制對指定密碼進行雜湊運算
+    | 所需的時間。
     |
     */
 
@@ -33,12 +32,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Argon Options
+    | Argon 選項
     |--------------------------------------------------------------------------
     |
-    | Here you may specify the configuration options that should be used when
-    | passwords are hashed using the Argon algorithm. These will allow you
-    | to control the amount of time it takes to hash the given password.
+    | 你可以在這裡指定使用 Argon 演算法對密碼進行雜湊運算時
+    | 所使用的組態設定選項，用來控制對指定密碼進行雜湊運算
+    | 所需的時間。
     |
     */
 

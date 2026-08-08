@@ -3,12 +3,12 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Default Mailer
+    | 預設寄件工具（Mailer）
     |--------------------------------------------------------------------------
     |
-    | This option controls the default mailer that is used to send any email
-    | messages sent by your application. Alternative mailers may be setup
-    | and used as needed; however, this mailer will be used by default.
+    | 此選項控制應用程式寄送電子郵件時所使用的預設寄件工具。
+    | 你可以視需求設定並使用其他替代的寄件工具；
+    | 不過預設情況下會使用這裡指定的寄件工具。
     |
     */
 
@@ -16,19 +16,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Mailer Configurations
+    | 寄件工具組態設定
     |--------------------------------------------------------------------------
     |
-    | Here you may configure all of the mailers used by your application plus
-    | their respective settings. Several examples have been configured for
-    | you and you are free to add your own as your application requires.
+    | 你可以在這裡設定應用程式所使用的所有寄件工具及其各自的設定。
+    | 這裡已經幫你設定好幾個範例，你也可以視應用程式需求
+    | 自由新增自己的設定。
     |
-    | Laravel supports a variety of mail "transport" drivers to be used while
-    | sending an e-mail. You will specify which one you are using for your
-    | mailers below. You are free to add additional mailers as required.
+    | Laravel 在寄送電子郵件時支援多種「傳輸方式（transport）」驅動。
+    | 你可以在下方為每個寄件工具指定要使用哪一種。
+    | 你可以視需求自由新增額外的寄件工具。
     |
-    | Supported: "smtp", "sendmail", "mailgun", "ses", "ses-v2",
-    |            "postmark", "log", "array", "failover"
+    | 支援的選項："smtp"、"sendmail"、"mailgun"、"ses"、"ses-v2"、
+    |             "postmark"、"log"、"array"、"failover"
     |
     */
 
@@ -81,12 +81,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Global "From" Address
+    | 全域「寄件者」地址
     |--------------------------------------------------------------------------
     |
-    | You may wish for all emails sent by your application to be sent from
-    | the same address. Here you may specify a name and address that is
-    | used globally for all emails that are sent by your application.
+    | 你可能會希望應用程式寄出的所有電子郵件都使用同一個地址寄送。
+    | 你可以在這裡指定應用程式寄出所有電子郵件時
+    | 全域使用的名稱與地址。
     |
     */
 
@@ -97,12 +97,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Markdown Mail Settings
+    | Markdown 郵件設定
     |--------------------------------------------------------------------------
     |
-    | If you are using Markdown based email rendering, you may configure your
-    | theme and component paths here, allowing you to customize the design
-    | of the emails. Or, you may simply stick with the Laravel defaults!
+    | 若你使用以 Markdown 為基礎的郵件轉譯方式，可以在這裡設定
+    | 佈景主題與元件路徑，讓你能自訂電子郵件的樣式設計。
+    | 當然，你也可以直接沿用 Laravel 的預設設定！
     |
     */
 

@@ -6,13 +6,12 @@ use Pterodactyl\Helpers\Time;
 return [
     /*
     |--------------------------------------------------------------------------
-    | Default Database Connection Name
+    | 預設資料庫連線名稱
     |--------------------------------------------------------------------------
     |
-    | Here you may specify which of the database connections below you wish
-    | to use as your default connection for database operations. This is
-    | the connection which will be utilized unless another connection
-    | is explicitly specified when you execute a query / statement.
+    | 你可以在這裡指定要使用下方哪一組資料庫連線
+    | 作為資料庫操作的預設連線。除非在執行查詢／敘述時
+    | 明確指定了其他連線，否則都會使用此連線。
     |
     */
 
@@ -20,17 +19,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Database Connections
+    | 資料庫連線設定
     |--------------------------------------------------------------------------
     |
-    | Here are each of the database connections setup for your application.
-    | Of course, examples of configuring each database platform that is
-    | supported by Laravel is shown below to make development simple.
+    | 以下是為應用程式設定的每一組資料庫連線。
+    | 當然，為了簡化開發流程，下方也展示了
+    | Laravel 支援的每種資料庫平台的設定範例。
     |
     |
-    | All database work in Laravel is done through the PHP PDO facilities
-    | so make sure you have the driver for your particular database of
-    | choice installed on your machine before you begin development.
+    | Laravel 所有的資料庫操作都是透過 PHP PDO 機制完成的，
+    | 所以在開始開發之前，請確認你的機器上
+    | 已安裝所選資料庫對應的驅動程式。
     |
     */
 
@@ -48,7 +47,7 @@ return [
             'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
             'prefix' => env('DB_PREFIX', ''),
             'prefix_indexes' => true,
-            'strict' => env('DB_STRICT_MODE', false), // TODO: true by default
+            'strict' => env('DB_STRICT_MODE', false), // TODO：日後預設改為 true
             'engine' => null,
             'timezone' => env('DB_TIMEZONE', Time::getMySQLTimezoneOffset(env('APP_TIMEZONE', 'UTC'))),
             'sslmode' => env('DB_SSLMODE', 'prefer'),
@@ -88,12 +87,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Migration Repository Table
+    | 資料庫遷移紀錄資料表
     |--------------------------------------------------------------------------
     |
-    | This table keeps track of all the migrations that have already run for
-    | your application. Using this information, we can determine which of
-    | the migrations on disk haven't actually been run on the database.
+    | 此資料表用來追蹤應用程式已經執行過的所有遷移（migration）。
+    | 透過這項資訊，我們就能判斷磁碟上有哪些遷移
+    | 尚未實際在資料庫中執行過。
     |
     */
 
@@ -104,12 +103,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Redis Databases
+    | Redis 資料庫
     |--------------------------------------------------------------------------
     |
-    | Redis is an open source, fast, and advanced key-value store that also
-    | provides a richer body of commands than a typical key-value system
-    | such as Memcached. You may define your connection settings here.
+    | Redis 是一套開放原始碼、快速且進階的鍵值儲存系統，
+    | 相較於 Memcached 這類典型的鍵值系統，
+    | 提供了更豐富的指令集。你可以在這裡定義你的連線設定。
     |
     */
 

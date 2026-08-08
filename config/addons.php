@@ -3,14 +3,13 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Addon Lifecycle Hooks
+    | 附加元件生命週期掛勾（Hooks）
     |--------------------------------------------------------------------------
     |
-    | When enabled, the Panel executes the hook scripts that addons place under
-    | "addons/<name>/hooks/<event>" during lifecycle events such as post-install
-    | (see the p:environment:addons:run-hooks command). These scripts run with
-    | the privileges of the invoking process — often root during an upgrade — so
-    | only enable this if you trust every installed addon.
+    | 啟用後，Panel 會在特定生命週期事件（例如安裝完成後，參見 p:environment:addons:run-hooks
+    | 指令）執行附加元件放在「addons/<name>/hooks/<event>」底下的掛勾指令碼。
+    | 這些指令碼會以呼叫此指令的程序權限執行 —— 在升級時通常是 root 權限 ——
+    | 所以請務必只在信任每一個已安裝的附加元件時才啟用此選項。
     |
     */
     'hooks_enabled' => env('ADDONS_HOOKS_ENABLED', false),

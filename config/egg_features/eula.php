@@ -3,14 +3,14 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Egg Feature: EULA Popup
+    | Egg 功能：EULA 彈出視窗
     |--------------------------------------------------------------------------
     |
-    | This popup is enabled for Minecraft eggs and allows a custom frontend
-    | hook to run that monitors the console output of the server and pops up
-    | a modal asking the user to accept it if necessary.
+    | 此彈出視窗會在 Minecraft egg 中啟用，讓自訂的前端掛勾（hook）
+    | 監控伺服器的主控台輸出，並在必要時彈出一個要求使用者
+    | 同意條款的視窗。
     |
-    | There is no additional configuration necessary.
+    | 不需要額外的組態設定。
     |
     */
 ];

@@ -5,12 +5,12 @@ use Illuminate\Support\Str;
 return [
     /*
     |--------------------------------------------------------------------------
-    | Default Cache Store
+    | 預設快取儲存區
     |--------------------------------------------------------------------------
     |
-    | This option controls the default cache store that will be used by the
-    | framework. This connection is utilized if another isn't explicitly
-    | specified when running a cache operation inside the application.
+    | 此選項控制框架所使用的預設快取儲存區。
+    | 當應用程式內執行快取操作時未明確指定其他儲存區，
+    | 就會使用此連線。
     |
     */
 
@@ -18,15 +18,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cache Stores
+    | 快取儲存區設定
     |--------------------------------------------------------------------------
     |
-    | Here you may define all of the cache "stores" for your application as
-    | well as their drivers. You may even define multiple stores for the
-    | same cache driver to group types of items stored in your caches.
+    | 你可以在這裡定義應用程式所有的快取「儲存區」及其驅動。
+    | 你甚至可以為同一種快取驅動定義多個儲存區，
+    | 用來分組儲存快取中的不同類型項目。
     |
-    | Supported drivers: "array", "database", "file", "memcached",
-    |                    "redis", "octane", "null"
+    | 支援的驅動："array"、"database"、"file"、"memcached"、
+    |             "redis"、"octane"、"null"
     |
     */
 
@@ -88,12 +88,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cache Key Prefix
+    | 快取金鑰前綴
     |--------------------------------------------------------------------------
     |
-    | When utilizing the APC, database, memcached, Redis, or DynamoDB cache
-    | stores there might be other applications using the same cache. For
-    | that reason, you may prefix every cache key to avoid collisions.
+    | 當使用 APC、資料庫、memcached、Redis 或 DynamoDB 快取儲存區時，
+    | 可能會有其他應用程式使用相同的快取。因此，
+    | 你可以為每一個快取金鑰加上前綴以避免衝突。
     |
     */
 

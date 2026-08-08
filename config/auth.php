@@ -3,12 +3,12 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Lockout Configuration
+    | 登入鎖定組態設定
     |--------------------------------------------------------------------------
     |
-    | These options are Pterodactyl specific and allow you to configure how
-    | long a user should be locked out for if they input a username or
-    | password incorrectly.
+    | 這些選項是 Pterodactyl 專屬的設定，讓你可以設定
+    | 當使用者輸入錯誤的使用者名稱或密碼時，
+    | 要鎖定該使用者多長時間。
     |
     */
 
@@ -19,12 +19,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Defaults
+    | 驗證預設值
     |--------------------------------------------------------------------------
     |
-    | This option defines the default authentication "guard" and password
-    | reset "broker" for your application. You may change these values
-    | as required, but they're a perfect start for most applications.
+    | 此選項定義應用程式預設的驗證「守衛（guard）」
+    | 與密碼重設「代理器（broker）」。你可以視需求變更這些值，
+    | 不過對大部分應用程式來說，這已經是很好的起始設定。
     |
     */
 
@@ -35,18 +35,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Guards
+    | 驗證守衛（Guards）
     |--------------------------------------------------------------------------
     |
-    | Next, you may define every authentication guard for your application.
-    | Of course, a great default configuration has been defined for you
-    | which utilizes session storage plus the Eloquent user provider.
+    | 接下來，你可以定義應用程式的每一個驗證守衛。
+    | 當然，這裡已經為你定義好一組使用 session 儲存
+    | 加上 Eloquent 使用者提供者的優質預設設定。
     |
-    | All authentication guards have a user provider, which defines how the
-    | users are actually retrieved out of your database or other storage
-    | system used by the application. Typically, Eloquent is utilized.
+    | 每個驗證守衛都有一個使用者提供者（user provider），
+    | 用來定義實際如何從資料庫或應用程式使用的其他儲存系統
+    | 中取得使用者資料。通常會使用 Eloquent。
     |
-    | Supported: "session", "token"
+    | 支援的選項："session"、"token"
     |
     */
 
@@ -64,18 +64,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | User Providers
+    | 使用者提供者（User Providers）
     |--------------------------------------------------------------------------
     |
-    | All authentication guards have a user provider, which defines how the
-    | users are actually retrieved out of your database or other storage
-    | system used by the application. Typically, Eloquent is utilized.
+    | 每個驗證守衛都有一個使用者提供者，用來定義實際
+    | 如何從資料庫或應用程式使用的其他儲存系統中
+    | 取得使用者資料。通常會使用 Eloquent。
     |
-    | If you have multiple user tables or models you may configure multiple
-    | providers to represent the model / table. These providers may then
-    | be assigned to any extra authentication guards you have defined.
+    | 若你有多組使用者資料表或模型，可以設定多個提供者
+    | 來代表各自的模型／資料表。這些提供者之後就能
+    | 指派給你定義的任何額外驗證守衛。
     |
-    | Supported: "database", "eloquent"
+    | 支援的選項："database"、"eloquent"
     |
     */
 
@@ -88,20 +88,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Resetting Passwords
+    | 重設密碼
     |--------------------------------------------------------------------------
     |
-    | These configuration options specify the behavior of Laravel's password
-    | reset functionality, including the table utilized for token storage
-    | and the user provider that is invoked to actually retrieve users.
+    | 這些組態設定選項指定了 Laravel 密碼重設功能的行為，
+    | 包含用來儲存權杖的資料表，以及實際用來
+    | 取得使用者資料所呼叫的使用者提供者。
     |
-    | The expiry time is the number of minutes that each reset token will be
-    | considered valid. This security feature keeps tokens short-lived so
-    | they have less time to be guessed. You may change this as needed.
+    | 到期時間是指每個重設權杖被視為有效的分鐘數。
+    | 這項安全性功能讓權杖的存續時間較短，
+    | 減少被猜中的機會。你可以視需求變更此設定。
     |
-    | The throttle setting is the number of seconds a user must wait before
-    | generating more password reset tokens. This prevents the user from
-    | quickly generating a very large amount of password reset tokens.
+    | 節流（throttle）設定是指使用者在產生下一個密碼重設權杖前
+    | 必須等待的秒數，用來防止使用者快速產生
+    | 大量的密碼重設權杖。
     |
     */
 
@@ -116,12 +116,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Password Confirmation Timeout
+    | 密碼確認逾時時間
     |--------------------------------------------------------------------------
     |
-    | Here you may define the amount of seconds before a password confirmation
-    | window expires and users are asked to re-enter their password via the
-    | confirmation screen. By default, the timeout lasts for three hours.
+    | 你可以在這裡定義密碼確認視窗過期前的秒數，
+    | 過期後使用者將被要求透過確認畫面重新輸入密碼。
+    | 預設的逾時時間為三小時。
     |
     */
 

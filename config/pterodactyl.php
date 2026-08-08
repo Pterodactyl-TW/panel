@@ -3,24 +3,23 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Restricted Environment
+    | 受限環境
     |--------------------------------------------------------------------------
     |
-    | Set this environment variable to true to enable a restricted configuration
-    | setup on the panel. When set to true, configurations stored in the
-    | database will not be applied.
+    | 將此環境變數設為 true，可在 Panel 上啟用受限的組態設定模式。
+    | 設為 true 時，儲存在資料庫中的組態設定將不會被套用。
     */
 
     'load_environment_only' => (bool) env('APP_ENVIRONMENT_ONLY', false),
 
     /*
     |--------------------------------------------------------------------------
-    | Service Author
+    | 服務作者
     |--------------------------------------------------------------------------
     |
-    | Each panel installation is assigned a unique UUID to identify the
-    | author of custom services, and make upgrades easier by identifying
-    | standard Pterodactyl shipped services.
+    | 每個 Panel 安裝都會被指派一組唯一的 UUID，用來識別
+    | 自訂服務的作者，並透過識別 Pterodactyl 內建的標準服務
+    | 讓升級作業更加容易。
     */
 
     'service' => [
@@ -29,10 +28,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication
+    | 驗證
     |--------------------------------------------------------------------------
     |
-    | Should login success and failure events trigger an email to the user?
+    | 登入成功或失敗事件是否應該觸發寄送電子郵件給使用者？
     */
 
     'auth' => [
@@ -46,11 +45,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Pagination
+    | 分頁
     |--------------------------------------------------------------------------
     |
-    | Certain pagination result counts can be configured here and will take
-    | effect globally.
+    | 你可以在這裡設定特定分頁結果的數量，設定後將會全域套用生效。
     */
 
     'paginate' => [
@@ -70,10 +68,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Guzzle Connections
+    | Guzzle 連線
     |--------------------------------------------------------------------------
     |
-    | Configure the timeout to be used for Guzzle connections here.
+    | 你可以在這裡設定 Guzzle 連線所使用的逾時時間。
     */
 
     'guzzle' => [
@@ -86,8 +84,7 @@ return [
     | CDN
     |--------------------------------------------------------------------------
     |
-    | Information for the panel to use when contacting the CDN to confirm
-    | if panel is up to date.
+    | Panel 用來與 CDN 通訊、確認 Panel 是否為最新版本時所需的資訊。
     */
 
     'cdn' => [
@@ -97,10 +94,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Client Features
+    | 客戶端功能
     |--------------------------------------------------------------------------
     |
-    | Allow clients to create their own databases.
+    | 允許客戶端建立自己的資料庫。
     */
 
     'client_features' => [
@@ -110,7 +107,7 @@ return [
         ],
 
         'schedules' => [
-            // The total number of tasks that can exist for any given schedule at once.
+            // 任一排程同時能存在的任務總數上限。
             'per_schedule_task_limit' => env('PTERODACTYL_PER_SCHEDULE_TASK_LIMIT', 10),
         ],
 
@@ -123,10 +120,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | File Editor
+    | 檔案編輯器
     |--------------------------------------------------------------------------
     |
-    | This array includes the MIME filetypes that can be edited via the web.
+    | 此陣列包含可透過網頁編輯的 MIME 檔案類型。
     */
 
     'files' => [
@@ -135,14 +132,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Dynamic Environment Variables
+    | 動態環境變數
     |--------------------------------------------------------------------------
     |
-    | Place dynamic environment variables here that should be auto-appended
-    | to server environment fields when the server is created or updated.
+    | 在這裡放置動態環境變數，這些變數會在伺服器建立或更新時
+    | 自動附加到伺服器的環境變數欄位中。
     |
-    | Items should be in 'key' => 'value' format, where key is the environment
-    | variable name, and value is the server-object key. For example:
+    | 項目格式應為 'key' => 'value'，其中 key 是環境變數名稱，
+    | value 則是伺服器物件的欄位名稱。例如：
     |
     | 'P_SERVER_CREATED_AT' => 'created_at'
     */
@@ -153,10 +150,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Asset Verification
+    | 資源驗證
     |--------------------------------------------------------------------------
     |
-    | This section controls the output format for JS & CSS assets.
+    | 此區塊控制 JS 與 CSS 資源檔案的輸出格式。
     */
 
     'assets' => [
@@ -165,25 +162,25 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Email Notification Settings
+    | 電子郵件通知設定
     |--------------------------------------------------------------------------
     |
-    | This section controls what notifications are sent to users.
+    | 此區塊控制要寄送哪些通知給使用者。
     */
 
     'email' => [
-        // Should an email be sent to a server owner once their server has completed it's first install process?
+        // 伺服器完成第一次安裝流程後，是否要寄送電子郵件通知伺服器擁有者？
         'send_install_notification' => env('PTERODACTYL_SEND_INSTALL_NOTIFICATION', true),
-        // Should an email be sent to a server owner whenever their server is reinstalled?
+        // 伺服器每次重新安裝時，是否要寄送電子郵件通知伺服器擁有者？
         'send_reinstall_notification' => env('PTERODACTYL_SEND_REINSTALL_NOTIFICATION', true),
     ],
 
     /*
     |--------------------------------------------------------------------------
-    | Telemetry Settings
+    | 遙測（Telemetry）設定
     |--------------------------------------------------------------------------
     |
-    | This section controls the telemetry sent by Pterodactyl.
+    | 此區塊控制 Pterodactyl 所寄送的遙測資料。
     */
 
     'telemetry' => [

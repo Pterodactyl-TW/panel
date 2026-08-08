@@ -3,44 +3,44 @@
 use Pterodactyl\Models\Backup;
 
 return [
-    // The backup driver to use for this Panel instance. All client generated server backups
-    // will be stored in this location by default. It is possible to change this once backups
-    // have been made, without losing data.
+    // 此 Panel 執行個體使用的備份驅動。所有由客戶端產生的伺服器備份，
+    // 預設都會儲存在這個位置。即使已經產生過備份，之後仍可以
+    // 變更此設定而不會遺失資料。
     'default' => env('APP_BACKUP_DRIVER', Backup::ADAPTER_WINGS),
 
-    // This value is used to determine the lifespan of UploadPart presigned urls that wings
-    // uses to upload backups to S3 storage.  Value is in minutes, so this would default to an hour.
+    // 此值用來決定 wings 上傳備份到 S3 儲存空間時所使用的
+    // UploadPart 預簽章網址（presigned url）存續時間。單位為分鐘，預設為一小時。
     'presigned_url_lifespan' => (int) env('BACKUP_PRESIGNED_URL_LIFESPAN', 60),
 
-    // This value defines the maximal size of a single part for the S3 multipart upload during backups
-    // The maximal part size must be given in bytes. The default value is 5GB.
-    // Note that 5GB is the maximum for a single part when using AWS S3.
+    // 此值定義備份過程中 S3 分段上傳（multipart upload）單一分段的最大大小，
+    // 必須以位元組為單位提供。預設值為 5GB。
+    // 請注意，使用 AWS S3 時，單一分段的上限就是 5GB。
     'max_part_size' => env('BACKUP_MAX_PART_SIZE', 5 * 1024 * 1024 * 1024),
 
-    // The time to wait before automatically failing a backup, time is in minutes and defaults
-    // to 6 hours.  To disable this feature, set the value to `0`.
+    // 備份在自動判定為失敗前的等待時間，單位為分鐘，預設為 6 小時。
+    // 若要停用此功能，請將此值設為 `0`。
     'prune_age' => env('BACKUP_PRUNE_AGE', 360),
 
-    // Defines the backup creation throttle limits for users. In this default example, we allow
-    // a user to create two (successful or pending) backups per 10 minutes. Even if they delete
-    // a backup it will be included in the throttle count.
+    // 定義使用者建立備份的節流（throttle）限制。在此預設範例中，
+    // 我們允許使用者每 10 分鐘建立兩個備份（無論成功或處理中）。
+    // 即使刪除了某個備份，仍會計入節流次數。
     //
-    // Set the period to "0" to disable this throttle. The period is defined in seconds.
+    // 將 period 設為「0」可停用此節流限制。period 的單位為秒。
     'throttles' => [
         'limit' => env('BACKUP_THROTTLE_LIMIT', 2),
         'period' => env('BACKUP_THROTTLE_PERIOD', 600),
     ],
 
     'disks' => [
-        // There is no configuration for the local disk for Wings. That configuration
-        // is determined by the Daemon configuration, and not the Panel.
+        // Wings 沒有針對本機磁碟（local disk）的設定選項，
+        // 該設定是由 Daemon 的組態設定決定，而不是由 Panel 決定。
         'wings' => [
             'adapter' => Backup::ADAPTER_WINGS,
         ],
 
-        // Configuration for storing backups in Amazon S3. This uses the same credentials
-        // specified in filesystems.php but does include some more specific settings for
-        // backups, notably bucket, location, and use_accelerate_endpoint.
+        // 將備份儲存於 Amazon S3 的相關組態設定。這裡使用的憑證
+        // 與 filesystems.php 中指定的相同，但額外包含一些備份專屬的
+        // 設定，特別是 bucket、location 以及 use_accelerate_endpoint。
         's3' => [
             'adapter' => Backup::ADAPTER_AWS_S3,
 
@@ -48,12 +48,12 @@ return [
             'key' => env('AWS_ACCESS_KEY_ID'),
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
 
-            // The S3 bucket to use for backups.
+            // 用於備份的 S3 bucket。
             'bucket' => env('AWS_BACKUPS_BUCKET'),
 
-            // The location within the S3 bucket where backups will be stored. Backups
-            // are stored within a folder using the server's UUID as the name. Each
-            // backup for that server lives within that folder.
+            // S3 bucket 中儲存備份的位置。備份會以伺服器的 UUID
+            // 作為資料夾名稱進行儲存，該伺服器的每個備份
+            // 都會存放在這個資料夾中。
             'prefix' => env('AWS_BACKUPS_BUCKET') ?? '',
 
             'endpoint' => env('AWS_ENDPOINT'),

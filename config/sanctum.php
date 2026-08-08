@@ -3,12 +3,12 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Stateful Domains
+    | 具狀態（Stateful）網域
     |--------------------------------------------------------------------------
     |
-    | Requests from the following domains / hosts will receive stateful API
-    | authentication cookies. Typically, these should include your local
-    | and production domains which access your API via a frontend SPA.
+    | 來自以下網域／主機的請求將會取得具狀態的 API 驗證 Cookie。
+    | 通常這裡應該包含你透過前端 SPA 存取 API 時
+    | 所使用的本機與正式環境網域。
     |
     */
 
@@ -20,13 +20,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Sanctum Guards
+    | Sanctum 驗證守衛（Guards）
     |--------------------------------------------------------------------------
     |
-    | This array contains the authentication guards that will be checked when
-    | Sanctum is trying to authenticate a request. If none of these guards
-    | are able to authenticate the request, Sanctum will use the bearer
-    | token that's present on an incoming request for authentication.
+    | 此陣列包含 Sanctum 嘗試驗證請求時會檢查的驗證守衛。
+    | 若這些守衛都無法驗證該請求，Sanctum 會改用
+    | 請求中帶有的 bearer token 進行驗證。
     |
     */
 
@@ -34,12 +33,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Expiration Minutes
+    | 到期時間（分鐘）
     |--------------------------------------------------------------------------
     |
-    | This value controls the number of minutes until an issued token will be
-    | considered expired. If this value is null, personal access tokens do
-    | not expire. This won't tweak the lifetime of first-party sessions.
+    | 此值控制核發的權杖經過多少分鐘後會被視為過期。
+    | 若此值為 null，個人存取權杖將永不過期。
+    | 此設定不會影響第一方 session 的存續時間。
     |
     */
 
@@ -47,12 +46,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Sanctum Middleware
+    | Sanctum 中介層（Middleware）
     |--------------------------------------------------------------------------
     |
-    | When authenticating your first-party SPA with Sanctum you may need to
-    | customize some of the middleware Sanctum uses while processing the
-    | request. You may change the middleware listed below as required.
+    | 在使用 Sanctum 驗證第一方 SPA 時，你可能需要自訂
+    | Sanctum 處理請求時所使用的部分中介層。
+    | 你可以視需求變更下方列出的中介層。
     |
     */
 

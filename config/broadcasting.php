@@ -3,14 +3,13 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Default Broadcaster
+    | 預設廣播驅動
     |--------------------------------------------------------------------------
     |
-    | This option controls the default broadcaster that will be used by the
-    | framework when an event needs to be broadcast. You may set this to
-    | any of the connections defined in the "connections" array below.
+    | 此選項控制框架在需要廣播事件時所使用的預設廣播驅動。
+    | 你可以將其設為下方「connections」陣列中定義的任何一組連線。
     |
-    | Supported: "pusher", "ably", "redis", "log", "null"
+    | 支援的選項："pusher"、"ably"、"redis"、"log"、"null"
     |
     */
 
@@ -18,12 +17,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Broadcast Connections
+    | 廣播連線設定
     |--------------------------------------------------------------------------
     |
-    | Here you may define all of the broadcast connections that will be used
-    | to broadcast events to other systems or over websockets. Samples of
-    | each available type of connection are provided inside this array.
+    | 你可以在這裡定義所有用來將事件廣播至其他系統
+    | 或透過 websocket 廣播的連線設定。此陣列中提供了
+    | 每種可用連線類型的範例。
     |
     */
 
@@ -41,7 +40,7 @@ return [
                 'useTLS' => env('PUSHER_SCHEME', 'https') === 'https',
             ],
             'client_options' => [
-                // Guzzle client options: https://docs.guzzlephp.org/en/stable/request-options.html
+                // Guzzle 用戶端選項：https://docs.guzzlephp.org/en/stable/request-options.html
             ],
         ],
 

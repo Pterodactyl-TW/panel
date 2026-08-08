@@ -5,15 +5,15 @@ use Illuminate\Support\Str;
 return [
     /*
     |--------------------------------------------------------------------------
-    | Default Session Driver
+    | 預設 Session 驅動
     |--------------------------------------------------------------------------
     |
-    | This option determines the default session driver that is utilized for
-    | incoming requests. Laravel supports a variety of storage options to
-    | persist session data. Database storage is a great default choice.
+    | 此選項決定用來處理傳入請求的預設 session 驅動。
+    | Laravel 支援多種儲存方式來保存 session 資料。
+    | 資料庫儲存是很不錯的預設選擇。
     |
-    | Supported: "file", "cookie", "database", "apc",
-    |            "memcached", "redis", "dynamodb", "array"
+    | 支援的選項："file"、"cookie"、"database"、"apc"、
+    |             "memcached"、"redis"、"dynamodb"、"array"
     |
     */
 
@@ -21,13 +21,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Lifetime
+    | Session 存續時間
     |--------------------------------------------------------------------------
     |
-    | Here you may specify the number of minutes that you wish the session
-    | to be allowed to remain idle before it expires. If you want them
-    | to expire immediately when the browser is closed then you may
-    | indicate that via the expire_on_close configuration option.
+    | 你可以在這裡指定 session 在過期前允許閒置的分鐘數。
+    | 若你希望瀏覽器關閉時 session 立即過期，
+    | 可以透過 expire_on_close 這個設定選項來指定。
     |
     */
 
@@ -37,12 +36,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Encryption
+    | Session 加密
     |--------------------------------------------------------------------------
     |
-    | This option allows you to easily specify that all of your session data
-    | should be encrypted before it's stored. All encryption is performed
-    | automatically by Laravel and you may use the session like normal.
+    | 此選項讓你可以輕鬆指定所有的 session 資料在儲存前都應該先加密。
+    | 所有加密作業都由 Laravel 自動完成，
+    | 你依然可以像平常一樣正常使用 session。
     |
     */
 
@@ -50,12 +49,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session File Location
+    | Session 檔案位置
     |--------------------------------------------------------------------------
     |
-    | When utilizing the "file" session driver, the session files are placed
-    | on disk. The default storage location is defined here; however, you
-    | are free to provide another location where they should be stored.
+    | 使用「file」session 驅動時，session 檔案會被存放在磁碟上。
+    | 這裡定義了預設的儲存位置；不過你也可以自由
+    | 指定其他要儲存的位置。
     |
     */
 
@@ -63,12 +62,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Database Connection
+    | Session 資料庫連線
     |--------------------------------------------------------------------------
     |
-    | When using the "database" or "redis" session drivers, you may specify a
-    | connection that should be used to manage these sessions. This should
-    | correspond to a connection in your database configuration options.
+    | 使用「database」或「redis」session 驅動時，你可以指定
+    | 用來管理這些 session 的連線，這應該要對應到
+    | 你資料庫組態設定選項中的其中一組連線。
     |
     */
 
@@ -76,12 +75,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Database Table
+    | Session 資料庫資料表
     |--------------------------------------------------------------------------
     |
-    | When using the "database" session driver, you may specify the table to
-    | be used to store sessions. Of course, a sensible default is defined
-    | for you; however, you're welcome to change this to another table.
+    | 使用「database」session 驅動時，你可以指定用來儲存 session 的資料表。
+    | 當然，這裡已經為你定義好一個合理的預設值；
+    | 不過你也可以自由改成其他資料表。
     |
     */
 
@@ -89,14 +88,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Cache Store
+    | Session 快取儲存區
     |--------------------------------------------------------------------------
     |
-    | When using one of the framework's cache driven session backends, you may
-    | define the cache store which should be used to store the session data
-    | between requests. This must match one of your defined cache stores.
+    | 使用框架中以快取為基礎的 session 後端時，你可以定義
+    | 用來在不同請求之間儲存 session 資料的快取儲存區。
+    | 這個值必須符合你所定義的其中一個快取儲存區。
     |
-    | Affects: "apc", "dynamodb", "memcached", "redis"
+    | 影響範圍："apc"、"dynamodb"、"memcached"、"redis"
     |
     */
 
@@ -104,12 +103,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Sweeping Lottery
+    | Session 清理抽籤機制
     |--------------------------------------------------------------------------
     |
-    | Some session drivers must manually sweep their storage location to get
-    | rid of old sessions from storage. Here are the chances that it will
-    | happen on a given request. By default, the odds are 2 out of 100.
+    | 部分 session 驅動必須手動清理其儲存位置，
+    | 以清除儲存空間中的舊 session。這裡設定的是
+    | 每次請求觸發清理的機率，預設為百分之二（2/100）。
     |
     */
 
@@ -117,12 +116,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Cookie Name
+    | Session Cookie 名稱
     |--------------------------------------------------------------------------
     |
-    | Here you may change the name of the session cookie that is created by
-    | the framework. Typically, you should not need to change this value
-    | since doing so does not grant a meaningful security improvement.
+    | 你可以在這裡變更框架建立的 session cookie 名稱。
+    | 通常你不需要變更這個值，因為這麼做
+    | 並不會帶來實質上的安全性提升。
     |
     */
 
@@ -133,12 +132,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Cookie Path
+    | Session Cookie 路徑
     |--------------------------------------------------------------------------
     |
-    | The session cookie path determines the path for which the cookie will
-    | be regarded as available. Typically, this will be the root path of
-    | your application, but you're free to change this when necessary.
+    | Session cookie 路徑決定了 cookie 在哪些路徑下會被視為可用。
+    | 通常這會是應用程式的根路徑，
+    | 但你可以視需要自由變更此設定。
     |
     */
 
@@ -146,12 +145,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Cookie Domain
+    | Session Cookie 網域
     |--------------------------------------------------------------------------
     |
-    | This value determines the domain and subdomains the session cookie is
-    | available to. By default, the cookie will be available to the root
-    | domain and all subdomains. Typically, this shouldn't be changed.
+    | 此值決定 session cookie 在哪些網域與子網域下可用。
+    | 預設情況下，cookie 會在根網域與所有子網域下都可使用。
+    | 通常不需要變更此設定。
     |
     */
 
@@ -159,12 +158,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | HTTPS Only Cookies
+    | 僅限 HTTPS 的 Cookie
     |--------------------------------------------------------------------------
     |
-    | By setting this option to true, session cookies will only be sent back
-    | to the server if the browser has a HTTPS connection. This will keep
-    | the cookie from being sent to you when it can't be done securely.
+    | 將此選項設為 true 後，只有在瀏覽器使用 HTTPS 連線時，
+    | session cookie 才會被傳送回伺服器。這能避免 cookie
+    | 在無法安全傳輸的情況下被送出。
     |
     */
 
@@ -172,12 +171,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | HTTP Access Only
+    | 僅限 HTTP 存取
     |--------------------------------------------------------------------------
     |
-    | Setting this value to true will prevent JavaScript from accessing the
-    | value of the cookie and the cookie will only be accessible through
-    | the HTTP protocol. It's unlikely you should disable this option.
+    | 將此值設為 true 可防止 JavaScript 存取 cookie 的值，
+    | 該 cookie 就只能透過 HTTP 協定存取。
+    | 你應該不太可能需要停用這個選項。
     |
     */
 
@@ -185,16 +184,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Same-Site Cookies
+    | Same-Site Cookie
     |--------------------------------------------------------------------------
     |
-    | This option determines how your cookies behave when cross-site requests
-    | take place, and can be used to mitigate CSRF attacks. By default, we
-    | will set this value to "lax" to permit secure cross-site requests.
+    | 此選項決定當發生跨網站請求時 cookie 的行為方式，
+    | 可用來緩解 CSRF 攻擊。預設情況下，
+    | 我們會將此值設為「lax」以允許安全的跨網站請求。
     |
-    | See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value
+    | 參見：https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value
     |
-    | Supported: "lax", "strict", "none", null
+    | 支援的選項："lax"、"strict"、"none"、null
     |
     */
 
@@ -202,12 +201,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Partitioned Cookies
+    | 分割 Cookie（Partitioned Cookies）
     |--------------------------------------------------------------------------
     |
-    | Setting this value to true will tie the cookie to the top-level site for
-    | a cross-site context. Partitioned cookies are accepted by the browser
-    | when flagged "secure" and the Same-Site attribute is set to "none".
+    | 將此值設為 true 會讓 cookie 在跨網站情境下
+    | 綁定至最上層網站。當 cookie 被標記為「secure」
+    | 且 Same-Site 屬性設為「none」時，瀏覽器就會接受分割 cookie。
     |
     */
 

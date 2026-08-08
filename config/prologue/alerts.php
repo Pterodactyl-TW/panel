@@ -3,14 +3,14 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Alert Levels
+    | 提示等級（Alert Levels）
     |--------------------------------------------------------------------------
     |
-    | The default sort of alert levels which can be called as functions on the
-    | AlertsMessageBag class. This gives a convenient way to add certain type's
-    | of messages.
+    | 這些是預設的提示等級，可以像函式一樣呼叫
+    | AlertsMessageBag 類別上的對應方法，方便新增
+    | 特定類型的訊息。
     |
-    | For example:
+    | 例如：
     |
     |     Alerts::info($message);
     |
@@ -25,11 +25,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Key
+    | Session 鍵值
     |--------------------------------------------------------------------------
     |
-    | The session key which is used to store flashed messages into the current
-    | session. This can be changed if it conflicts with another key.
+    | 用來將快閃訊息（flashed messages）儲存到目前 session 中
+    | 所使用的 session 鍵值。若與其他鍵值衝突，可以變更此設定。
     |
     */
 

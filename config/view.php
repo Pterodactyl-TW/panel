@@ -3,12 +3,12 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | View Storage Paths
+    | 樣板儲存路徑
     |--------------------------------------------------------------------------
     |
-    | Most templating systems load templates from disk. Here you may specify
-    | an array of paths that should be checked for your views. Of course
-    | the usual Laravel view path has already been registered for you.
+    | 大部分的樣板系統都是從磁碟載入樣板檔案。你可以在這裡指定
+    | 一組要檢查樣板檔案的路徑陣列。當然，Laravel 常用的
+    | 樣板路徑已經預先為你註冊好了。
     |
     */
 
@@ -18,12 +18,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Compiled View Path
+    | 編譯後的樣板路徑
     |--------------------------------------------------------------------------
     |
-    | This option determines where all the compiled Blade templates will be
-    | stored for your application. Typically, this is within the storage
-    | directory. However, as usual, you are free to change this value.
+    | 此選項決定應用程式所有編譯後的 Blade 樣板要存放在哪裡。
+    | 通常會放在 storage 目錄底下，不過你還是可以照常
+    | 自由變更這個值。
     |
     */
 
