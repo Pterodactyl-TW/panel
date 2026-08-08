@@ -5,6 +5,7 @@
 .env*
 .vagrant/*
 .vscode/*
+.idea/*
 storage/framework/*
 /.idea
 /nbproject
