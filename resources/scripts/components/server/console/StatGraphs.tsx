@@ -17,7 +17,7 @@ export default () => {
     const previous = useRef<Record<'tx' | 'rx', number>>({ tx: -1, rx: -1 });
 
     const cpu = useChartTickLabel('CPU', limits.cpu, '%', 2);
-    const memory = useChartTickLabel('記憶體', limits.memory, 'MiB');
+    const memory = useChartTickLabel('記憶體', limits.memory, 'MB');
     const network = useChart('網路', {
         sets: 2,
         options: {
