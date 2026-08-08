@@ -8,8 +8,7 @@ export default async (uuid: string, directory: string, files: string[]): Promise
         { root: directory, files },
         {
             timeout: 60000,
-            timeoutErrorMessage:
-                'It looks like this archive is taking a long time to generate. It will appear once completed.',
+            timeoutErrorMessage: '此封存檔的產生似乎需要較長時間，完成後將會出現。',
         }
     );
 
