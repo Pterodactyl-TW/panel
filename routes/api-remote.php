@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Pterodactyl\Http\Controllers\Api\Remote;
 
-// Routes for the Wings daemon.
+// 供 Wings daemon 使用的路由。
 Route::post('/sftp/auth', Remote\SftpAuthenticationController::class);
 
 Route::get('/servers', [Remote\Servers\ServerDetailsController::class, 'list']);

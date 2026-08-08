@@ -8,10 +8,10 @@ Route::get('/', [Admin\BaseController::class, 'index'])->name('admin.index');
 
 /*
 |--------------------------------------------------------------------------
-| Location Controller Routes
+| 位置控制器路由
 |--------------------------------------------------------------------------
 |
-| Endpoint: /admin/api
+| 端點：/admin/api
 |
 */
 Route::group(['prefix' => 'api'], function () {
@@ -25,10 +25,10 @@ Route::group(['prefix' => 'api'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Location Controller Routes
+| 位置控制器路由
 |--------------------------------------------------------------------------
 |
-| Endpoint: /admin/locations
+| 端點：/admin/locations
 |
 */
 Route::group(['prefix' => 'locations'], function () {
@@ -41,10 +41,10 @@ Route::group(['prefix' => 'locations'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Database Controller Routes
+| 資料庫控制器路由
 |--------------------------------------------------------------------------
 |
-| Endpoint: /admin/databases
+| 端點：/admin/databases
 |
 */
 Route::group(['prefix' => 'databases'], function () {
@@ -58,10 +58,10 @@ Route::group(['prefix' => 'databases'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Settings Controller Routes
+| 設定控制器路由
 |--------------------------------------------------------------------------
 |
-| Endpoint: /admin/settings
+| 端點：/admin/settings
 |
 */
 Route::group(['prefix' => 'settings'], function () {
@@ -78,10 +78,10 @@ Route::group(['prefix' => 'settings'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| User Controller Routes
+| 使用者控制器路由
 |--------------------------------------------------------------------------
 |
-| Endpoint: /admin/users
+| 端點：/admin/users
 |
 */
 Route::group(['prefix' => 'users'], function () {
@@ -98,10 +98,10 @@ Route::group(['prefix' => 'users'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Server Controller Routes
+| 伺服器控制器路由
 |--------------------------------------------------------------------------
 |
-| Endpoint: /admin/servers
+| 端點：/admin/servers
 |
 */
 Route::group(['prefix' => 'servers'], function () {
@@ -141,10 +141,10 @@ Route::group(['prefix' => 'servers'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Node Controller Routes
+| 節點控制器路由
 |--------------------------------------------------------------------------
 |
-| Endpoint: /admin/nodes
+| 端點：/admin/nodes
 |
 */
 Route::group(['prefix' => 'nodes'], function () {
@@ -172,10 +172,10 @@ Route::group(['prefix' => 'nodes'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Mount Controller Routes
+| Mount 控制器路由
 |--------------------------------------------------------------------------
 |
-| Endpoint: /admin/mounts
+| 端點：/admin/mounts
 |
 */
 Route::group(['prefix' => 'mounts'], function () {
@@ -194,10 +194,10 @@ Route::group(['prefix' => 'mounts'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Nest Controller Routes
+| Nest 控制器路由
 |--------------------------------------------------------------------------
 |
-| Endpoint: /admin/nests
+| 端點：/admin/nests
 |
 */
 Route::group(['prefix' => 'nests'], function () {

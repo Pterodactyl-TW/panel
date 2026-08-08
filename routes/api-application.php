@@ -5,10 +5,10 @@ use Pterodactyl\Http\Controllers\Api\Application;
 
 /*
 |--------------------------------------------------------------------------
-| User Controller Routes
+| 使用者控制器路由
 |--------------------------------------------------------------------------
 |
-| Endpoint: /api/application/users
+| 端點：/api/application/users
 |
 */
 
@@ -25,10 +25,10 @@ Route::group(['prefix' => '/users'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Node Controller Routes
+| 節點控制器路由
 |--------------------------------------------------------------------------
 |
-| Endpoint: /api/application/nodes
+| 端點：/api/application/nodes
 |
 */
 Route::group(['prefix' => '/nodes'], function () {
@@ -51,10 +51,10 @@ Route::group(['prefix' => '/nodes'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Location Controller Routes
+| 位置控制器路由
 |--------------------------------------------------------------------------
 |
-| Endpoint: /api/application/locations
+| 端點：/api/application/locations
 |
 */
 Route::group(['prefix' => '/locations'], function () {
@@ -69,10 +69,10 @@ Route::group(['prefix' => '/locations'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Server Controller Routes
+| 伺服器控制器路由
 |--------------------------------------------------------------------------
 |
-| Endpoint: /api/application/servers
+| 端點：/api/application/servers
 |
 */
 Route::group(['prefix' => '/servers'], function () {
@@ -92,7 +92,7 @@ Route::group(['prefix' => '/servers'], function () {
     Route::delete('/{server:id}', [Application\Servers\ServerController::class, 'delete']);
     Route::delete('/{server:id}/{force?}', [Application\Servers\ServerController::class, 'delete']);
 
-    // Database Management Endpoint
+    // 資料庫管理端點
     Route::group(['prefix' => '/{server:id}/databases'], function () {
         Route::get('/', [Application\Servers\DatabaseController::class, 'index'])->name('api.application.servers.databases');
         Route::get('/{database:id}', [Application\Servers\DatabaseController::class, 'view'])->name('api.application.servers.databases.view');
@@ -106,17 +106,17 @@ Route::group(['prefix' => '/servers'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Nest Controller Routes
+| Nest 控制器路由
 |--------------------------------------------------------------------------
 |
-| Endpoint: /api/application/nests
+| 端點：/api/application/nests
 |
 */
 Route::group(['prefix' => '/nests'], function () {
     Route::get('/', [Application\Nests\NestController::class, 'index'])->name('api.application.nests');
     Route::get('/{nest:id}', [Application\Nests\NestController::class, 'view'])->name('api.application.nests.view');
 
-    // Egg Management Endpoint
+    // Egg 管理端點
     Route::group(['prefix' => '/{nest:id}/eggs'], function () {
         Route::get('/', [Application\Nests\EggController::class, 'index'])->name('api.application.nests.eggs');
         Route::get('/{egg:id}', [Application\Nests\EggController::class, 'view'])->name('api.application.nests.eggs.view');

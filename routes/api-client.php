@@ -11,10 +11,10 @@ use Pterodactyl\Http\Middleware\Api\Client\Server\AuthenticateServerAccess;
 
 /*
 |--------------------------------------------------------------------------
-| Client Control API
+| 客戶端控制 API
 |--------------------------------------------------------------------------
 |
-| Endpoint: /api/client
+| 端點：/api/client
 |
 */
 Route::get('/', [Client\ClientController::class, 'index'])->name('api:client.index');
@@ -48,10 +48,10 @@ Route::prefix('/account')->middleware(AccountSubject::class)->group(function () 
 
 /*
 |--------------------------------------------------------------------------
-| Client Control API
+| 客戶端控制 API
 |--------------------------------------------------------------------------
 |
-| Endpoint: /api/client/servers/{server}
+| 端點：/api/client/servers/{server}
 |
 */
 Route::group([
