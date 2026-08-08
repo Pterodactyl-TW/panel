@@ -1,10 +1,13 @@
 import { Action, action } from 'easy-peasy';
 import { Websocket } from '@/plugins/Websocket';
+import { DemoWebsocket } from '@/plugins/DemoWebsocket';
+
+export type ServerSocket = Websocket | DemoWebsocket;
 
 export interface SocketStore {
-    instance: Websocket | null;
+    instance: ServerSocket | null;
     connected: boolean;
-    setInstance: Action<SocketStore, Websocket | null>;
+    setInstance: Action<SocketStore, ServerSocket | null>;
     setConnectionState: Action<SocketStore, boolean>;
 }
 

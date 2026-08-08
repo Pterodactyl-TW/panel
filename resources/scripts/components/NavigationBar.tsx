@@ -12,6 +12,7 @@ import http from '@/api/http';
 import SpinnerOverlay from '@/components/elements/SpinnerOverlay';
 import Tooltip from '@/components/elements/tooltip/Tooltip';
 import Avatar from '@/components/Avatar';
+import { disableDemoMode } from '@/demo/bootstrap';
 
 const RightNavigation = styled.div`
     & > a,
@@ -35,9 +36,16 @@ const RightNavigation = styled.div`
 export default () => {
     const name = useStoreState((state: ApplicationStore) => state.settings.data!.name);
     const rootAdmin = useStoreState((state: ApplicationStore) => state.user.data!.rootAdmin);
+    const demo = (window as Window & { PterodactylDemo?: boolean }).PterodactylDemo;
     const [isLoggingOut, setIsLoggingOut] = useState(false);
 
     const onTriggerLogout = () => {
+        if (demo) {
+            setIsLoggingOut(true);
+            disableDemoMode().then(() => window.location.replace('/auth/login'));
+            return;
+        }
+
         setIsLoggingOut(true);
         http.post('/auth/logout').finally(() => {
             // @ts-expect-error this is valid

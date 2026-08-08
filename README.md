@@ -17,6 +17,20 @@ Pterodactyl® 是一套使用 PHP、React 與 Go 打造的免費開源遊戲伺�
 
 ![Image](https://cdn.pterodactyl.io/site-assets/pterodactyl_v1_demo.gif)
 
+## Demo 模式
+
+本分支提供選用的瀏覽器端模擬後端，適合架設公開展示站。只要在任一面板網址加上 `?demo=1`
+（例如 `https://panel.example.test/auth/login?demo=1`），前端便會註冊 `/demo-service-worker.js` 並重新載入，
+接著提供虛構的 Client API 資料與模擬的終端 WebSocket。未實作的 Client API 會以 HTTP 501 封閉失敗，
+絕不轉送至真實後端。可按黃色提示列中的 **離開 Demo**，或使用 `?demo=0` 取消註冊 Demo Worker。
+
+Service Worker 需要 HTTPS（或 `localhost`）。Demo 中的變更僅保存在記憶體，Worker 重啟後便會重設。
+
+```bash
+yarn test:demo-worker
+yarn test resources/scripts/demo/bootstrap.spec.ts resources/scripts/plugins/DemoWebsocket.spec.ts
+```
+
 ## 文件
 
 * [Panel 文件](https://pterodactyl.tw/panel/1.0/getting_started.html)

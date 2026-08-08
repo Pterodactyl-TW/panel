@@ -6,6 +6,7 @@ import ContentContainer from '@/components/elements/ContentContainer';
 import { CSSTransition } from 'react-transition-group';
 import Spinner from '@/components/elements/Spinner';
 import tw from 'twin.macro';
+import { DemoWebsocket } from '@/plugins/DemoWebsocket';
 
 const reconnectErrors = ['jwt: exp claim is invalid', 'jwt: created too far in past (denylist)'];
 
@@ -17,7 +18,7 @@ export default () => {
     const setServerStatus = ServerContext.useStoreActions((actions) => actions.status.setServerStatus);
     const { setInstance, setConnectionState } = ServerContext.useStoreActions((actions) => actions.socket);
 
-    const updateToken = (uuid: string, socket: Websocket) => {
+    const updateToken = (uuid: string, socket: Websocket | DemoWebsocket) => {
         if (updatingToken) return;
 
         updatingToken = true;
@@ -30,7 +31,9 @@ export default () => {
     };
 
     const connect = (uuid: string) => {
-        const socket = new Websocket();
+        const socket = (window as Window & { PterodactylDemo?: boolean }).PterodactylDemo
+            ? new DemoWebsocket()
+            : new Websocket();
 
         socket.on('auth success', () => setConnectionState(true));
         socket.on('SOCKET_CLOSE', () => setConnectionState(false));

@@ -14,12 +14,14 @@ import AuthenticatedRoute from '@/components/elements/AuthenticatedRoute';
 import { ServerContext } from '@/state/server';
 import '@/assets/tailwind.css';
 import Spinner from '@/components/elements/Spinner';
+import { disableDemoMode } from '@/demo/bootstrap';
 
 const DashboardRouter = lazy(() => import(/* webpackChunkName: "dashboard" */ '@/routers/DashboardRouter'));
 const ServerRouter = lazy(() => import(/* webpackChunkName: "server" */ '@/routers/ServerRouter'));
 const AuthenticationRouter = lazy(() => import(/* webpackChunkName: "auth" */ '@/routers/AuthenticationRouter'));
 
 interface ExtendedWindow extends Window {
+    PterodactylDemo?: boolean;
     SiteConfiguration?: SiteSettings;
     PterodactylUser?: {
         uuid: string;
@@ -38,7 +40,7 @@ interface ExtendedWindow extends Window {
 setupInterceptors(history);
 
 const App = () => {
-    const { PterodactylUser, SiteConfiguration } = window as ExtendedWindow;
+    const { PterodactylDemo, PterodactylUser, SiteConfiguration } = window as ExtendedWindow;
     if (PterodactylUser && !store.getState().user.data) {
         store.getActions().user.setUserData({
             uuid: PterodactylUser.uuid,
@@ -59,6 +61,22 @@ const App = () => {
     return (
         <>
             <GlobalStylesheet />
+            {PterodactylDemo && (
+                <div
+                    className={
+                        'fixed inset-x-0 bottom-0 z-50 bg-yellow-400 px-3 py-1 text-center text-xs font-medium text-black'
+                    }
+                >
+                    DEMO 模式：所有資料皆為虛構，變更只存在於此瀏覽器分頁。
+                    <button
+                        className={'ml-2 underline'}
+                        type={'button'}
+                        onClick={() => disableDemoMode().then(() => window.location.replace('/auth/login'))}
+                    >
+                        離開 Demo
+                    </button>
+                </div>
+            )}
             <StoreProvider store={store}>
                 <ProgressBar />
                 <div css={tw`mx-auto w-auto`}>
