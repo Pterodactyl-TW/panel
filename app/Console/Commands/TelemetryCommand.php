@@ -27,7 +27,7 @@ class TelemetryCommand extends Command
      */
     public function handle()
     {
-        $this->output->info('Collecting telemetry data, this may take a while...');
+        $this->output->info('正在蒐集遙測資料，這可能需要一些時間...');
 
         VarDumper::dump($this->telemetryCollectionService->collect());
     }
