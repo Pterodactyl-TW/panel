@@ -159,7 +159,8 @@
                     <strong><i class="fa fa-fw {{ $appIsGit ? 'fa-git-square' : 'fa-code-fork' }}"></i></strong> {{ $appVersion }}<br />
                     <strong><i class="fa fa-fw fa-clock-o"></i></strong> {{ round(microtime(true) - LARAVEL_START, 3) }}s
                 </div>
-                Copyright &copy; 2015 - {{ date('Y') }} <a href="https://pterodactyl.tw/">Pterodactyl Software</a>。
+                Copyright &copy; 2026 - {{ date('Y') }} <a href="https://pterodactyl.tw" target="_blank" rel="noopener nofollow noreferrer">Pterodactyl-TW 臺灣翻譯團隊</a>. All Rights Reserved.<br />
+                Based on software originally developed by <a href="https://pterodactyl.io" target="_blank" rel="noopener nofollow noreferrer">Pterodactyl Software</a>.
             </footer>
         </div>
         @section('footer-scripts')
