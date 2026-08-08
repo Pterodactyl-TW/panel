@@ -77,7 +77,7 @@ class ServerTransferControllerTest extends IntegrationTestCase
             ->postJson("/api/remote/servers/{$server->uuid}/transfer/success")
             ->assertForbidden()
             ->assertJsonPath('errors.0.code', 'HttpForbiddenException')
-            ->assertJsonPath('errors.0.detail', 'Requesting node does not have permission to access this server.');
+            ->assertJsonPath('errors.0.detail', '請求的節點沒有權限存取此伺服器。');
 
         $this->assertNull($this->transfer->refresh()->successful);
     }
@@ -91,7 +91,7 @@ class ServerTransferControllerTest extends IntegrationTestCase
             ->postJson("/api/remote/servers/$server->uuid/transfer/success")
             ->assertForbidden()
             ->assertJsonPath('errors.0.code', 'HttpForbiddenException')
-            ->assertJsonPath('errors.0.detail', 'Requesting node does not have permission to access this server.');
+            ->assertJsonPath('errors.0.detail', '請求的節點沒有權限存取此伺服器。');
 
         $this->assertNull($this->transfer->refresh()->successful);
     }
@@ -104,7 +104,7 @@ class ServerTransferControllerTest extends IntegrationTestCase
         $this->withHeader('Authorization', "Bearer $node->daemon_token_id." . $node->getDecryptedKey())
             ->postJson("/api/remote/servers/$server->uuid/transfer/failure")->assertForbidden()
             ->assertJsonPath('errors.0.code', 'HttpForbiddenException')
-            ->assertJsonPath('errors.0.detail', 'Requesting node does not have permission to access this server.');
+            ->assertJsonPath('errors.0.detail', '請求的節點沒有權限存取此伺服器。');
 
         $this->assertNull($this->transfer->refresh()->successful);
     }

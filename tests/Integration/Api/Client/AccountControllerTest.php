@@ -92,7 +92,7 @@ class AccountControllerTest extends ClientApiIntegrationTestCase
 
         $response->assertStatus(Response::HTTP_BAD_REQUEST);
         $response->assertJsonPath('errors.0.code', 'InvalidPasswordProvidedException');
-        $response->assertJsonPath('errors.0.detail', 'The password provided was invalid for this account.');
+        $response->assertJsonPath('errors.0.detail', '此帳號提供的密碼無效。');
     }
 
     /**
@@ -111,7 +111,7 @@ class AccountControllerTest extends ClientApiIntegrationTestCase
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
         $response->assertJsonPath('errors.0.meta.rule', 'required');
-        $response->assertJsonPath('errors.0.detail', 'The email field is required.');
+        $response->assertJsonPath('errors.0.detail', 'email 欄位為必填。');
 
         $response = $this->actingAs($user)->putJson('/api/client/account/email', [
             'email' => 'invalid',
@@ -120,7 +120,7 @@ class AccountControllerTest extends ClientApiIntegrationTestCase
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
         $response->assertJsonPath('errors.0.meta.rule', 'email');
-        $response->assertJsonPath('errors.0.detail', 'The email must be a valid email address.');
+        $response->assertJsonPath('errors.0.detail', 'email 必須是有效的電子郵件地址。');
 
 
         /*
@@ -137,7 +137,7 @@ class AccountControllerTest extends ClientApiIntegrationTestCase
         ]);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
-        $response->assertJsonPath('errors.0.detail', 'The email must be a valid email address.');
+        $response->assertJsonPath('errors.0.detail', 'email 必須是有效的電子郵件地址。');
         $response->assertJsonPath('errors.0.meta.source_field', 'email');
 
 
@@ -147,7 +147,7 @@ class AccountControllerTest extends ClientApiIntegrationTestCase
         ]);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
-        $response->assertJsonPath('errors.0.detail', 'The email must be a valid email address.');
+        $response->assertJsonPath('errors.0.detail', 'email 必須是有效的電子郵件地址。');
         $response->assertJsonPath('errors.0.meta.source_field', 'email');
     }
 
@@ -208,7 +208,7 @@ class AccountControllerTest extends ClientApiIntegrationTestCase
 
         $response->assertStatus(Response::HTTP_BAD_REQUEST);
         $response->assertJsonPath('errors.0.code', 'InvalidPasswordProvidedException');
-        $response->assertJsonPath('errors.0.detail', 'The password provided was invalid for this account.');
+        $response->assertJsonPath('errors.0.detail', '此帳號提供的密碼無效。');
     }
 
     /**
@@ -251,6 +251,6 @@ class AccountControllerTest extends ClientApiIntegrationTestCase
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
         $response->assertJsonPath('errors.0.meta.rule', 'confirmed');
-        $response->assertJsonPath('errors.0.detail', 'The password confirmation does not match.');
+        $response->assertJsonPath('errors.0.detail', 'password 確認欄位不相符。');
     }
 }

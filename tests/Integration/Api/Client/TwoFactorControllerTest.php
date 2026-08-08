@@ -183,7 +183,7 @@ class TwoFactorControllerTest extends ClientApiIntegrationTestCase
                 'password' => 'foo',
             ])
             ->assertStatus(Response::HTTP_BAD_REQUEST)
-            ->assertJsonPath('errors.0.detail', 'The password provided was not valid.');
+            ->assertJsonPath('errors.0.detail', '提供的密碼不正確。');
 
         $this->assertFalse($user->refresh()->use_totp);
     }
@@ -200,7 +200,7 @@ class TwoFactorControllerTest extends ClientApiIntegrationTestCase
                 'password' => 'foo',
             ])
             ->assertStatus(Response::HTTP_BAD_REQUEST)
-            ->assertJsonPath('errors.0.detail', 'The password provided was not valid.');
+            ->assertJsonPath('errors.0.detail', '提供的密碼不正確。');
 
         $this->assertTrue($user->refresh()->use_totp);
     }

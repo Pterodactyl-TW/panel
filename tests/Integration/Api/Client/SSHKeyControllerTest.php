@@ -68,7 +68,7 @@ class SSHKeyControllerTest extends ClientApiIntegrationTestCase
             'public_key' => $key->public_key,
         ])
             ->assertUnprocessable()
-            ->assertJsonPath('errors.0.detail', 'DSA keys are not supported.');
+            ->assertJsonPath('errors.0.detail', '不支援 DSA 金鑰。');
 
         $this->assertEquals(0, $user->sshKeys()->count());
     }
@@ -83,7 +83,7 @@ class SSHKeyControllerTest extends ClientApiIntegrationTestCase
             'public_key' => $key->public_key,
         ])
             ->assertUnprocessable()
-            ->assertJsonPath('errors.0.detail', 'RSA keys must be at least 2048 bytes in length.');
+            ->assertJsonPath('errors.0.detail', 'RSA 金鑰長度至少須為 2048 位元。');
 
         $this->assertEquals(0, $user->sshKeys()->count());
     }
@@ -97,7 +97,7 @@ class SSHKeyControllerTest extends ClientApiIntegrationTestCase
             'public_key' => 'invalid',
         ])
             ->assertUnprocessable()
-            ->assertJsonPath('errors.0.detail', 'The public key provided is not valid.');
+            ->assertJsonPath('errors.0.detail', '提供的公鑰無效。');
 
         $this->assertEquals(0, $user->sshKeys()->count());
 
@@ -107,7 +107,7 @@ class SSHKeyControllerTest extends ClientApiIntegrationTestCase
             'public_key' => $key->toString('PKCS8'),
         ])
             ->assertUnprocessable()
-            ->assertJsonPath('errors.0.detail', 'The public key provided is not valid.');
+            ->assertJsonPath('errors.0.detail', '提供的公鑰無效。');
     }
 
     public function testCertificateCannotBeStoredAsSSHKey()
@@ -119,7 +119,7 @@ class SSHKeyControllerTest extends ClientApiIntegrationTestCase
             'public_key' => $this->makeCertificate(),
         ])
             ->assertUnprocessable()
-            ->assertJsonPath('errors.0.detail', 'The public key provided is not valid.');
+            ->assertJsonPath('errors.0.detail', '提供的公鑰無效。');
 
         $this->assertEquals(0, $user->sshKeys()->count());
     }
@@ -151,7 +151,7 @@ class SSHKeyControllerTest extends ClientApiIntegrationTestCase
             'public_key' => $key->public_key,
         ])
             ->assertUnprocessable()
-            ->assertJsonPath('errors.0.detail', 'The public key provided already exists on your account.');
+            ->assertJsonPath('errors.0.detail', '提供的公鑰已存在於你的帳號中。');
 
         $this->assertEquals(1, $user->sshKeys()->count());
     }

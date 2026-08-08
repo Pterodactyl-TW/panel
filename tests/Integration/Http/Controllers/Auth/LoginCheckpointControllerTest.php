@@ -116,7 +116,7 @@ class LoginCheckpointControllerTest extends HttpTestCase
             'authentication_code' => '123456',
         ]))
             ->assertBadRequest()
-            ->assertJsonPath('errors.0.detail', 'The authentication token provided has expired, please refresh the page and try again.');
+            ->assertJsonPath('errors.0.detail', '提供的驗證權杖已過期，請重新整理頁面後再試一次。');
 
         $this->assertGuest();
 
@@ -171,7 +171,7 @@ class LoginCheckpointControllerTest extends HttpTestCase
             'authentication_code' => '123456',
         ]))
             ->assertBadRequest()
-            ->assertJsonPath('errors.0.detail', 'The authentication token provided has expired, please refresh the page and try again.');
+            ->assertJsonPath('errors.0.detail', '提供的驗證權杖已過期，請重新整理頁面後再試一次。');
     }
 
     public function testEndpointAllowsRecoveryToken(): void
@@ -190,7 +190,7 @@ class LoginCheckpointControllerTest extends HttpTestCase
             'recovery_token' => 'invalid',
         ]))
             ->assertBadRequest()
-            ->assertJsonPath('errors.0.detail', 'The recovery token provided is not valid.');
+            ->assertJsonPath('errors.0.detail', '提供的復原權杖無效。');
 
         $this->assertGuest();
 

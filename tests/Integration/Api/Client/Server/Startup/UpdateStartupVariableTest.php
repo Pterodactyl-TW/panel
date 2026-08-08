@@ -29,7 +29,7 @@ class UpdateStartupVariableTest extends ClientApiIntegrationTestCase
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
         $response->assertJsonPath('errors.0.code', 'ValidationException');
-        $response->assertJsonPath('errors.0.detail', 'The value may only contain letters and numbers.');
+        $response->assertJsonPath('errors.0.detail', 'value 只能包含英文字母和數字。');
 
         $response = $this->actingAs($user)->putJson($this->link($server) . '/startup/variable', [
             'key' => 'BUNGEE_VERSION',
@@ -67,7 +67,7 @@ class UpdateStartupVariableTest extends ClientApiIntegrationTestCase
 
         $response->assertStatus(Response::HTTP_BAD_REQUEST);
         $response->assertJsonPath('errors.0.code', 'BadRequestHttpException');
-        $response->assertJsonPath('errors.0.detail', 'The environment variable you are trying to edit does not exist.');
+        $response->assertJsonPath('errors.0.detail', '你嘗試編輯的環境變數不存在。');
 
         $response = $this->actingAs($user)->putJson($this->link($server) . '/startup/variable', [
             'key' => 'SERVER_JARFILE',

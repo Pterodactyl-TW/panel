@@ -65,7 +65,7 @@ class DeleteAllocationTest extends ClientApiIntegrationTestCase
         $this->actingAs($user)->deleteJson($this->link($server->allocation))
             ->assertStatus(Response::HTTP_BAD_REQUEST)
             ->assertJsonPath('errors.0.code', 'DisplayException')
-            ->assertJsonPath('errors.0.detail', 'You cannot delete the primary allocation for this server.');
+            ->assertJsonPath('errors.0.detail', '你無法刪除此伺服器的主要連接埠配置。');
     }
 
     public function testAllocationCannotBeDeletedIfServerLimitIsNotDefined()

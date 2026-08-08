@@ -101,7 +101,7 @@ class CreateServerScheduleTaskTest extends ClientApiIntegrationTestCase
             'time_offset' => 0,
         ])
             ->assertStatus(Response::HTTP_FORBIDDEN)
-            ->assertJsonPath('errors.0.detail', 'A backup task cannot be created when the server\'s backup limit is set to 0.');
+            ->assertJsonPath('errors.0.detail', '當伺服器的備份上限設為 0 時，無法建立備份任務。');
 
         $this->actingAs($user)->postJson($this->link($schedule, '/tasks'), [
             'action' => 'backup',
@@ -109,7 +109,7 @@ class CreateServerScheduleTaskTest extends ClientApiIntegrationTestCase
             'time_offset' => 0,
         ])
             ->assertStatus(Response::HTTP_FORBIDDEN)
-            ->assertJsonPath('errors.0.detail', 'A backup task cannot be created when the server\'s backup limit is set to 0.');
+            ->assertJsonPath('errors.0.detail', '當伺服器的備份上限設為 0 時，無法建立備份任務。');
     }
 
     #[\PHPUnit\Framework\Attributes\DataProvider('missingActionPermissionDataProvider')]

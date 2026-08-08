@@ -115,7 +115,7 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
         ])
             ->assertStatus(Response::HTTP_BAD_REQUEST)
             ->assertJsonPath('errors.0.code', 'DisplayException')
-            ->assertJsonPath('errors.0.detail', 'You have reached the account limit for number of API keys.');
+            ->assertJsonPath('errors.0.detail', '此帳號的 API 金鑰數量已達上限。');
     }
 
     /**
@@ -133,7 +133,7 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
         ])
             ->assertUnprocessable()
             ->assertJsonPath('errors.0.meta.rule', 'required')
-            ->assertJsonPath('errors.0.detail', 'The description field is required.');
+            ->assertJsonPath('errors.0.detail', 'description 欄位為必填。');
 
         $this->postJson('/api/client/account/api-keys', [
             'description' => str_repeat('a', 501),

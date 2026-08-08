@@ -97,7 +97,7 @@ class CreateServerSubuserTest extends ClientApiIntegrationTestCase
 
         $response->assertForbidden();
         $response->assertJsonPath('errors.0.code', 'HttpForbiddenException');
-        $response->assertJsonPath('errors.0.detail', 'Cannot assign permissions to a subuser that your account does not actively possess.');
+        $response->assertJsonPath('errors.0.detail', '無法將你的帳號目前未擁有的權限指派給子使用者。');
     }
 
     /**
@@ -145,7 +145,7 @@ class CreateServerSubuserTest extends ClientApiIntegrationTestCase
         ]);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
-        $response->assertJsonPath('errors.0.detail', 'The email must be between 1 and 191 characters.');
+        $response->assertJsonPath('errors.0.detail', 'email 必須介於 1 到 191 個字元之間。');
         $response->assertJsonPath('errors.0.meta.source_field', 'email');
     }
 
@@ -198,7 +198,7 @@ class CreateServerSubuserTest extends ClientApiIntegrationTestCase
 
         $response->assertStatus(Response::HTTP_BAD_REQUEST);
         $response->assertJsonPath('errors.0.code', 'ServerSubuserExistsException');
-        $response->assertJsonPath('errors.0.detail', 'A user with that email address is already assigned as a subuser for this server.');
+        $response->assertJsonPath('errors.0.detail', '已有使用該電子郵件地址的使用者被指派為此伺服器的子使用者。');
     }
 
     public static function permissionsDataProvider(): array
