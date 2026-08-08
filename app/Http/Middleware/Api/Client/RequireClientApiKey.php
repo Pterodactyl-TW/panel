@@ -17,7 +17,7 @@ class RequireClientApiKey
         $token = $request->user()->currentAccessToken();
 
         if ($token instanceof ApiKey && $token->key_type === ApiKey::TYPE_APPLICATION) { // @phpstan-ignore instanceof.alwaysTrue
-            throw new AccessDeniedHttpException('You are attempting to use an application API key on an endpoint that requires a client API key.');
+            throw new AccessDeniedHttpException('你正嘗試在需要客戶端 API 金鑰的端點上使用應用程式 API 金鑰。');
         }
 
         return $next($request);
