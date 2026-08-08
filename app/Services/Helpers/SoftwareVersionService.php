@@ -41,6 +41,22 @@ class SoftwareVersionService
     }
 
     /**
+     * Get the latest official (upstream, non-translated) version of the panel.
+     */
+    public function getPanelOfficial(): string
+    {
+        return Arr::get(self::$result, 'panel_official') ?? $this->getPanel();
+    }
+
+    /**
+     * Get the latest official (upstream, non-translated) version of the daemon.
+     */
+    public function getDaemonOfficial(): string
+    {
+        return Arr::get(self::$result, 'wings_official') ?? $this->getDaemon();
+    }
+
+    /**
      * Get the URL to the discord server.
      */
     public function getDiscord(): string

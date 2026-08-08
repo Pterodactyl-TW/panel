@@ -29,8 +29,14 @@
                 @if ($version->isLatestPanel())
                     You are running Pterodactyl Panel version <code>{{ config('app.version') }}</code>. Your panel is up-to-date!
                 @else
-                    Your panel is <strong>not up-to-date!</strong> The latest version is <a href="https://github.com/Pterodactyl/Panel/releases/v{{ $version->getPanel() }}" target="_blank"><code>{{ $version->getPanel() }}</code></a> and you are currently running version <code>{{ config('app.version') }}</code>. You can find instructions on how to update your panel <a href="https://pterodactyl.io/panel/1.0/updating.html">here</a>.
+                    Your panel is <strong>not up-to-date!</strong> The latest version is <a href="https://github.com/Pterodactyl-TW/panel/releases/v{{ $version->getPanel() }}" target="_blank"><code>{{ $version->getPanel() }}</code></a> and you are currently running version <code>{{ config('app.version') }}</code>. You can find instructions on how to update your panel <a href="https://pterodactyl.tw/panel/1.0/updating.html">here</a>.
                 @endif
+                <p class="text-muted" style="margin-top: 10px; margin-bottom: 0;">
+                    <small>
+                        繁體中文化版本最新版：<code>{{ $version->getPanel() }}</code>
+                        Pterodactyl 官方最新版：<a href="https://github.com/pterodactyl/panel/releases/v{{ $version->getPanelOfficial() }}" target="_blank"><code>{{ $version->getPanelOfficial() }}</code></a>
+                    </small>
+                </p>
             </div>
         </div>
     </div>
