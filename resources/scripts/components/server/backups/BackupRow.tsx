@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArchive, faEllipsisH, faLock } from '@fortawesome/free-solid-svg-icons';
 import { format, formatDistanceToNow } from 'date-fns';
+import { zhTW } from 'date-fns/locale';
 import Spinner from '@/components/elements/Spinner';
 import { bytesToString } from '@/lib/formatters';
 import Can from '@/components/elements/Can';
@@ -82,7 +83,7 @@ export default ({ backup, className }: Props) => {
             </div>
             <div css={tw`flex-1 md:flex-none md:w-48 mt-4 md:mt-0 md:ml-8 md:text-center`}>
                 <p title={format(backup.createdAt, 'yyyy/MM/dd HH:mm:ss')} css={tw`text-sm`}>
-                    {formatDistanceToNow(backup.createdAt, { includeSeconds: true, addSuffix: true })}
+                    {formatDistanceToNow(backup.createdAt, { includeSeconds: true, addSuffix: true, locale: zhTW })}
                 </p>
                 <p css={tw`text-2xs text-neutral-500 uppercase mt-1`}>建立時間</p>
             </div>
