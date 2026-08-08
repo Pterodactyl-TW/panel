@@ -96,7 +96,7 @@ class NetworkAllocationController extends ClientApiController
     {
         $allocation = Activity::event('server:allocation.create')->transaction(function ($log) use ($server) {
             if ($server->allocations()->lockForUpdate()->count() >= $server->allocation_limit) {
-                throw new DisplayException('Cannot assign additional allocations to this server: limit has been reached.');
+                throw new DisplayException('無法為此伺服器指派額外的連接埠配置：已達到上限。');
             }
 
             $allocation = $this->assignableAllocationService->handle($server);
@@ -121,11 +121,11 @@ class NetworkAllocationController extends ClientApiController
         // Don't allow the deletion of allocations if the server does not have an
         // allocation limit set.
         if (empty($server->allocation_limit)) {
-            throw new DisplayException('You cannot delete allocations for this server: no allocation limit is set.');
+            throw new DisplayException('你無法刪除此伺服器的連接埠配置：未設定連接埠配置上限。');
         }
 
         if ($allocation->id === $server->allocation_id) {
-            throw new DisplayException('You cannot delete the primary allocation for this server.');
+            throw new DisplayException('你無法刪除此伺服器的主要連接埠配置。');
         }
 
         Allocation::query()->where('id', $allocation->id)->update([

@@ -184,7 +184,7 @@ class ScheduleController extends ClientApiController
                 $request->input('day_of_week')
             );
         } catch (\Exception $exception) {
-            throw new DisplayException('The cron data provided does not evaluate to a valid expression.');
+            throw new DisplayException('提供的 cron 資料無法解析為有效的表達式。');
         }
     }
 }

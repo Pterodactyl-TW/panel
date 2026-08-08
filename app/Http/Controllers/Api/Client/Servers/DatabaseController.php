@@ -51,7 +51,7 @@ class DatabaseController extends ClientApiController
     {
         $database = Activity::event('server:database.create')->transaction(function ($log) use ($request, $server) {
             if ($server->databases()->lockForUpdate()->count() >= $server->database_limit) {
-                throw new DisplayException('Cannot create additional databases on this server: limit has been reached.');
+                throw new DisplayException('無法在此伺服器上建立額外的資料庫：已達到上限。');
             }
 
             $database = $this->deployDatabaseService->handle($server, $request->validated());

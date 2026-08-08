@@ -41,11 +41,11 @@ class ScheduleTaskController extends ClientApiController
     {
         $limit = config('pterodactyl.client_features.schedules.per_schedule_task_limit', 10);
         if ($schedule->tasks()->count() >= $limit) {
-            throw new ServiceLimitExceededException("Schedules may not have more than $limit tasks associated with them. Creating this task would put this schedule over the limit.");
+            throw new ServiceLimitExceededException("排程關聯的任務數量不可超過 $limit 個。建立此任務將使此排程超過上限。");
         }
 
         if ($server->backup_limit === 0 && $request->action === 'backup') {
-            throw new HttpForbiddenException("A backup task cannot be created when the server's backup limit is set to 0.");
+            throw new HttpForbiddenException('當伺服器的備份上限設為 0 時，無法建立備份任務。');
         }
 
         /** @var Task|null $lastTask */
@@ -105,7 +105,7 @@ class ScheduleTaskController extends ClientApiController
         }
 
         if ($server->backup_limit === 0 && $request->action === 'backup') {
-            throw new HttpForbiddenException("A backup task cannot be created when the server's backup limit is set to 0.");
+            throw new HttpForbiddenException('當伺服器的備份上限設為 0 時，無法建立備份任務。');
         }
 
         $this->connection->transaction(function () use ($request, $schedule, $task) {
@@ -160,7 +160,7 @@ class ScheduleTaskController extends ClientApiController
         }
 
         if (!$request->user()->can(Permission::ACTION_SCHEDULE_UPDATE, $server)) {
-            throw new HttpForbiddenException('You do not have permission to perform this action.');
+            throw new HttpForbiddenException('你沒有權限執行此操作。');
         }
 
         $schedule->tasks()

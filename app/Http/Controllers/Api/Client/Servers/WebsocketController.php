@@ -35,7 +35,7 @@ class WebsocketController extends ClientApiController
     {
         $user = $request->user();
         if ($user->cannot(Permission::ACTION_WEBSOCKET_CONNECT, $server)) {
-            throw new HttpForbiddenException('You do not have permission to connect to this server\'s websocket.');
+            throw new HttpForbiddenException('你沒有權限連線至此伺服器的 websocket。');
         }
 
         $permissions = $this->permissionsService->handle($server, $user);
@@ -44,7 +44,7 @@ class WebsocketController extends ClientApiController
         if (!is_null($server->transfer)) {
             // Check if the user has permissions to receive transfer logs.
             if (!in_array('admin.websocket.transfer', $permissions)) {
-                throw new HttpForbiddenException('You do not have permission to view server transfer logs.');
+                throw new HttpForbiddenException('你沒有權限檢視伺服器轉移日誌。');
             }
 
             // Redirect the websocket request to the new node if the server has been archived.
