@@ -16,13 +16,15 @@ class EggSeeder extends Seeder
     protected EggUpdateImporterService $updateImporterService;
 
     /**
-     * @var string[]
+     * 對應「Nest 名稱」與其 Egg 檔案所在目錄（kebab-case）的關係。
+     *
+     * @var array<string, string>
      */
     public static array $import = [
-        'Minecraft',
-        'Source Engine',
-        'Voice Servers',
-        'Rust',
+        'Minecraft' => 'minecraft',
+        'Source Engine' => 'source-engine',
+        '語音伺服器' => 'voice-servers',
+        'Rust' => 'rust',
     ];
 
     /**
@@ -41,10 +43,11 @@ class EggSeeder extends Seeder
      */
     public function run()
     {
-        foreach (static::$import as $nest) {
+        foreach (static::$import as $nest => $directory) {
             /* @noinspection PhpParamsInspection */
             $this->parseEggFiles(
-                Nest::query()->where('author', 'support@pterodactyl.io')->where('name', $nest)->firstOrFail()
+                Nest::query()->where('author', 'support@pterodactyl.io')->where('name', $nest)->firstOrFail(),
+                $directory
             );
         }
     }
@@ -52,9 +55,9 @@ class EggSeeder extends Seeder
     /**
      * Loop through the list of egg files and import them.
      */
-    protected function parseEggFiles(Nest $nest)
+    protected function parseEggFiles(Nest $nest, string $directory)
     {
-        $files = new \DirectoryIterator(database_path('Seeders/eggs/' . kebab_case($nest->name)));
+        $files = new \DirectoryIterator(database_path('Seeders/eggs/' . $directory));
 
         $this->command->alert('正在更新 Nest 的 Egg：' . $nest->name);
         /** @var \DirectoryIterator $file */

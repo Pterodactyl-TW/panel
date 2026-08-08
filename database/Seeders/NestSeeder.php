@@ -42,7 +42,7 @@ class NestSeeder extends Seeder
 
         $this->createMinecraftNest(array_get($items, 'Minecraft'));
         $this->createSourceEngineNest(array_get($items, 'Source Engine'));
-        $this->createVoiceServersNest(array_get($items, 'Voice Servers'));
+        $this->createVoiceServersNest(array_get($items, '語音伺服器'));
         $this->createRustNest(array_get($items, 'Rust'));
     }
 
@@ -85,7 +85,7 @@ class NestSeeder extends Seeder
     {
         if (is_null($nest)) {
             $this->creationService->handle([
-                'name' => 'Voice Servers',
+                'name' => '語音伺服器',
                 'description' => '語音伺服器，例如 Mumble 與 Teamspeak 3。',
             ], 'support@pterodactyl.io');
         }
