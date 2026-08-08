@@ -175,9 +175,9 @@ $style = [
                                 <tr>
                                     <td style="{{ $fontFamily }} {{ $style['email-footer_cell'] }}">
                                         <p style="{{ $style['paragraph-sub'] }}">
-                                            &copy; {{ date('Y') }}
+                                            Copyright &copy; {{ date('Y') }}
                                             <a style="{{ $style['anchor'] }}" href="{{ url('/') }}" target="_blank">{{ config('app.name') }}</a>.
-                                            版權所有。
+                                            All rights reserved.
                                         </p>
                                     </td>
                                 </tr>
