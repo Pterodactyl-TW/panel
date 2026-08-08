@@ -34,7 +34,7 @@ class ServerInstallController extends Controller
         $egg = $server->egg;
 
         if (! $server->node->is($request->attributes->get('node'))) {
-            throw new HttpForbiddenException('Requesting node does not have permission to access this server.');
+            throw new HttpForbiddenException('請求的節點沒有權限存取此伺服器。');
         }
 
         return new JsonResponse([
@@ -56,7 +56,7 @@ class ServerInstallController extends Controller
         $status = null;
 
         if (! $server->node->is($request->attributes->get('node'))) {
-            throw new HttpForbiddenException('Requesting node does not have permission to access this server.');
+            throw new HttpForbiddenException('請求的節點沒有權限存取此伺服器。');
         }
 
         // Make sure the type of failure is accurate

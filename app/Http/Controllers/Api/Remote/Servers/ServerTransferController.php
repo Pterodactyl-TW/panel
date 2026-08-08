@@ -40,7 +40,7 @@ class ServerTransferController extends Controller
         $server = $this->repository->getByUuid($uuid);
         $transfer = $server->transfer;
         if (is_null($transfer)) {
-            throw new ConflictHttpException('Server is not being transferred.');
+            throw new ConflictHttpException('此伺服器目前並非處於轉移狀態。');
         }
 
         /* @var Node $node */
@@ -49,7 +49,7 @@ class ServerTransferController extends Controller
         // Either node can tell the panel that the transfer has failed. Only the new node
         // can tell the panel that it was successful.
         if (! $node->is($transfer->newNode) && ! $node->is($transfer->oldNode)) {
-            throw new HttpForbiddenException('Requesting node does not have permission to access this server.');
+            throw new HttpForbiddenException('請求的節點沒有權限存取此伺服器。');
         }
 
         return $this->processFailedTransfer($transfer);
@@ -65,7 +65,7 @@ class ServerTransferController extends Controller
         $server = $this->repository->getByUuid($uuid);
         $transfer = $server->transfer;
         if (is_null($transfer)) {
-            throw new ConflictHttpException('Server is not being transferred.');
+            throw new ConflictHttpException('此伺服器目前並非處於轉移狀態。');
         }
 
         /* @var Node $node */
@@ -74,7 +74,7 @@ class ServerTransferController extends Controller
         // Only the new node communicates a successful state to the panel, so we should
         // not allow the old node to hit this endpoint.
         if (! $node->is($transfer->newNode)) {
-            throw new HttpForbiddenException('Requesting node does not have permission to access this server.');
+            throw new HttpForbiddenException('請求的節點沒有權限存取此伺服器。');
         }
 
         /** @var \Pterodactyl\Models\Server $server */

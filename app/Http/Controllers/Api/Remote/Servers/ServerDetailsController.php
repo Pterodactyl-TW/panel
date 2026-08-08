@@ -50,7 +50,7 @@ class ServerDetailsController extends Controller
             : $node->id === $server->node_id;
 
         if (! $valid) {
-            throw new HttpForbiddenException('Requesting node does not have permission to access this server.');
+            throw new HttpForbiddenException('請求的節點沒有權限存取此伺服器。');
         }
 
         return new JsonResponse([

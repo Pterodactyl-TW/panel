@@ -32,7 +32,7 @@ class ApiKeyController extends ClientApiController
     {
         $token = DB::transaction(function () use ($request) {
             if ($request->user()->apiKeys()->lockForUpdate()->count() >= 25) {
-                throw new DisplayException('You have reached the account limit for number of API keys.');
+                throw new DisplayException('此帳號的 API 金鑰數量已達上限。');
             }
 
             return $request->user()->createToken(

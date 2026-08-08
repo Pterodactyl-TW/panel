@@ -17,7 +17,7 @@ use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 
 class LoginCheckpointController extends AbstractLoginController
 {
-    private const TOKEN_EXPIRED_MESSAGE = 'The authentication token provided has expired, please refresh the page and try again.';
+    private const TOKEN_EXPIRED_MESSAGE = '提供的驗證權杖已過期，請重新整理頁面後再試一次。';
 
     /**
      * LoginCheckpointController constructor.
@@ -91,7 +91,7 @@ class LoginCheckpointController extends AbstractLoginController
             }
         }
 
-        $this->sendFailedLoginResponse($request, $user, !empty($recoveryToken) ? 'The recovery token provided is not valid.' : null);
+        $this->sendFailedLoginResponse($request, $user, !empty($recoveryToken) ? '提供的復原權杖無效。' : null);
     }
 
     /**
