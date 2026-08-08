@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('title')
-    Nests &rarr; Egg：{{ $egg->name }} &rarr; 安裝指令碼
+    Nests &rarr; Egg：{{ $egg->name }} &rarr; 安裝腳本
 @endsection
 
 @section('content-header')
-    <h1>{{ $egg->name }}<small>管理此 Egg 的安裝指令碼。</small></h1>
+    <h1>{{ $egg->name }}<small>管理此 Egg 的安裝腳本。</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li><a href="{{ route('admin.nests') }}">Nests</a></li>
@@ -22,7 +22,7 @@
             <ul class="nav nav-tabs">
                 <li><a href="{{ route('admin.nests.egg.view', $egg->id) }}">組態設定</a></li>
                 <li><a href="{{ route('admin.nests.egg.variables', $egg->id) }}">變數</a></li>
-                <li class="active"><a href="{{ route('admin.nests.egg.scripts', $egg->id) }}">安裝指令碼</a></li>
+                <li class="active"><a href="{{ route('admin.nests.egg.scripts', $egg->id) }}">安裝腳本</a></li>
             </ul>
         </div>
     </div>
@@ -32,12 +32,12 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">安裝指令碼</h3>
+                    <h3 class="box-title">安裝腳本</h3>
                 </div>
                 @if(! is_null($egg->copyFrom))
                     <div class="box-body">
                         <div class="callout callout-warning no-margin">
-                            此服務選項正在從 <a href="{{ route('admin.nests.egg.view', $egg->copyFrom->id) }}">{{ $egg->copyFrom->name }}</a> 複製安裝指令碼與容器選項。除非你在下方下拉選單中選擇「無」，否則對此指令碼所做的任何變更都不會套用。
+                            此服務選項正在從 <a href="{{ route('admin.nests.egg.view', $egg->copyFrom->id) }}">{{ $egg->copyFrom->name }}</a> 複製安裝腳本與容器選項。除非你在下方下拉選單中選擇「無」，否則對此腳本所做的任何變更都不會套用。
                         </div>
                     </div>
                 @endif
@@ -47,29 +47,29 @@
                 <div class="box-body">
                     <div class="row">
                         <div class="form-group col-sm-4">
-                            <label class="control-label">從其他項目複製指令碼</label>
+                            <label class="control-label">從其他項目複製腳本</label>
                             <select id="pCopyScriptFrom" name="copy_script_from">
                                 <option value="">無</option>
                                 @foreach($copyFromOptions as $opt)
                                     <option value="{{ $opt->id }}" {{ $egg->copy_script_from !== $opt->id ?: 'selected' }}>{{ $opt->name }}</option>
                                 @endforeach
                             </select>
-                            <p class="text-muted small">若選擇此項，上方指令碼將會被忽略，並改用所選選項的指令碼。</p>
+                            <p class="text-muted small">若選擇此項，上方腳本將會被忽略，並改用所選選項的腳本。</p>
                         </div>
                         <div class="form-group col-sm-4">
-                            <label class="control-label">指令碼容器</label>
+                            <label class="control-label">腳本容器</label>
                             <input type="text" name="script_container" class="form-control" value="{{ $egg->script_container }}" />
-                            <p class="text-muted small">為伺服器執行此指令碼時所要使用的 Docker 容器。</p>
+                            <p class="text-muted small">為伺服器執行此腳本時所要使用的 Docker 容器。</p>
                         </div>
                         <div class="form-group col-sm-4">
-                            <label class="control-label">指令碼進入點指令</label>
+                            <label class="control-label">腳本進入點指令</label>
                             <input type="text" name="script_entry" class="form-control" value="{{ $egg->script_entry }}" />
-                            <p class="text-muted small">此指令碼所要使用的進入點指令。</p>
+                            <p class="text-muted small">此腳本所要使用的進入點指令。</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 text-muted">
-                            以下服務選項依賴此指令碼：
+                            以下服務選項依賴此腳本：
                             @if(count($relyOnScript) > 0)
                                 @foreach($relyOnScript as $rely)
                                     <a href="{{ route('admin.nests.egg.view', $rely->id) }}">

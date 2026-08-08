@@ -23,7 +23,7 @@
                     <h3 class="box-title">重新安裝伺服器</h3>
                 </div>
                 <div class="box-body">
-                    <p>這將使用指派的服務指令碼重新安裝伺服器。<strong>危險！</strong>此操作可能會覆寫伺服器資料。</p>
+                    <p>這將使用指派的服務腳本重新安裝伺服器。<strong>危險！</strong>此操作可能會覆寫伺服器資料。</p>
                 </div>
                 <div class="box-footer">
                     @if($server->isInstalled())

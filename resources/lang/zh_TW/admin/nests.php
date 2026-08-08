@@ -12,7 +12,7 @@ return [
             'updated_via_import' => '已使用提供的檔案更新此 Egg。',
             'deleted' => '已成功從 Panel 刪除該 egg。',
             'updated' => 'Egg 組態設定已成功更新。',
-            'script_updated' => 'Egg 安裝指令碼已更新，將於伺服器安裝時執行。',
+            'script_updated' => 'Egg 安裝腳本已更新，將於伺服器安裝時執行。',
             'egg_created' => '已成功孵化出新的 egg。你需要重新啟動任何執行中的 daemon 以套用這個新的 egg。',
         ],
     ],

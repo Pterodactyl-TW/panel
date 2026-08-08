@@ -49,7 +49,7 @@
                     <div class="col-xs-12">
                         <p class="small text-danger">
                             變更下方任何數值將導致伺服器處理重新安裝指令。伺服器將先停止，接著才會繼續進行。
-                            若你希望服務指令碼不要執行，請確保勾選下方的方塊。
+                            若你希望服務腳本不要執行，請確保勾選下方的方塊。
                         </p>
                         <p class="small text-danger">
                             <strong>在多數情況下，這是一項具破壞性的操作。為了讓此操作繼續進行，此伺服器將立即被停止。</strong>
@@ -76,9 +76,9 @@
                     <div class="form-group col-xs-12">
                         <div class="checkbox checkbox-primary no-margin-bottom">
                             <input id="pSkipScripting" name="skip_scripts" type="checkbox" value="1" @if($server->skip_scripts) checked @endif />
-                            <label for="pSkipScripting" class="strong">略過 Egg 安裝指令碼</label>
+                            <label for="pSkipScripting" class="strong">略過 Egg 安裝腳本</label>
                         </div>
-                        <p class="small text-muted no-margin">若所選 Egg 附有安裝指令碼，該指令碼將在安裝過程中執行。若你想略過此步驟，請勾選此方塊。</p>
+                        <p class="small text-muted no-margin">若所選 Egg 附有安裝腳本，該腳本將在安裝過程中執行。若你想略過此步驟，請勾選此方塊。</p>
                     </div>
                 </div>
             </div>

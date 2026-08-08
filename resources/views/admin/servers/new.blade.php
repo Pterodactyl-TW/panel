@@ -254,10 +254,10 @@
                     <div class="form-group col-xs-12">
                         <div class="checkbox checkbox-primary no-margin-bottom">
                             <input type="checkbox" id="pSkipScripting" name="skip_scripts" value="1" {{ \Pterodactyl\Helpers\Utilities::checked('skip_scripts', 0) }} />
-                            <label for="pSkipScripting" class="strong">略過 Egg 安裝指令碼</label>
+                            <label for="pSkipScripting" class="strong">略過 Egg 安裝腳本</label>
                         </div>
 
-                        <p class="small text-muted no-margin">若所選 Egg 附有安裝指令碼，該指令碼將在安裝過程中執行。若你想略過此步驟，請勾選此方塊。</p>
+                        <p class="small text-muted no-margin">若所選 Egg 附有安裝腳本，該腳本將在安裝過程中執行。若你想略過此步驟，請勾選此方塊。</p>
                     </div>
                 </div>
             </div>

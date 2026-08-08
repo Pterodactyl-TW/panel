@@ -17,7 +17,7 @@ return [
         'delete_has_servers' => '無法從 Panel 刪除仍有伺服器使用的 Nest。',
         'egg' => [
             'delete_has_servers' => '無法從 Panel 刪除仍有伺服器使用的 Egg。',
-            'invalid_copy_id' => '選擇要複製指令碼來源的 Egg 不存在，或該 Egg 本身也是複製而來。',
+            'invalid_copy_id' => '選擇要複製腳本來源的 Egg 不存在，或該 Egg 本身也是複製而來。',
             'must_be_child' => '此 Egg 的「從其他項目複製設定」指令必須是所選 Nest 下的子選項。',
             'has_children' => '此 Egg 是其他一個或多個 Egg 的父項。請先刪除那些 Egg，再刪除這個 Egg。',
         ],
