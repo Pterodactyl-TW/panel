@@ -37,14 +37,14 @@ class AdvancedSettingsFormRequest extends AdminFormRequest
     public function attributes(): array
     {
         return [
-            'recaptcha:enabled' => 'reCAPTCHA Enabled',
-            'recaptcha:secret_key' => 'reCAPTCHA Secret Key',
-            'recaptcha:website_key' => 'reCAPTCHA Website Key',
-            'pterodactyl:guzzle:timeout' => 'HTTP Request Timeout',
-            'pterodactyl:guzzle:connect_timeout' => 'HTTP Connection Timeout',
-            'pterodactyl:client_features:allocations:enabled' => 'Auto Create Allocations Enabled',
-            'pterodactyl:client_features:allocations:range_start' => 'Starting Port',
-            'pterodactyl:client_features:allocations:range_end' => 'Ending Port',
+            'recaptcha:enabled' => '啟用 reCAPTCHA',
+            'recaptcha:secret_key' => 'reCAPTCHA 密鑰',
+            'recaptcha:website_key' => 'reCAPTCHA 網站金鑰',
+            'pterodactyl:guzzle:timeout' => 'HTTP 請求逾時時間',
+            'pterodactyl:guzzle:connect_timeout' => 'HTTP 連線逾時時間',
+            'pterodactyl:client_features:allocations:enabled' => '啟用自動建立連接埠配置',
+            'pterodactyl:client_features:allocations:range_start' => '起始連接埠',
+            'pterodactyl:client_features:allocations:range_end' => '結束連接埠',
         ];
     }
 }
