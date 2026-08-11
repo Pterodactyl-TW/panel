@@ -26,17 +26,15 @@ Pterodactyl® 是一套使用 PHP、React 與 Go 打造的免費開源遊戲伺�
 
 ## 贊助商
 
-在此由衷感謝以下贊助商協助資助 Pterodactyl 的開發。
+在此由衷感謝以下企業/個人協助資助 Pterodactyl Taiwan 的開發與維護。
 [有興趣成為贊助商嗎？](https://github.com/sponsors/pterodactyl)
 
-| 公司                                                                                 | 介紹                                                                                                                                                                                                                                            |
-|-------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [**Aussie Server Hosts**](https://aussieserverhosts.com/)                         | 澳洲人自有自營、不搞花俏噱頭的高效能伺服器代管服務，為澳洲與紐西蘭提供部分最吃資源的遊戲伺服器。                                                                                                                                                                 |
-| [**BisectHosting**](https://www.bisecthosting.com/)                               | BisectHosting 自 2012 年起提供 Minecraft、Valheim 及其他伺服器代管服務，以高可靠度與極速支援著稱。                                                                                                                                                                 |
-| [**MineStrator**](https://minestrator.com/)                                       | 想找最頂級的法國代管公司來架設你的 Minecraft 伺服器嗎？我們的 Discord 已有超過 24,000 名成員信賴我們，歡迎你也來試試看！                                                                                                                                                                 |
-| [**HostEZ**](https://hostez.io)                                                   | 美國與歐洲的 Rust 與 Minecraft 代管服務。提供具備 DDoS 防護的裸機、VPS 與機房代管服務，低延遲、高可用性，簡單又輕鬆！                                                                                                                                                                     |
-| [**Blueprint**](https://blueprint.zip/?utm_source=pterodactyl&utm_medium=sponsor) | 使用日益成長的 Blueprint 框架來建立並安裝 Pterodactyl 附加元件與佈景主題，這是 Pterodactyl 的套件管理工具。可同時使用多項修改而不必擔心衝突，並善用龐大的擴充生態系。 |
-| [**indifferent broccoli**](https://indifferentbroccoli.com/)                      | indifferent broccoli 是一間遊戲伺服器代管與租賃公司。在我們這裡，你能為遊戲時光取得頂級的運算效能。我們消滅延遲、掉線與複雜性，讓你能專心享受遊戲樂趣。                              |
+| 公司/個人                                      | 介紹 |
+|:-----------------------------------------| :--- |
+| [**CloudXact**](https://cloudxact.com/)  | 專注於雲端服務、系統開發與自動化整合，為您打造穩定、清晰且能長期維護的數位服務體驗。 |
+| [**Lazco**](https://www.lazco.tw/)       | 提供一站式數位解決方案，從網站開發、雲端主機到技術諮詢與系統整合，助您將創意化為現實並在數位時代脫穎而出。 |
+| [**NyankoHost**](https://nyanko.host/)   | 「雲端貓居」為小憩貓語工作室旗下獨立營運的服務平台，致力於為各類用戶提供穩定且可靠的優質雲端服務。 |
+| [**NothingHost**](https://nothingh.com/) | 專為開發者打造的免費伺服器托管平台，提供輕量、快速且完全免費的部署環境，全面支援您喜愛的程式語言。 |
 
 ### 支援的遊戲
 
