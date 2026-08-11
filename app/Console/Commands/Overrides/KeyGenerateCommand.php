@@ -18,7 +18,7 @@ class KeyGenerateCommand extends BaseKeyGenerateCommand
                 return;
             }
 
-            if (!$this->confirm('你確定要繼續嗎？變更應用程式加密金鑰將會導致資料遺失。')) {
+            if (!$this->confirm('你確定要繼續嗎？變更應用程式加密金鑰將會導致原有加密資料遺失。')) {
                 return;
             }
         }

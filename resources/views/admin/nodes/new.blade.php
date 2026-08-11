@@ -52,12 +52,12 @@
                                 <label for="pPublicFalse"> 私人 </label>
                             </div>
                         </div>
-                        <p class="text-muted small">若將節點設為 <code>私人</code>，將無法對此節點自動部署。
+                        <p class="text-muted small">若將節點設為 <code>私人</code>，將無法對此節點啟用自動部署。
                     </div>
                     <div class="form-group">
                         <label for="pFQDN" class="form-label">FQDN</label>
                         <input type="text" name="fqdn" id="pFQDN" class="form-control" value="{{ old('fqdn') }}"/>
-                        <p class="text-muted small">請輸入用於連接 daemon 的網域名稱（例如 <code>node.example.com</code>）。僅在此節點未使用 SSL 時，<em>才可以</em>使用 IP 位址。</p>
+                        <p class="text-muted small">請輸入用於連接 Wings 的網域名稱（例如 <code>node.example.com</code>）。僅在此節點未使用 SSL 時，<em>才可以</em>使用 IP 位址。</p>
                     </div>
                     <div class="form-group">
                         <label class="form-label">透過 SSL 通訊</label>
@@ -89,7 +89,7 @@
                                 <label for="pProxyTrue"> 位於代理伺服器後方 </label>
                             </div>
                         </div>
-                        <p class="text-muted small">若你在如 Cloudflare 等代理伺服器後方執行 daemon，請選擇此項，讓 daemon 在啟動時略過憑證檢查。</p>
+                        <p class="text-muted small">若你在如 Cloudflare 等代理服務後方執行 Wings，請選擇此項，讓 Wings 在啟動時略過憑證檢查。</p>
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@
                 <div class="box-body">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="pDaemonBase" class="form-label">Daemon 伺服器檔案目錄</label>
+                            <label for="pDaemonBase" class="form-label">Wings 伺服器檔案目錄</label>
                             <input type="text" name="daemonBase" id="pDaemonBase" class="form-control" value="/var/lib/pterodactyl/volumes" />
                             <p class="text-muted small">輸入伺服器檔案應儲存的目錄。<strong>若你使用 OVH，應檢查你的分割區配置方式，可能需要使用 <code>/home/daemon-data</code> 才會有足夠空間。</strong></p>
                         </div>
@@ -121,7 +121,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <p class="text-muted small">輸入可供新伺服器使用的總記憶體數量。若你想允許記憶體超額配置，請輸入想允許的百分比。若要停用超額配置檢查，請輸入 <code>-1</code>。輸入 <code>0</code> 則會在超出節點限制時禁止建立新伺服器。</p>
+                            <p class="text-muted small">輸入可供新伺服器使用的總記憶體容量。若你想允許記憶體超額配置，請輸入想允許的百分比。若要停用超額配置檢查，請輸入 <code>-1</code>。輸入 <code>0</code> 則會在超出節點限制時禁止建立新伺服器。</p>
                         </div>
                     </div>
                     <div class="row">
@@ -140,20 +140,20 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <p class="text-muted small">輸入可供新伺服器使用的總磁碟空間數量。若你想允許磁碟空間超額配置，請輸入想允許的百分比。若要停用超額配置檢查，請輸入 <code>-1</code>。輸入 <code>0</code> 則會在超出節點限制時禁止建立新伺服器。</p>
+                            <p class="text-muted small">輸入可供新伺服器使用的總磁碟空間容量。若你想允許磁碟空間超額配置，請輸入想允許的百分比。若要停用超額配置檢查，請輸入 <code>-1</code>。輸入 <code>0</code> 則會在超出節點限制時禁止建立新伺服器。</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="pDaemonListen" class="form-label">Daemon 連接埠</label>
+                            <label for="pDaemonListen" class="form-label">Wings 連接埠</label>
                             <input type="text" name="daemonListen" class="form-control" id="pDaemonListen" value="8080" />
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="pDaemonSFTP" class="form-label">Daemon SFTP 連接埠</label>
+                            <label for="pDaemonSFTP" class="form-label">Wings SFTP 連接埠</label>
                             <input type="text" name="daemonSFTP" class="form-control" id="pDaemonSFTP" value="2022" />
                         </div>
                         <div class="col-md-12">
-                            <p class="text-muted small">daemon 會執行自己的 SFTP 管理容器，並不使用主要實體伺服器上的 SSHd 程序。<Strong>請勿使用與你實體伺服器 SSH 程序相同的連接埠。</strong>若你要在 CloudFlare&reg; 後方執行 daemon，應將 daemon 連接埠設為 <code>8443</code>，以允許透過 SSL 進行 websocket 代理。</p>
+                            <p class="text-muted small">Wings 會執行自己的 SFTP 管理容器，並不使用主要實體伺服器上的 SSHd 程序。<Strong>請勿使用與你實體伺服器 SSH 程序相同的連接埠。</strong>若你要在 CloudFlare&reg; 後方執行 Wings，應將 Wings 連接埠設為 <code>8443</code>，以允許透過 SSL 進行 websocket 代理。</p>
                         </div>
                     </div>
                 </div>

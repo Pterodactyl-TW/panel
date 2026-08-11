@@ -96,8 +96,8 @@ class NodeJWTService
             $builder = $builder->withClaim($key, $value);
         }
 
-        Assert::notEmpty($this->scopes, 'Cannot generate a JWT without providing at least one scope.');
-
+        Assert::notEmpty($this->scopes, '必須提供至少一個權限範圍（scope）才能產生 JWT。');
+        
         $builder = $builder->withClaim('scope', implode(' ', array_map(fn ($scope) => $scope->value, $this->scopes)));
 
         if (!is_null($this->user)) {

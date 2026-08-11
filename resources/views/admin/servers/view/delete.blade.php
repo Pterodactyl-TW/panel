@@ -23,7 +23,7 @@
                 <h3 class="box-title">安全刪除伺服器</h3>
             </div>
             <div class="box-body">
-                <p>此操作將嘗試從 Panel 與 daemon 中一併刪除此伺服器。若其中一方回報錯誤，此操作將被取消。</p>
+                <p>此操作將嘗試從 Panel 與 Wings 中一併刪除此伺服器。若其中一方回報錯誤，此操作將被取消。</p>
                 <p class="text-danger small">刪除伺服器是不可復原的操作。<strong>所有伺服器資料</strong>（包括檔案與使用者）都將從系統中移除。</p>
             </div>
             <div class="box-footer">
@@ -40,8 +40,8 @@
                 <h3 class="box-title">強制刪除伺服器</h3>
             </div>
             <div class="box-body">
-                <p>此操作將嘗試從 Panel 與 daemon 中一併刪除此伺服器。若 daemon 沒有回應或回報錯誤，刪除操作仍會繼續進行。</p>
-                <p class="text-danger small">刪除伺服器是不可復原的操作。<strong>所有伺服器資料</strong>（包括檔案與使用者）都將從系統中移除。若 daemon 回報錯誤，此方式可能會在你的 daemon 上留下殘留檔案。</p>
+                <p>此操作將嘗試從 Panel 與 Wings 中一併刪除此伺服器。若 Wings 沒有回應或回報錯誤，刪除操作仍會繼續進行。</p>
+                <p class="text-danger small">刪除伺服器是不可復原的操作。<strong>所有伺服器資料</strong>（包括檔案與使用者）都將從系統中移除。若 Wings 回報錯誤，此方式可能會在你的 Wings 上留下殘留檔案。</p>
             </div>
             <div class="box-footer">
                 <form id="forcedeleteform" action="{{ route('admin.servers.view.delete', $server->id) }}" method="POST">

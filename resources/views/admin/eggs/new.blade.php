@@ -113,7 +113,7 @@
                             <div class="form-group">
                                 <label for="pConfigLogs" class="form-label">日誌設定</label>
                                 <textarea data-action="handle-tabs" id="pConfigLogs" name="config_logs" class="form-control" rows="6">{{ old('config_logs') }}</textarea>
-                                <p class="text-muted small">這應該是一份 JSON 格式的內容，說明日誌檔案儲存在哪裡，以及 daemon 是否應該建立自訂日誌。</p>
+                                <p class="text-muted small">這應該是一份 JSON 格式的內容，說明日誌檔案儲存在哪裡，以及 Wings 是否應該建立自訂日誌。</p>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -125,7 +125,7 @@
                             <div class="form-group">
                                 <label for="pConfigStartup" class="form-label">啟動設定</label>
                                 <textarea data-action="handle-tabs" id="pConfigStartup" name="config_startup" class="form-control" rows="6">{{ old('config_startup') }}</textarea>
-                                <p class="text-muted small">這應該是一份 JSON 格式的內容，說明 daemon 在啟動伺服器時應該尋找哪些值來判斷是否已完成啟動。</p>
+                                <p class="text-muted small">這應該是一份 JSON 格式的內容，說明 Wings 在啟動伺服器時應該尋找哪些值來判斷是否已完成啟動。</p>
                             </div>
                         </div>
                     </div>

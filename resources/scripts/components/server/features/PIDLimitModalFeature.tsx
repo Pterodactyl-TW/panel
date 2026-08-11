@@ -64,7 +64,7 @@ const PIDLimitModalFeature = () => {
                     </div>
                     <p css={tw`mt-4`}>此伺服器已達最大程序或記憶體限制。</p>
                     <p css={tw`mt-4`}>
-                        在 wings 組態設定 <code css={tw`font-mono bg-neutral-900`}>config.yml</code> 中提高{' '}
+                        在 Wings 組態設定 <code css={tw`font-mono bg-neutral-900`}>config.yml</code> 中提高{' '}
                         <code css={tw`font-mono bg-neutral-900`}>container_pid_limit</code> 的值，
                         或許有助於解決此問題。
                     </p>

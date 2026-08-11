@@ -13,14 +13,14 @@ class AppSettingsCommand extends Command
     public const CACHE_DRIVERS = [
         'redis' => 'Redis（建議）',
         'memcached' => 'Memcached',
-        'file' => '檔案系統',
+        'file' => '本地檔案',
     ];
 
     public const SESSION_DRIVERS = [
         'redis' => 'Redis（建議）',
         'memcached' => 'Memcached',
         'database' => 'MySQL 資料庫',
-        'file' => '檔案系統',
+        'file' => '本地檔案',
         'cookie' => 'Cookie',
     ];
 
@@ -67,7 +67,7 @@ class AppSettingsCommand extends Command
             $this->variables['HASHIDS_SALT'] = str_random(20);
         }
 
-        $this->output->comment('請提供此 Panel 匯出的 Egg 應歸屬的電子郵件地址，此欄位須為有效的電子郵件地址。');
+        $this->output->comment('請提供此 Panel 匯出的 Egg 檔時應歸屬的電子郵件地址，此欄位須為有效的電子郵件地址。');
         $this->variables['APP_SERVICE_AUTHOR'] = $this->option('author') ?? $this->ask(
             'Egg 作者電子郵件',
             config('pterodactyl.service.author', 'unknown@unknown.com')
@@ -79,13 +79,13 @@ class AppSettingsCommand extends Command
             return 1;
         }
 
-        $this->output->comment('應用程式網址必須以 https:// 或 http:// 開頭（視你是否使用 SSL 而定）。若未包含通訊協定，你的電子郵件與其他內容將會連結到錯誤的位置。');
+        $this->output->comment('應用程式網址必須以 https:// 或 http:// 開頭（視你是否使用 SSL 而定）。若未包含通訊協定開頭，你的電子郵件與其他內容將會連結到錯誤的位置。');
         $this->variables['APP_URL'] = $this->option('url') ?? $this->ask(
             '應用程式網址',
-            config('app.url', 'https://example.com')
+            config('app.url', 'http://panel.example.com')
         );
 
-        $this->output->comment('時區應符合 PHP 支援的時區之一。若你不確定，請參考 https://php.net/manual/en/timezones.php。');
+        $this->output->comment('時區應符合 PHP 支援的時區之一。若你不清楚時區，請參考官方文件 https://php.net/manual/en/timezones.php');
         $this->variables['APP_TIMEZONE'] = $this->option('timezone') ?? $this->anticipate(
             '應用程式時區',
             \DateTimeZone::listIdentifiers(),
@@ -165,7 +165,7 @@ class AppSettingsCommand extends Command
         }
 
         if ($askForRedisPassword) {
-            $this->output->comment('預設情況下，Redis 伺服器實例並沒有密碼，因為它是在本機執行，外部無法存取。若你的情況正是如此，直接按下 Enter 而不輸入任何值即可。');
+            $this->output->comment('預設情況下，Redis 伺服器並沒有密碼，因為它是在本機執行，外部無法存取。若你的情況正是如此，直接按下 Enter 即可。');
             $this->variables['REDIS_PASSWORD'] = $this->option('redis-pass') ?? $this->output->askHidden(
                 'Redis 密碼'
             );

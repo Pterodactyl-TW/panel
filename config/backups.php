@@ -8,7 +8,7 @@ return [
     // 變更此設定而不會遺失資料。
     'default' => env('APP_BACKUP_DRIVER', Backup::ADAPTER_WINGS),
 
-    // 此值用來決定 wings 上傳備份到 S3 儲存空間時所使用的
+    // 此值用來決定 Wings 上傳備份到 S3 儲存空間時所使用的
     // UploadPart 預簽章網址（presigned url）存續時間。單位為分鐘，預設為一小時。
     'presigned_url_lifespan' => (int) env('BACKUP_PRESIGNED_URL_LIFESPAN', 60),
 
@@ -33,7 +33,7 @@ return [
 
     'disks' => [
         // Wings 沒有針對本機磁碟（local disk）的設定選項，
-        // 該設定是由 Daemon 的組態設定決定，而不是由 Panel 決定。
+        // 該設定是由 Wings 的組態設定決定，而不是由 Panel 決定。
         'wings' => [
             'adapter' => Backup::ADAPTER_WINGS,
         ],

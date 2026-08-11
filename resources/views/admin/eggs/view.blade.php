@@ -69,7 +69,7 @@
                             <div class="form-group">
                                 <label for="pUuid" class="control-label">UUID</label>
                                 <input type="text" id="pUuid" readonly value="{{ $egg->uuid }}" class="form-control" />
-                                <p class="text-muted small">這是此 Egg 的全域唯一識別碼，Daemon 會用它作為識別依據。</p>
+                                <p class="text-muted small">這是此 Egg 的全域唯一識別碼，Wings 會用它作為識別依據。</p>
                             </div>
                             <div class="form-group">
                                 <label for="pAuthor" class="control-label">作者</label>
@@ -139,7 +139,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="alert alert-warning">
-                                <p>除非你了解此系統的運作方式，否則不應該編輯以下組態設定選項。若錯誤修改，可能會導致 daemon 無法運作。</p>
+                                <p>除非你了解此系統的運作方式，否則不應該編輯以下組態設定選項。若錯誤修改，可能會導致 Wings 無法運作。</p>
                                 <p>除非你從「從其他項目複製設定」下拉選單選擇了另一個選項，否則所有欄位皆為必填；若選擇了其他選項，欄位可留空以使用該 Egg 的值。</p>
                             </div>
                         </div>
@@ -162,7 +162,7 @@
                             <div class="form-group">
                                 <label for="pConfigLogs" class="form-label">日誌設定</label>
                                 <textarea data-action="handle-tabs" id="pConfigLogs" name="config_logs" class="form-control" rows="6">{{ ! is_null($egg->config_logs) ? json_encode(json_decode($egg->config_logs), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) : '' }}</textarea>
-                                <p class="text-muted small">這應該是一份 JSON 格式的內容，說明日誌檔案儲存在哪裡，以及 daemon 是否應該建立自訂日誌。</p>
+                                <p class="text-muted small">這應該是一份 JSON 格式的內容，說明日誌檔案儲存在哪裡，以及 Wings 是否應該建立自訂日誌。</p>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -174,7 +174,7 @@
                             <div class="form-group">
                                 <label for="pConfigStartup" class="form-label">啟動設定</label>
                                 <textarea data-action="handle-tabs" id="pConfigStartup" name="config_startup" class="form-control" rows="6">{{ ! is_null($egg->config_startup) ? json_encode(json_decode($egg->config_startup), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) : '' }}</textarea>
-                                <p class="text-muted small">這應該是一份 JSON 格式的內容，說明 daemon 在啟動伺服器時應該尋找哪些值來判斷是否已完成啟動。</p>
+                                <p class="text-muted small">這應該是一份 JSON 格式的內容，說明 Wings 在啟動伺服器時應該尋找哪些值來判斷是否已完成啟動。</p>
                             </div>
                         </div>
                     </div>

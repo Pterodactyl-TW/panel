@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'daemon_connection_failed' => '嘗試與 daemon 通訊時發生例外，收到 HTTP/:code 的回應狀態碼。此例外已被記錄。',
+    'daemon_connection_failed' => '嘗試與 Wings 通訊時發生例外，收到 HTTP/:code 的回應狀態碼。此例外已被記錄。',
     'node' => [
         'servers_attached' => '節點必須沒有任何伺服器連結才能被刪除。',
-        'daemon_off_config_updated' => 'Daemon 組態設定已更新，但嘗試自動更新 Daemon 上的組態設定檔時發生錯誤。你需要手動更新 Daemon 的組態設定檔（config.yml）以套用這些變更。',
+        'daemon_off_config_updated' => 'Wings 組態設定已更新，但嘗試自動更新 Wings 上的組態設定檔時發生錯誤。你需要手動更新 Daemon 的組態設定檔（config.yml）以套用這些變更。',
     ],
     'allocations' => [
         'server_using' => '目前有伺服器指派到此配置。只有在沒有伺服器使用此配置時才能刪除。',

@@ -39,7 +39,7 @@
                         <select name="owner_id" class="form-control" id="pUserId">
                             <option value="{{ $server->owner_id }}" selected>{{ $server->user->email }}</option>
                         </select>
-                        <p class="text-muted small">你可以將此欄位改為系統中另一個使用者的電子郵件，藉此變更此伺服器的擁有者。若你這麼做，系統將自動產生新的 daemon 安全權杖。</p>
+                        <p class="text-muted small">你可以將此欄位改為系統中另一個使用者的電子郵件，藉此變更此伺服器的擁有者。若你這麼做，系統將自動產生新的 Wings 安全權杖。</p>
                     </div>
                     <div class="form-group">
                         <label for="description" class="control-label">伺服器描述</label>

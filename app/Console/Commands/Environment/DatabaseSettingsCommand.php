@@ -15,7 +15,7 @@ class DatabaseSettingsCommand extends Command
 
     protected $signature = 'p:environment:database
                             {--host= : MySQL 伺服器的連線位址。}
-                            {--port= : MySQL 伺服器的連線連接埠。}
+                            {--port= : MySQL 伺服器的連接埠。}
                             {--database= : 要使用的資料庫。}
                             {--username= : 連線時使用的使用者名稱。}
                             {--password= : 此資料庫使用的密碼。}';
@@ -37,7 +37,7 @@ class DatabaseSettingsCommand extends Command
      */
     public function handle(): int
     {
-        $this->output->note('強烈建議不要使用「localhost」作為你的資料庫主機，因為我們經常看到 socket 連線問題。若你想使用本機連線，應改用「127.0.0.1」。');
+        $this->output->note('強烈建議不要使用「localhost」作為你的資料庫主機，因為我們經常收到 socket 的連線問題。若你想使用本機連線，應改用「127.0.0.1」才對。');
         $this->variables['DB_HOST'] = $this->option('host') ?? $this->ask(
             '資料庫主機',
             config('database.connections.mysql.host', '127.0.0.1')
@@ -53,7 +53,7 @@ class DatabaseSettingsCommand extends Command
             config('database.connections.mysql.database', 'panel')
         );
 
-        $this->output->note('使用「root」帳號進行 MySQL 連線不僅相當不建議，此應用程式也不允許這麼做。你需要為此軟體另外建立一個 MySQL 使用者。');
+        $this->output->note('使用「root」帳號進行 MySQL 連線不僅相當不建議，此應用程式也不允許這麼做。你需要為此面板建立一個獨立的 MySQL 使用者。');
         $this->variables['DB_USERNAME'] = $this->option('username') ?? $this->ask(
             '資料庫使用者名稱',
             config('database.connections.mysql.username', 'pterodactyl')

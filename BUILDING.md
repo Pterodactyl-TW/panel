@@ -32,7 +32,7 @@ yarn run watch
 PUBLIC_PATH=http://192.168.1.1:8080 yarn run serve --host 192.168.1.1
 ```
 
-這道指令有兩個**非常重要**的部分，請務必依你的環境調整。第一個是 `--host` 旗標，這是必要參數，應指向執行 `webpack-serve` 伺服器的機器。
+這道指令有兩個**非常重要**的部分，請務必依你的環境調整。第一個是 `--host` 選項，這是必要參數，應指向執行 `webpack-serve` 伺服器的機器。
 第二個是 `PUBLIC_PATH` 環境變數，這是指向 HMR 伺服器的網址，會附加在 Pterodactyl 所使用的所有資源網址後方。
 
 #### 開發環境
@@ -48,4 +48,4 @@ yarn run build:production
 這會產生正式環境用的 JS 打包檔與相關資源，全部放在 `public/assets/` 目錄下，你需要將其上傳至你的伺服器或 CDN 供客戶端使用。
 
 ### 執行 Wings
-若要在開發環境中執行 `wings`，只需依照新增節點時的一般流程設定好組態設定檔即可，接著在 Wings 程式碼目錄下執行 `make debug`，就能建置並執行本機版本的 Wings。此指令必須在某種 Linux 虛擬機上執行，無法直接在 macOS 或 Windows 上執行。
+若要在開發環境中執行 `Wings`，只需依照新增節點時的一般流程設定好組態設定檔即可，接著在 Wings 程式碼目錄下執行 `make debug`，就能建置並執行本機版本的 Wings。此指令必須在某種 Linux 虛擬機上執行，無法直接在 macOS 或 Windows 上執行。

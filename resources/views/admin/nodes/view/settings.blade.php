@@ -71,7 +71,7 @@
                         <div>
                             <input type="text" autocomplete="off" name="fqdn" class="form-control" value="{{ old('fqdn', $node->fqdn) }}" />
                         </div>
-                        <p class="text-muted"><small>請輸入用於連接 daemon 的網域名稱（例如 <code>node.example.com</code>）。僅在此節點未使用 SSL 時，才可以使用 IP 位址。
+                        <p class="text-muted"><small>請輸入用於連接 Wings 的網域名稱（例如 <code>node.example.com</code>）。僅在此節點未使用 SSL 時，才可以使用 IP 位址。
                                 <a tabindex="0" data-toggle="popover" data-trigger="focus" title="為什麼我需要 FQDN？" data-content="為了保障你的伺服器與此節點之間的通訊安全，我們使用 SSL。我們無法為 IP 位址產生 SSL 憑證，因此你需要提供 FQDN。">為什麼？</a>
                             </small></p>
                     </div>
@@ -101,7 +101,7 @@
                                 <label for="pProxyTrue"> 位於代理伺服器後方 </label>
                             </div>
                         </div>
-                        <p class="text-muted small">若你在如 Cloudflare 等代理伺服器後方執行 daemon，請選擇此項，讓 daemon 在啟動時略過憑證檢查。</p>
+                        <p class="text-muted small">若你在如 Cloudflare 等代理服務後方執行 Wings，請選擇此項，讓 Wings 在啟動時略過憑證檢查。</p>
                     </div>
                     <div class="form-group col-xs-12">
                         <label class="form-label"><span class="label label-warning"><i class="fa fa-wrench"></i></span> 維護模式</label>
@@ -143,7 +143,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-muted small">輸入此節點可配置給伺服器的總記憶體數量。你也可以提供一個百分比，允許配置超過設定值的記憶體。</p>
+                        <p class="text-muted small">輸入此節點可配置給伺服器的總記憶體容量。你也可以提供一個百分比，允許配置超過設定值的記憶體。</p>
                     </div>
                     <div class="col-xs-12">
                         <div class="row">
@@ -162,7 +162,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-muted small">輸入此節點可供伺服器配置的總磁碟空間數量。你也可以提供一個百分比，決定允許超出設定限制的磁碟空間量。</p>
+                        <p class="text-muted small">輸入此節點可供伺服器配置的總磁碟空間容量。你也可以提供一個百分比，決定允許超出設定限制的磁碟空間量。</p>
                     </div>
                 </div>
             </div>
@@ -184,13 +184,13 @@
                     <div class="col-xs-12">
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="daemonListen" class="control-label"><span class="label label-warning"><i class="fa fa-power-off"></i></span> Daemon 連接埠</label>
+                                <label for="daemonListen" class="control-label"><span class="label label-warning"><i class="fa fa-power-off"></i></span> Wings 連接埠</label>
                                 <div>
                                     <input type="text" name="daemonListen" class="form-control" value="{{ old('daemonListen', $node->daemonListen) }}"/>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="daemonSFTP" class="control-label"><span class="label label-warning"><i class="fa fa-power-off"></i></span> Daemon SFTP 連接埠</label>
+                                <label for="daemonSFTP" class="control-label"><span class="label label-warning"><i class="fa fa-power-off"></i></span> Wings SFTP 連接埠</label>
                                 <div>
                                     <input type="text" name="daemonSFTP" class="form-control" value="{{ old('daemonSFTP', $node->daemonSFTP) }}"/>
                                 </div>
@@ -198,7 +198,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <p class="text-muted"><small>daemon 會執行自己的 SFTP 管理容器，並不使用主要實體伺服器上的 SSHd 程序。<Strong>請勿使用與你實體伺服器 SSH 程序相同的連接埠。</strong></small></p>
+                                <p class="text-muted"><small>Wings 會執行自己的 SFTP 管理容器，並不使用主要實體伺服器上的 SSHd 程序。<Strong>請勿使用與你實體伺服器 SSH 程序相同的連接埠。</strong></small></p>
                             </div>
                         </div>
                     </div>
@@ -213,9 +213,9 @@
                 <div class="box-body row">
                     <div class="form-group col-sm-6">
                         <div>
-                            <input type="checkbox" name="reset_secret" id="reset_secret" /> <label for="reset_secret" class="control-label">重設 Daemon 主金鑰</label>
+                            <input type="checkbox" name="reset_secret" id="reset_secret" /> <label for="reset_secret" class="control-label">重設 Wings 主金鑰</label>
                         </div>
-                        <p class="text-muted"><small>重設 daemon 主金鑰將使來自舊金鑰的所有請求失效。此金鑰用於 daemon 上所有敏感操作，包括建立與刪除伺服器。基於安全考量，建議定期更換此金鑰。</small></p>
+                        <p class="text-muted"><small>重設 Wings 主金鑰將使來自舊金鑰的所有請求失效。此金鑰用於 Wings 上所有敏感操作，包括建立與刪除伺服器。基於安全考量，建議定期更換此金鑰。</small></p>
                     </div>
                 </div>
                 <div class="box-footer">

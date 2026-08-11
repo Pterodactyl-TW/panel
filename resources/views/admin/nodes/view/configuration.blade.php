@@ -5,7 +5,7 @@
 @endsection
 
 @section('content-header')
-    <h1>{{ $node->name }}<small>你的 daemon 組態設定檔。</small></h1>
+    <h1>{{ $node->name }}<small>你的 Wings 組態設定檔。</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li><a href="{{ route('admin.nodes') }}">節點</a></li>
@@ -38,7 +38,7 @@
                 <pre class="no-margin">{{ $node->getYamlConfiguration() }}</pre>
             </div>
             <div class="box-footer">
-                <p class="no-margin">此檔案應放置在你 daemon 的根目錄（通常是 <code>/etc/pterodactyl</code>）下，檔名為 <code>config.yml</code>。</p>
+                <p class="no-margin">此檔案應放置在你 Wings 的根目錄（通常是 <code>/etc/pterodactyl</code>）下，檔名為 <code>config.yml</code>。</p>
             </div>
         </div>
     </div>
@@ -49,8 +49,7 @@
             </div>
             <div class="box-body">
                 <p class="text-muted small">
-                    使用下方按鈕產生自訂部署指令，只需一道指令即可在目標伺服器上
-                    設定 wings。
+                    使用下方按鈕產生自訂部署指令，只需一行指令即可在目標伺服器上設定 Wings。
                 </p>
             </div>
             <div class="box-footer">

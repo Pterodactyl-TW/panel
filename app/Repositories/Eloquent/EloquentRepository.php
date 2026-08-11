@@ -192,7 +192,7 @@ abstract class EloquentRepository extends Repository implements RepositoryInterf
      */
     public function updateWhereIn(string $column, array $values, array $fields): int
     {
-        Assert::notEmpty($column, 'First argument passed to updateWhereIn must be a non-empty string.');
+        Assert::notEmpty($column, '傳遞給 updateWhereIn 的第一個參數必須是非空字串。');
 
         return $this->getBuilder()->whereIn($column, $values)->update($fields);
     }

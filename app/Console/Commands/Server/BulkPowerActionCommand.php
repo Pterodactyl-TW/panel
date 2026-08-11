@@ -13,9 +13,9 @@ use Pterodactyl\Exceptions\Http\Connection\DaemonConnectionException;
 class BulkPowerActionCommand extends Command
 {
     protected $signature = 'p:server:bulk-power
-                            {action : The action to perform (start, stop, restart, kill)}
-                            {--servers= : A comma separated list of servers.}
-                            {--nodes= : A comma separated list of nodes.}';
+                            {action : 要執行的電源操作 (start, stop, restart, kill)}
+                            {--servers= : 要操作的伺服器 ID 清單（以逗號分隔，例如：ServerID1,ServerID2）}
+                            {--nodes= : 要操作的節點 ID 清單（以逗號分隔，例如：NodeID1,NodeID2）}';
 
     protected $description = '對大量伺服器或節點群組一次執行批次電源管理操作。';
 

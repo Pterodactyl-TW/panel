@@ -38,7 +38,7 @@
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
                             <tr>
-                                <td>Daemon 版本</td>
+                                <td>Wings 版本</td>
                                 <td><code data-attr="info-version"><i class="fa fa-refresh fa-fw fa-spin"></i></code>（最新版：<code>{{ $version->getDaemon() }}</code>）</td>
                             </tr>
                             <tr>

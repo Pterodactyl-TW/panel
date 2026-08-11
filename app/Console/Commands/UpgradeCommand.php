@@ -34,7 +34,7 @@ class UpgradeCommand extends Command
     {
         $skipDownload = $this->option('skip-download');
         if (!$skipDownload) {
-            $this->output->warning('此指令不會驗證下載資源的完整性。請在繼續之前確認你信任此下載來源。若你不想下載壓縮檔，請使用 --skip-download 旗標，或在下方問題回答「no」表示。');
+            $this->output->warning('此指令不會驗證下載資源的完整性。請在繼續之前確認你信任此下載來源。若你不想下載壓縮檔，請使用 --skip-download 選項，或在下方問題回答「no」表示。');
             $this->output->comment('下載來源（可用 --url= 設定）：');
             $this->line($this->getUrl());
         }

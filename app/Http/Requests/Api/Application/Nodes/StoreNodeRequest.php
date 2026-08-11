@@ -47,7 +47,7 @@ class StoreNodeRequest extends ApplicationApiRequest
     public function attributes(): array
     {
         return [
-            'daemon_base' => 'Daemon 基礎路徑',
+            'daemon_base' => 'Wings 基礎路徑',
             'upload_size' => '檔案上傳大小限制',
             'location_id' => '位置',
             'public' => '節點可見性',
