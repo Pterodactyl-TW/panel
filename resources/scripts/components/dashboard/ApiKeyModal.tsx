@@ -16,7 +16,7 @@ const ApiKeyModal = ({ apiKey }: Props) => {
         <>
             <h3 css={tw`mb-6 text-2xl`}>你的 API 金鑰</h3>
             <p css={tw`text-sm mb-6`}>
-                你所要求的 API 金鑰顯示於下方，請將其妥善保存於安全的地方，此金鑰不會再次顯示。
+                你所要求的 API 金鑰顯示於下方，請將其妥善保存於安全的地方保管，此金鑰不會再次顯示在任何地方。
             </p>
             <pre css={tw`overflow-x-scroll text-sm bg-neutral-900 rounded py-2 px-4 font-mono`}>
                 <CopyOnClick text={apiKey}>

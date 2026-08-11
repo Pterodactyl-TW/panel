@@ -74,8 +74,7 @@ export default ({ database, className }: Props) => {
                         <FlashMessageRender byKey={'database:delete'} css={tw`mb-6`} />
                         <h2 css={tw`text-2xl mb-6`}>確認刪除資料庫</h2>
                         <p css={tw`text-sm`}>
-                            刪除資料庫是永久性操作，無法復原。此操作將永久刪除
-                            <strong>{database.name}</strong> 資料庫，並移除所有相關資料。
+                            刪除資料庫是永久性的危險操作，未來任何辦法都將無法復原。此操作將永久刪除 <strong>{database.name}</strong> 資料庫，並移除所有相關資料。
                         </p>
                         <Form css={tw`m-0 mt-6`}>
                             <Field
@@ -83,7 +82,7 @@ export default ({ database, className }: Props) => {
                                 id={'confirm_name'}
                                 name={'confirm'}
                                 label={'確認資料庫名稱'}
-                                description={'輸入資料庫名稱以確認刪除。'}
+                                description={'請輸入資料庫名稱以確認刪除。'}
                             />
                             <div css={tw`mt-6 text-right`}>
                                 <Button type={'button'} isSecondary css={tw`mr-2`} onClick={() => setVisible(false)}>

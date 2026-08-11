@@ -13,7 +13,7 @@ class ManifestDoesNotExistSolution implements Solution
 
     public function getSolutionDescription(): string
     {
-        return '請先執行 yarn run build:production 以建置前端資源。';
+        return '請先執行 yarn run build:production 以建置前端檔案資源。';
     }
 
     public function getDocumentationLinks(): array

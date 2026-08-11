@@ -21,7 +21,7 @@ export default ({ tokens, open, onClose }: RecoveryTokenDialogProps) => {
             open={open}
             onClose={onClose}
             title={'兩步驟驗證已啟用'}
-            description={'請將下方代碼儲存在安全的地方。若你無法使用手機，可使用這些備用代碼登入。'}
+            description={'請將下方備用代碼儲存在安全的地方。若你在登入當下無法使用手機或是被偷竊後，仍可使用這些備用代碼進行登入。'}
             hideCloseIcon
             preventExternalClose
         >
@@ -39,7 +39,7 @@ export default ({ tokens, open, onClose }: RecoveryTokenDialogProps) => {
                 </pre>
             </CopyOnClick>
             <Alert type={'danger'} className={'mt-3'}>
-                這些代碼不會再次顯示。
+                這些備用代碼將不會再次顯示在任何地方。
             </Alert>
             <Dialog.Footer>
                 <Button.Text onClick={onClose}>完成</Button.Text>
