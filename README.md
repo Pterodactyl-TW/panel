@@ -81,6 +81,6 @@ Pterodactyl 藉由使用 Docker 容器隔離每個實例，支援種類繁多的
 ## 授權
 
 Pterodactyl® Copyright © 2015 - 2022 Dane Everitt 與貢獻者。
-繁體中文化版本 Copyright © Pterodactyl 台灣翻譯團隊。
+繁體中文文件與翻譯內容 Copyright © Pterodactyl Taiwan 及全體參與貢獻者所有。
 
 程式碼採用 [MIT 授權條款](./LICENSE.md) 釋出。
