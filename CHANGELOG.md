@@ -3,6 +3,28 @@ This file is a running track of new features and fixes to each version of the pa
 
 This project follows [Semantic Versioning](http://semver.org) guidelines.
 
+## v1.15.0
+基於官方 `1.0-develop` 分支（v1.14.1 之後、含 Laravel 12 升級等後續修正）建置的 Pterodactyl Taiwan 繁體中文化版本。
+
+### 新增
+* 新增完整的繁體中文（zh_TW）語系檔，涵蓋介面文字、驗證訊息、例外訊息、認證、活動紀錄、CLI 提示等
+* 後台系統資訊區塊、頁尾、管理總覽的文件／GitHub 連結，改為指向 Pterodactyl-TW 對應資源
+* 版本檢查機制改讀取自建 CDN，後台首頁同時顯示繁體中文化版本號與官方最新版本號
+* `/admin/settings` 新增使用者姓名顯示間距設定
+* Docker 映像檔改推送至 `ghcr.io/pterodactyl-tw/panel`
+* 預設時區改為 `Asia/Taipei`
+* 內建預設 Egg 換成 Pterodactyl-TW Eggs 倉庫的最新繁中版本
+* Discord／贊助連結、reCAPTCHA 預設金鑰，改為 Pterodactyl-TW 自己申請的資源
+* 遙測資料改送到我們自己維護的 `telemetry.pterodactyl.tw`（詳見[遙測說明](https://pterodactyl.tw/panel/1.0/additional_configuration.html#遙測)），手動安裝與官方安裝腳本過程都會明確詢問是否啟用
+
+### 修正
+* 中文姓名顯示邏輯：姓氏在前、姓名間不加空格，符合台灣命名習慣
+* 前端與後台語言預設值統一為 `zh_TW`，語言下拉選單能正確顯示非 2 字母 ISO639 語系代碼
+* 修正前端建置階段在 arm64 模擬環境下崩潰的問題
+
+### 其他
+* 大量介面文字、後端訊息、Blade 樣板、Artisan 指令、內建 Egg 內容的繁體中文化翻譯
+
 ## v1.12.3
 ### Fixed
 * Adds a rate limit when changing email addresses on an account to prevent account enumeration.
