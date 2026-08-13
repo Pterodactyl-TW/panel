@@ -119,7 +119,7 @@ class AppSettingsCommand extends Command
             $this->variables['APP_ENVIRONMENT_ONLY'] = $this->confirm('啟用介面式設定編輯器？', true) ? 'false' : 'true';
         }
 
-        $this->output->comment('關於遙測資料蒐集的詳細資訊，請參考 https://pterodactyl.tw/panel/1.0/additional_configuration.html#telemetry。');
+        $this->output->comment('關於遙測資料蒐集的詳細資訊，請參考 https://pterodactyl.tw/panel/1.0/additional_configuration.html#遙測。');
         $this->variables['PTERODACTYL_TELEMETRY_ENABLED'] = $this->option('telemetry') ?? $this->confirm(
             '是否啟用傳送匿名遙測資料？',
             config('pterodactyl.telemetry.enabled', true)
